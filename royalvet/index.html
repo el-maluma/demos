@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ROYAL-VET, weterynarz w Nowej Hucie, Kraków</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="ROYAL-VET, Nowohuckie Centrum Weterynaryjne przy os. Centrum E 15 w Krakowie: leczenie psów, kotów i gryzoni, chirurgia, rehabilitacja i szpital dla zwierząt całą dobę.">
+<meta name="theme-color" content="#1B3F8B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&amp;display=swap&amp;subset=latin,latin-ext" rel="stylesheet">
+<style>
+/* Tokens: change these to clone the page for another clinic */
+:root{
+  --paper:#FAF6E6;      /* cream of their site background (#FFFFDF), toned down: page */
+  --sky:#DDE6F2;        /* pale blue of the last "E" in their wordmark: panels, today's row, mobile bar */
+  --blue:#1B3F8B;       /* royal blue of the wordmark: headings, buttons, contact band. 9.1:1 on paper, 7.8:1 on sky */
+  --ink:#17336F;        /* deeper royal blue: body text and hover. 11.2:1 on paper */
+  --muted:#4A639B;      /* secondary text: 5.5:1 on paper, 4.7:1 on sky */
+  --on-blue:#C9D6EE;    /* secondary text on blue: 6.7:1 */
+  --rule:#BCC8DE;       /* hairlines between rows */
+  --red:#B8141F;        /* red heart and paws of their logo: ONLY night duty and urgent calls. White on red 6.7:1 */
+  --red-deep:#961019;
+  --font:"Signika","Segoe UI",system-ui,sans-serif;
+  --r:6px;
+  --gutter:clamp(16px,3.2vw,40px);
+  --gap:clamp(84px,10vw,152px);
+  --max:1360px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+body{background:var(--paper);color:var(--ink);font:400 1.125rem/1.55 var(--font);font-variant-numeric:tabular-nums;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em}
+ul{list-style:none;padding:0}
+h1,h2,h3{color:var(--blue);font-weight:700;letter-spacing:-.02em;line-height:1;text-wrap:balance}
+h2{font-size:clamp(2.4rem,5vw,4.5rem)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.band :focus-visible,.strip :focus-visible{outline-color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--gutter);top:-90px;z-index:60;background:var(--blue);color:var(--paper);padding:12px 18px;border-radius:var(--r);font-weight:600;text-decoration:none}
+.skip:focus{top:8px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.strip{background:var(--ink);color:var(--paper);font-size:.9375rem;text-align:center;padding:8px var(--gutter)}
+svg.i{width:24px;height:24px;flex:none;fill:currentColor}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border:2px solid transparent;border-radius:var(--r);font:600 1.0625rem/1 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .18s,color .18s,border-color .18s,transform .12s}
+.btn:active{transform:scale(.98)}
+.btn-blue{background:var(--blue);color:var(--paper)}
+.btn-blue:hover{background:var(--ink)}
+.btn-line{border-color:var(--blue);color:var(--blue)}
+.btn-line:hover{background:var(--blue);color:var(--paper)}
+.btn-paper{background:var(--paper);color:var(--blue)}
+.btn-paper:hover{background:var(--sky)}
+.btn-ghost{border-color:var(--on-blue);color:var(--paper)}
+.btn-ghost:hover{background:var(--paper);color:var(--blue);border-color:var(--paper)}
+.link{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--blue);text-decoration:underline;text-decoration-thickness:1px}
+.link:hover{text-decoration-thickness:3px}
+
+/* header: their two-line wordmark, the final E lighter as on their logo */
+.top .bar{display:flex;align-items:center;gap:16px 28px;padding-block:16px;flex-wrap:wrap}
+.mark{display:inline-flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--blue);min-height:44px;justify-content:center;margin-right:auto}
+.mark b{font-size:1.75rem;line-height:.9;letter-spacing:.005em}
+.mark small{font-size:.75rem;font-weight:600;letter-spacing:.05em;line-height:1}
+.mark small span,.foot-sub span{color:var(--muted)}
+nav ul{display:flex;flex-wrap:wrap;gap:0 24px}
+nav a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--blue);text-decoration:underline 2px transparent;text-underline-offset:7px;transition:text-decoration-color .18s}
+nav a:hover{text-decoration-color:currentColor}
+.menu-btn{display:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,88px);padding-top:clamp(20px,3.4vw,52px)}
+.hero h1{font-size:clamp(2.75rem,7vw,6.4rem);line-height:.94;letter-spacing:-.03em}
+.lead{font-size:clamp(1.125rem,1.4vw,1.3rem);max-width:33em;margin-top:clamp(18px,2.4vw,30px)}
+.hero-pic{position:relative;min-height:100%;background:var(--sky)}
+.hero-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+
+/* the contact card: their own "Zadzwoń / Napisz / Przyjdź" banner, made usable */
+.card{margin-top:clamp(24px,3vw,40px);max-width:640px}
+.row{display:grid;grid-template-columns:6.5rem minmax(0,1fr) auto;align-items:center;gap:14px;min-height:68px;padding:8px 8px 8px 16px;text-decoration:none;color:var(--blue);border-bottom:1px solid var(--rule);transition:background-color .18s}
+.row .k{font-weight:600;color:var(--muted)}
+.row .v{font-weight:700;font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.1;overflow-wrap:anywhere}
+.row .go{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:52px;height:52px;padding:0 14px;border-radius:var(--r);background:var(--sky);color:var(--blue);font-weight:600;transition:background-color .18s,color .18s}
+.row:hover{background:var(--sky)}
+.row:hover .go{background:var(--blue);color:var(--paper)}
+.row.call{background:var(--blue);color:var(--paper);border-radius:var(--r);border:0;min-height:84px}
+.row.call .k{color:var(--on-blue)}
+.row.call .v{font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-.01em}
+.row.call .go{background:var(--paper);color:var(--blue)}
+.row.call:hover{background:var(--ink)}
+.row.call:hover .go{background:var(--paper);color:var(--ink)}
+
+.status{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:14px;color:var(--blue)}
+.status .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);flex:none}
+.status.open .dot{background:var(--blue)}
+.status strong{font-weight:700}
+.night-line{margin-top:2px}
+.night-line a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--red);font-weight:600;text-decoration:underline;text-decoration-thickness:1px}
+.night-line a:hover{text-decoration-thickness:3px}
+.night-line svg{width:20px;height:20px}
+.nw{white-space:nowrap}
+
+section{margin-top:var(--gap)}
+.band{padding-block:clamp(64px,8vw,120px)}
+
+/* services: an index, not cards */
+.svc{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,88px);align-items:start}
+.svc-main li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px 32px;padding-block:26px;border-top:1px solid var(--rule)}
+.svc-main li:first-child{border-top:2px solid var(--blue)}
+.svc-main h3{font-size:clamp(1.55rem,2.6vw,2.3rem);line-height:1.04}
+.svc-more{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,88px);margin-top:clamp(48px,6vw,88px);align-items:start}
+.svc-more .pic{aspect-ratio:4/3;background:var(--sky)}
+.svc-more .pic img{width:100%;height:100%;object-fit:cover}
+.more{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.more li{padding-block:16px;border-top:1px solid var(--rule)}
+.note{margin-top:22px;color:var(--muted);max-width:34em}
+
+/* night duty: the one red moment */
+.band-red{background:var(--red);color:#fff}
+.night{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,88px);align-items:center}
+.night h2{color:#fff;font-size:clamp(2.4rem,5.4vw,4.9rem)}
+.night p{margin-top:22px;max-width:30em;font-size:1.1875rem}
+.nums{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn-night{background:#fff;color:var(--red);font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:700;min-height:68px;padding:0 24px}
+.btn-night:hover{background:var(--paper);color:var(--red-deep)}
+.night .pic{aspect-ratio:3/4;max-height:620px;background:var(--red-deep)}
+.night .pic img{width:100%;height:100%;object-fit:cover}
+
+/* about: the clinic's directory board */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,104px);align-items:start}
+.about .intro p{margin-top:24px;max-width:31em}
+.about .pic{margin-top:clamp(28px,4vw,48px);aspect-ratio:3/2;background:var(--sky)}
+.about .pic img{width:100%;height:100%;object-fit:cover}
+.team li{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 20px;padding-block:18px;border-top:1px solid var(--rule)}
+.team li:first-child{border-top:2px solid var(--blue)}
+.team .n{font-weight:600;font-size:clamp(1.25rem,1.9vw,1.6rem);color:var(--blue);line-height:1.15}
+.team .r{color:var(--muted)}
+.team li.lead-vet{display:block;background:var(--sky);border-top:0;padding:24px 22px;margin-top:10px;border-radius:var(--r)}
+.team li.lead-vet .r{display:block;margin-top:6px;color:var(--ink);max-width:32em}
+.facts{margin-top:26px;max-width:36em}
+
+/* reviews */
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:12px 24px;flex-wrap:wrap}
+.reviews{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.q blockquote{color:var(--blue)}
+.q cite{display:block;font-style:normal;margin-top:16px;font-size:1rem;color:var(--muted)}
+.q .stars{color:var(--blue);letter-spacing:.12em;margin-right:6px}
+.q-main{background:var(--sky);padding:clamp(24px,4vw,52px);border-radius:var(--r)}
+.q-main blockquote{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.3}
+.q-main cite{color:var(--ink)}
+.q-side{display:grid;gap:clamp(28px,3vw,40px)}
+.q-side .q{border-top:1px solid var(--rule);padding-top:20px}
+.q-side blockquote{font-size:1.1875rem;line-height:1.45}
+
+/* where and when */
+.where{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,104px)}
+.addr{font-weight:700;color:var(--blue);font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.15;margin-top:26px}
+.where .actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:20px}
+.hours{width:100%;max-width:27em;border-collapse:collapse;margin-top:18px}
+.hours th,.hours td{padding:11px 14px;text-align:left;font-weight:400;border-top:1px solid var(--rule)}
+.hours td{text-align:right}
+.hours tr.today th,.hours tr.today td{background:var(--blue);color:var(--paper);font-weight:600;border-color:var(--blue)}
+.hours .tag{font-size:.875rem;font-weight:600;margin-left:8px;color:var(--on-blue)}
+.near{margin-top:18px;max-width:30em;color:var(--ink)}
+.map{min-height:460px;background:var(--sky);border-radius:var(--r);overflow:hidden}
+.map iframe{display:block;width:100%;height:100%;min-height:460px;border:0}
+
+/* contact band */
+.band-blue{background:var(--blue);color:var(--paper)}
+.contact{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,104px);align-items:stretch}
+.contact h2{color:var(--paper)}
+.contact .say{margin-top:22px;max-width:34em;color:var(--on-blue)}
+.contact .say a{color:var(--paper)}
+.kboard{margin-top:clamp(28px,4vw,44px);border-top:2px solid var(--paper)}
+.kr{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);align-items:baseline;gap:6px 24px;padding-block:18px;border-bottom:1px solid rgba(201,214,238,.4)}
+.kr dt{font-weight:600;color:var(--on-blue)}
+.kr dd{margin:0}
+.kbig{display:inline-flex;align-items:center;min-height:56px;font-weight:700;font-size:clamp(2.2rem,5.4vw,4.4rem);letter-spacing:-.02em;line-height:1;text-decoration:none;color:var(--paper)}
+.kbig:hover{text-decoration:underline;text-decoration-thickness:3px}
+.kl{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--paper);text-decoration:underline;text-decoration-thickness:1px}
+.kl:hover{text-decoration-thickness:3px}
+.kr dd span{color:var(--on-blue)}
+.contact .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.contact .pic{min-height:100%;background:var(--ink);position:relative}
+.contact .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+footer{padding-block:clamp(56px,7vw,96px) clamp(32px,4vw,56px)}
+.foot-name{font-weight:700;color:var(--blue);font-size:clamp(3.4rem,16.4vw,15rem);letter-spacing:-.035em;line-height:.85}
+.foot-sub{font-weight:600;color:var(--blue);letter-spacing:.05em;font-size:clamp(.8rem,1.3vw,1rem);margin-top:12px}
+.foot-info{margin-top:32px;max-width:48em;font-size:1rem;color:var(--ink)}
+.foot-info p+p{margin-top:8px}
+
+.mbar{display:none}
+
+/* motion: staggered reveal, JS adds .is-in */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*70ms)}
+.js .rv.is-in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .js .menu-btn{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border:2px solid var(--blue);border-radius:var(--r);background:transparent;color:var(--blue);font:600 1rem var(--font);cursor:pointer}
+  .js .menu-btn[aria-expanded="true"]{background:var(--blue);color:var(--paper)}
+  .js nav{order:9;width:100%}
+  .js nav ul{display:none;flex-direction:column;padding:6px 0 10px;border-top:1px solid var(--rule)}
+  .js nav.open ul{display:flex}
+  .js nav a{min-height:48px}
+}
+@media (max-width:900px){
+  .hero,.svc,.about,.reviews,.where,.contact{grid-template-columns:minmax(0,1fr)}
+  .more{grid-template-columns:minmax(0,1fr)}
+  .hero-pic{min-height:0;aspect-ratio:3/2;order:2}
+  .card{max-width:none}
+  .night{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+  .contact .pic{min-height:0;aspect-ratio:3/2;order:2}
+  .contact .pic img{object-position:50% 72%}
+  .map,.map iframe{min-height:380px}
+}
+@media (max-width:640px){
+  :root{--gap:80px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .top-call{display:none}
+  .mark b{font-size:1.5rem}
+  .mark small{font-size:.6875rem}
+  .row{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding-left:14px}
+  .row .k{grid-column:1;grid-row:1;font-size:.9375rem}
+  .row .v{grid-column:1;grid-row:2}
+  .row .go{grid-column:2;grid-row:1/3}
+  .row .go b{display:none}
+  .svc-main li{grid-template-columns:minmax(0,1fr)}
+  .team li{flex-direction:column;align-items:flex-start;gap:2px}
+  .svc-more,.night{grid-template-columns:minmax(0,1fr)}
+  .hero-pic{aspect-ratio:4/3}
+  .night .pic{aspect-ratio:4/3}
+  .more{grid-template-columns:minmax(0,1fr)}
+  .nums .btn{flex:1 1 100%}
+  .kr{grid-template-columns:minmax(0,1fr)}
+  .kr dt{padding-top:0}
+  .contact .actions .btn{flex:1 1 100%}
+  .hours th,.hours td{padding-inline:10px}
+  .mbar{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);border-top:1px solid var(--rule);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+  .mbar .btn{min-height:54px;padding:0 8px;font-size:1rem;gap:8px}
+  .mbar .btn-sky{background:var(--sky);color:var(--blue)}
+  .mbar .btn-sky:hover{background:var(--blue);color:var(--paper)}
+  .mbar svg.i{width:20px;height:20px}
+  .strip{font-size:.8125rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn,.row,.row .go,nav a{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.6 21 3 13.4 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5c-1.78 0-3.52-.48-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.44 9.44 0 0 1-1.45-5.04c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.2-4.24 9.66-9.05 9.66zM12.04 0C5.5 0 .2 5.3.2 11.84c0 2.09.55 4.13 1.58 5.93L.06 24l6.4-1.68a11.8 11.8 0 0 0 5.58 1.42h.01c6.54 0 11.85-5.3 11.85-11.84 0-3.16-1.23-6.14-3.47-8.38A11.77 11.77 0 0 0 12.04 0z" transform="scale(.9) translate(1.3 1.3)"/></symbol>
+</svg>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="strip">Wersja demonstracyjna strony, przygotowana przez Praxis Webs.</div>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="mark" href="#top" id="top" aria-label="ROYAL-VET, Nowohuckie Centrum Weterynaryjne"><b>ROYAL-VET</b><small aria-hidden="true">NOWOHUCKIE CENTRUM WETERYNARYJN<span>E</span></small></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Główna">
+      <ul>
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#nagly">Nagły przypadek</a></li>
+        <li><a href="#o-nas">O nas</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#dojazd">Dojazd i&nbsp;godziny</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-blue top-call" href="tel:+48123131313"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>12 313 13 13</a>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <h1 class="rv">Weterynarz w&nbsp;Nowej Hucie</h1>
+      <p class="lead rv" style="--i:1">ROYAL-VET, Nowohuckie Centrum Weterynaryjne przy os.&nbsp;Centrum&nbsp;E. Leczymy psy, koty i&nbsp;gryzonie, operujemy, prowadzimy rehabilitację, a&nbsp;szpital dla zwierząt działa całą dobę.</p>
+      <div class="card rv" style="--i:2">
+        <a class="row call" href="tel:+48123131313"><span class="k">Zadzwoń:</span><span class="v">12 313 13 13</span><span class="go"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg></span></a>
+        <a class="row" href="https://wa.me/48123131313?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><span class="k">Napisz:</span><span class="v">WhatsApp</span><span class="go"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg></span></a>
+        <a class="row" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20E%2015%2C%2031-934%20Krak%C3%B3w" target="_blank" rel="noopener" aria-label="Przyjdź: os. Centrum E 15, wyznacz trasę"><span class="k">Przyjdź:</span><span class="v">os. Centrum E 15</span><span class="go"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><b>Wyznacz trasę</b></span></a>
+      </div>
+      <p class="status rv" style="--i:3" aria-live="polite"><span class="dot" aria-hidden="true"></span><span><strong class="st-now">Pon.–pt. 10:00–19:00</strong>, <span class="st-more">sob.–niedz. 10:00–15:00</span></span></p>
+      <p class="night-line rv" style="--i:3"><a href="tel:+48793900792"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg><span>Nagły przypadek? Najpierw zadzwoń: <span class="nw">793 900 792</span></span></a></p>
+    </div>
+    <div class="hero-pic">
+      <img src="https://images.unsplash.com/photo-1774440865596-7b6e81f6ae2e?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1774440865596-7b6e81f6ae2e?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1774440865596-7b6e81f6ae2e?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1774440865596-7b6e81f6ae2e?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 900px) 94vw, 38vw" width="1024" height="1536" alt="Lekarz weterynarii trzyma szczeniaka beagle'a na stole zabiegowym (zdjęcie poglądowe)" fetchpriority="high">
+    </div>
+  </div>
+
+  <section id="uslugi" class="wrap" aria-labelledby="h-uslugi">
+    <div class="svc">
+      <h2 id="h-uslugi" class="rv">Usługi</h2>
+      <ul class="svc-main">
+        <li class="rv"><h3>Szpital dla zwierząt, całą dobę</h3><p>Opieka całodobowa. Nocą przyjmujemy tylko nagłe przypadki, po wcześniejszym kontakcie telefonicznym.</p></li>
+        <li class="rv"><h3>Chirurgia i&nbsp;ortopedia</h3><p>Zaawansowane zabiegi operacyjne, po nich rehabilitacja i&nbsp;fizjoterapia pooperacyjna.</p></li>
+        <li class="rv"><h3>Leczenie małych zwierząt</h3><p>Psy, koty, gryzonie i&nbsp;inne zwierzęta domowe.</p></li>
+      </ul>
+    </div>
+    <div class="svc-more">
+      <div class="pic rv">
+        <img src="https://images.unsplash.com/photo-1788044908314-6a11871f9de4?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1788044908314-6a11871f9de4?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1788044908314-6a11871f9de4?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1788044908314-6a11871f9de4?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 900px) 94vw, 38vw" width="1024" height="683" loading="lazy" alt="Pręgowany kot w kołnierzu ochronnym, z opatrunkiem na łapie (zdjęcie poglądowe)">
+      </div>
+      <div>
+        <ul class="more">
+          <li class="rv">Diagnostyka laboratoryjna: badania krwi, zeskrobin, histopatologia</li>
+          <li class="rv" style="--i:1">Diagnostyka obrazowa: RTG, USG z&nbsp;kolorowym Dopplerem, EKG, endoskopia</li>
+          <li class="rv">Profilaktyka i&nbsp;poradnictwo, chipowanie, paszporty</li>
+          <li class="rv" style="--i:1">Wizyty domowe</li>
+          <li class="rv">Karmy weterynaryjne: Hill's, Brit, Royal-Canin, Purina</li>
+          <li class="rv" style="--i:1">Salon groomerski AVION: strzyżenie, trymowanie, czesanie, kąpiele</li>
+        </ul>
+        <p class="note rv">Tomografia komputerowa jest w&nbsp;ofercie gabinetu, ale badania są obecnie wstrzymane.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nagly" class="band band-red" aria-labelledby="h-nagly">
+    <div class="wrap night">
+      <div>
+        <h2 id="h-nagly" class="rv">Nagły przypadek w&nbsp;nocy</h2>
+        <p class="rv" style="--i:1">Dyżur nocny dotyczy wyłącznie nagłych przypadków. Prosimy o&nbsp;wcześniejszy kontakt telefoniczny pod jednym z&nbsp;numerów.</p>
+        <div class="nums rv" style="--i:2">
+          <a class="btn btn-night" href="tel:+48793900792" aria-label="Zadzwoń: 793 900 792"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>793 900 792</a>
+          <a class="btn btn-night" href="tel:+48600187414" aria-label="Zadzwoń: 600 187 414"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>600 187 414</a>
+        </div>
+      </div>
+      <div class="pic rv" style="--i:1">
+        <img src="https://images.unsplash.com/photo-1779447854379-0fd2c6086ea7?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1779447854379-0fd2c6086ea7?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1779447854379-0fd2c6086ea7?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1779447854379-0fd2c6086ea7?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 900px) 94vw, 36vw" width="1024" height="1365" loading="lazy" alt="Mały czarny pies owinięty w czerwono-biały koc (zdjęcie poglądowe)">
+      </div>
+    </div>
+  </section>
+
+  <section id="o-nas" class="wrap" aria-labelledby="h-onas">
+    <div class="about">
+      <div class="intro">
+        <h2 id="h-onas" class="rv">O nas</h2>
+        <p class="rv" style="--i:1">Siedmioro lekarzy weterynarii przyjmuje w&nbsp;jednym gabinecie na osiedlu Centrum E, za bankiem PKO BP i&nbsp;sklepem Lidl, przy przedszkolu Bajkowa Dolinka. Według strony gabinetu <span class="nw">ROYAL-VET</span> zwyciężył w&nbsp;plebiscycie na Najlepszy Gabinet Weterynaryjny w&nbsp;Krakowie.</p>
+        <div class="pic rv" style="--i:2">
+          <img src="https://images.unsplash.com/photo-1700665537604-412e89a285c3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1700665537604-412e89a285c3?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1700665537604-412e89a285c3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1700665537604-412e89a285c3?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 900px) 94vw, 38vw" width="1024" height="681" loading="lazy" alt="Lekarze weterynarii w granatowych strojach badają psa (zdjęcie poglądowe)">
+        </div>
+      </div>
+      <div>
+        <ul class="team">
+          <li class="rv"><span class="n">Dorota Kwapiszewska-Rogozińska</span><span class="r">lekarz weterynarii</span></li>
+          <li class="rv"><span class="n">Justyna Szatan-Kasprzyk</span><span class="r">lekarz weterynarii</span></li>
+          <li class="rv"><span class="n">Szymon Maciejowski</span><span class="r">lekarz weterynarii</span></li>
+          <li class="rv"><span class="n">Anna Jaremowicz</span><span class="r">lekarz weterynarii</span></li>
+          <li class="rv"><span class="n">Kamil Bednarek</span><span class="r">lekarz weterynarii</span></li>
+          <li class="rv"><span class="n">Joanna Śliwa</span><span class="r">lekarz weterynarii</span></li>
+          <li class="lead-vet rv"><span class="n">Jacek Jakubek</span><span class="r">specjalista chirurg i&nbsp;ortopeda, blisko 30 lat stażu, członek Małopolskiej Izby Lekarsko-Weterynaryjnej</span></li>
+        </ul>
+        <p class="facts rv">Pacjenci najczęściej piszą o&nbsp;wiedzy i&nbsp;delikatnym podejściu lekarzy oraz o&nbsp;trosce w&nbsp;trudnych chwilach. Wejście do gabinetu jest dostępne dla osób na wózkach.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="opinie" class="wrap" aria-labelledby="h-opinie">
+    <div class="rev-head">
+      <h2 id="h-opinie" class="rv">Opinie pacjentów</h2>
+      <a class="link rv" style="--i:1" href="https://maps.google.com/?cid=8488243887719972217" target="_blank" rel="noopener">Wszystkie opinie w Google</a>
+    </div>
+    <div class="reviews">
+      <figure class="q q-main rv">
+        <blockquote>„Polecam z&nbsp;całego serca! Chciałabym podziękować całemu zespołowi za uratowanie mojej ukochanej Fraszki. … Szczególne podziękowania kieruję do Pani doktor Doroty Kwapiszewskiej. Dziękuję za profesjonalizm, cierpliwość, troskę i&nbsp;walkę o&nbsp;zdrowie Fraszki. … Dziś Fraszka jest w&nbsp;domu.”</blockquote>
+        <figcaption><cite><span class="stars" role="img" aria-label="5 gwiazdek na 5">★★★★★</span> Paulina P., 5 miesięcy temu. Opinia z Google</cite></figcaption>
+      </figure>
+      <div class="q-side">
+        <figure class="q rv" style="--i:1">
+          <blockquote>„Dojeżdżamy do tej kliniki aż ze Szwajcarii i&nbsp;z&nbsp;pełnym przekonaniem mogę powiedzieć, że warto pokonać każdy kilometr. Lekarze mają niesamowitą wiedzę, ogromne serce i&nbsp;fantastyczne, niezwykle delikatne podejście do zwierząt. …”</blockquote>
+          <figcaption><cite><span class="stars" role="img" aria-label="5 gwiazdek na 5">★★★★★</span> T. Bartmann, 4 miesiące temu. Opinia z Google</cite></figcaption>
+        </figure>
+        <figure class="q rv" style="--i:2">
+          <blockquote>„Słowa w&nbsp;tym przypadku to za mało. Uratowali mi psa i&nbsp;przy tym chyba też mnie. … Dziś idziemy na kontrolę i&nbsp;mimo iż pies jak nowo narodzony to myślę, że warto zaufać i&nbsp;nie lekceważyć tego co mówią.”</blockquote>
+          <figcaption><cite><span class="stars" role="img" aria-label="5 gwiazdek na 5">★★★★★</span> Dagmara S., 9 miesięcy temu. Opinia z Google</cite></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="dojazd" class="wrap" aria-labelledby="h-dojazd">
+    <div class="where">
+      <div>
+        <h2 id="h-dojazd" class="rv">Lokalizacja i&nbsp;godziny</h2>
+        <p class="addr rv" style="--i:1">os. Centrum E 15<br>31-934 Kraków, Nowa Huta</p>
+        <div class="actions rv" style="--i:2">
+          <a class="btn btn-blue" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20E%2015%2C%2031-934%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+          <a class="link" href="https://maps.google.com/?cid=8488243887719972217" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+        </div>
+        <p class="status rv" style="--i:3"><span class="dot" aria-hidden="true"></span><span><strong class="st-now">Pon.–pt. 10:00–19:00</strong>, <span class="st-more">sob.–niedz. 10:00–15:00</span></span></p>
+        <table class="hours rv" style="--i:3">
+          <caption class="sr">Godziny otwarcia</caption>
+          <tbody>
+            <tr data-d="1"><th scope="row">Poniedziałek</th><td>10:00–19:00</td></tr>
+            <tr data-d="2"><th scope="row">Wtorek</th><td>10:00–19:00</td></tr>
+            <tr data-d="3"><th scope="row">Środa</th><td>10:00–19:00</td></tr>
+            <tr data-d="4"><th scope="row">Czwartek</th><td>10:00–19:00</td></tr>
+            <tr data-d="5"><th scope="row">Piątek</th><td>10:00–19:00</td></tr>
+            <tr data-d="6"><th scope="row">Sobota</th><td>10:00–15:00</td></tr>
+            <tr data-d="0"><th scope="row">Niedziela</th><td>10:00–15:00</td></tr>
+          </tbody>
+        </table>
+        <p class="near rv">Przyjęcia bez rejestracji tylko w&nbsp;miarę wolnych miejsc. Całodobowy szpital: zob. <a href="#nagly">„Nagły przypadek w&nbsp;nocy”</a>.</p>
+      </div>
+      <div class="map rv" style="--i:1">
+        <iframe title="Mapa dojazdu do ROYAL-VET, os. Centrum E 15" loading="lazy" src="https://maps.google.com/maps?q=50.0704135,20.0390731&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="band band-blue" aria-labelledby="h-kontakt">
+    <div class="wrap contact">
+      <div>
+        <h2 id="h-kontakt" class="rv">Kontakt</h2>
+        <p class="say rv" style="--i:1">Wizytę można umówić telefonicznie, e-mailem na <a href="mailto:wizyty@vet24.pl">wizyty@vet24.pl</a> lub SMS-em na <span class="nw">512 333 200</span> (tylko SMS).</p>
+        <dl class="kboard rv" style="--i:2">
+          <div class="kr"><dt>Zadzwoń:</dt><dd><a class="kbig" href="tel:+48123131313">12 313 13 13</a></dd></div>
+          <div class="kr"><dt>Napisz:</dt><dd><a class="kl" href="sms:+48512333200">SMS 512 333 200</a> <span>(tylko SMS)</span><br><a class="kl" href="mailto:wizyty@vet24.pl">wizyty@vet24.pl</a></dd></div>
+          <div class="kr"><dt>Przyjdź i umów się:</dt><dd>os. Centrum E 15, 31-934 Kraków<br><a class="kl" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20E%2015%2C%2031-934%20Krak%C3%B3w" target="_blank" rel="noopener">Wyznacz trasę</a></dd></div>
+        </dl>
+        <div class="actions rv" style="--i:3">
+          <a class="btn btn-paper" href="https://wa.me/48123131313?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+48123131313"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: 12 313 13 13</a>
+        </div>
+      </div>
+      <div class="pic rv" style="--i:1">
+        <img src="https://images.unsplash.com/photo-1765296301754-a8baf3d7ce45?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1765296301754-a8baf3d7ce45?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1765296301754-a8baf3d7ce45?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1765296301754-a8baf3d7ce45?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 900px) 94vw, 36vw" width="1024" height="1536" loading="lazy" alt="Dog niemiecki arlekin w ogrodzie (zdjęcie poglądowe)">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p class="foot-name" aria-hidden="true">ROYAL-VET</p>
+  <p class="foot-sub">NOWOHUCKIE CENTRUM WETERYNARYJN<span>E</span></p>
+  <div class="foot-info">
+    <p>Nowohuckie Centrum Weterynaryjne, os. Centrum E 15, 31-934 Kraków. Telefon: <a href="tel:+48123131313">12 313 13 13</a>.</p>
+    <p>Dane z&nbsp;wizytówki Google i&nbsp;ze strony gabinetu. Zdjęcia poglądowe z&nbsp;Unsplash: <a href="https://unsplash.com/photos/zDSIWt0ZPck" target="_blank" rel="noopener">Max Bvp</a>, <a href="https://unsplash.com/photos/nxZI1ztak0c" target="_blank" rel="noopener">Kristin Kenney</a>, <a href="https://unsplash.com/photos/RTCOGwAX1so" target="_blank" rel="noopener">natary t</a>, <a href="https://unsplash.com/photos/P1Ku27zZJDs" target="_blank" rel="noopener">Jonatan Bustos</a>, <a href="https://unsplash.com/photos/V7vCVn3Ta7M" target="_blank" rel="noopener">Daniele Buso</a>.</p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-blue" href="tel:+48123131313" aria-label="Zadzwoń: 12 313 13 13"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+  <a class="btn btn-sky" href="https://wa.me/48123131313?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn btn-sky" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20E%2015%2C%2031-934%20Krak%C3%B3w" target="_blank" rel="noopener" aria-label="Trasa do gabinetu"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Trasa</a>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* menu */
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function setMenu(o){nav.classList.toggle('open',o);btn.setAttribute('aria-expanded',o)}
+  btn.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);btn.focus()}});
+
+  /* open now: Europe/Warsaw */
+  var H={0:[10,15],1:[10,19],2:[10,19],3:[10,19],4:[10,19],5:[10,19],6:[10,15]};
+  function warsaw(){
+    var p=new Intl.DateTimeFormat('pl-PL',{timeZone:'Europe/Warsaw',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),o={};
+    p.forEach(function(x){o[x.type]=x.value});
+    var map={'niedz.':0,'pon.':1,'wt.':2,'śr.':3,'czw.':4,'pt.':5,'sob.':6};
+    var d=map[o.weekday];if(d===undefined){d=new Date().getDay()}
+    return {d:d,m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+  }
+  function render(){
+    var t=warsaw(),h=H[t.d],open=t.m>=h[0]*60&&t.m<h[1]*60,now,more;
+    if(open){now='Otwarte teraz';more='do '+h[1]+':00'}
+    else{now='Zamknięte';more=(t.m<h[0]*60?'otwieramy dziś':'otwieramy jutro')+' o '+(t.m<h[0]*60?h[0]:H[(t.d+1)%7][0])+':00'}
+    document.querySelectorAll('.status').forEach(function(el){
+      el.classList.toggle('open',open);
+      el.querySelector('.st-now').textContent=now;
+      el.querySelector('.st-more').textContent=more;
+    });
+    document.querySelectorAll('.night-line').forEach(function(n){n.hidden=open});
+    document.querySelectorAll('.hours tr').forEach(function(r){
+      var is=+r.dataset.d===t.d,tag=r.querySelector('.tag');
+      r.classList.toggle('today',is);
+      if(is&&!tag){tag=document.createElement('span');tag.className='tag';tag.textContent='dziś';r.firstElementChild.appendChild(tag)}
+      if(!is&&tag)tag.remove();
+    });
+  }
+  render();setInterval(render,60000);
+
+  /* staggered reveal */
+  var els=document.querySelectorAll('.rv');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px',threshold:.04});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

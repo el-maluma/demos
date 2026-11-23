@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wulkanizacja 24H, Kraków | opony, felgi, pomoc drogowa całą dobę</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Wulkanizacja 24H przy ul. Radzikowskiego 180 w Krakowie: wymiana i naprawa opon, felgi, mechanika, pomoc drogowa. Czynne całą dobę. Wersja demonstracyjna strony.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600&family=Saira:wght@600;800&subset=latin,latin-ext&display=swap" rel="stylesheet">
+<style>
+/* Tokens: change these to clone the page for another tyre / roadside business. */
+:root{
+  --ground:#F0F0ED;      /* concrete of the façade by day: page */
+  --field:#E1E1DC;       /* darker concrete: panels, chips */
+  --line:#C9C9C3;        /* hairlines on ground and field */
+  --ink:#1A1B1D;         /* asphalt graphite: text, night bands; 15.1:1 on ground, 13.1:1 on field */
+  --ink-2:#26282B;       /* surfaces and hover on ink */
+  --ink-line:#3A3C40;    /* hairlines on ink */
+  --muted:#5A5C60;       /* secondary text: 5.9:1 on ground, 5.1:1 on field */
+  --on-ink:#F0F0ED;      /* text on ink: 15.1:1 */
+  --muted-on-ink:#A9ABAF;/* secondary text on ink: 7.5:1 (6.4:1 on ink-2) */
+  --rubber:#D9D9D4;      /* raised sidewall lettering on ink: 12.2:1 */
+  --red:#C8161E;         /* red of their neon sign: call buttons, 24H plate; white on it 5.9:1, as text on ground 5.1:1 */
+  --red-2:#A8121A;       /* red hover: white on it 7.6:1 */
+  --red-on-ink:#FF4A3D;  /* sign red as letters on graphite: 5.2:1 */
+  --band:#F2C00F;        /* yellow band of their façade: roadside help only; ink on it 10.1:1 */
+  --band-2:#F7D04A;      /* band hover: ink 11.6:1 */
+  --display:"Saira","Arial Narrow",system-ui,sans-serif;
+  --text:"Red Hat Text",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --fs-body:clamp(1rem,.96rem + .2vw,1.125rem);
+  --fs-h1:clamp(2.5rem,.9rem + 4.1vw,4.6rem);
+  --fs-h2:clamp(2rem,1.1rem + 2.6vw,3.5rem);
+  --fs-h3:clamp(1.25rem,1.05rem + .6vw,1.6rem);
+  --r:3px;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1320px;
+  --gap:clamp(80px,10vw,152px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --head:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 12px)}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 var(--fs-body)/1.55 var(--text);-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+p{margin:0 0 1em;max-width:62ch}
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:1;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:var(--fs-h2);margin-bottom:.5em}
+h3{font-size:var(--fs-h3);line-height:1.15;letter-spacing:-.005em}
+.num,.hours,.dir b{font-variant-numeric:tabular-nums lining-nums}
+.wrap{max-width:calc(var(--max) + 2 * var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+section{padding-block:var(--gap)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.on-ink :focus-visible{outline-color:var(--band)}
+.skip{position:absolute;left:var(--gutter);top:-90px;z-index:60;background:var(--band);color:var(--ink);padding:12px 18px;font-weight:600;text-decoration:none}
+.skip:focus{top:8px}
+svg.i{width:22px;height:22px;flex:none;fill:currentColor}
+
+/* demo strip */
+.demo{background:#000;color:var(--muted-on-ink);font-size:.9375rem;text-align:center;padding:8px var(--gutter);line-height:1.35}
+
+/* header: the night façade */
+.site{position:sticky;top:0;z-index:40;background:var(--ink);color:var(--on-ink);border-bottom:1px solid var(--ink-line)}
+.bar{display:flex;align-items:center;gap:28px;min-height:var(--head)}
+.mark{display:inline-flex;align-items:center;gap:8px;font:800 1.3rem/1 var(--display);text-transform:uppercase;letter-spacing:.01em;text-decoration:none;min-height:48px}
+.plate{display:inline-block;background:var(--red);color:#fff;padding:.16em .3em .12em;border-radius:var(--r);line-height:1}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav a{display:flex;align-items:center;min-height:48px;padding:0 12px;color:var(--muted-on-ink);text-decoration:none;font-weight:600;font-size:1rem;transition:color .2s}
+.nav a:hover{color:#fff;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.menu-btn{display:none}
+@media (max-width:1079px){
+  .site .btn-call{display:none}
+  .menu-btn{display:inline-flex;margin-left:auto;align-items:center;min-height:48px;padding:0 16px;background:transparent;color:var(--on-ink);border:1px solid var(--ink-line);border-radius:var(--r);font:600 1rem/1 var(--display);cursor:pointer}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:1px solid var(--ink-line);margin:0}
+  .nav[hidden]{display:none}
+  .nav ul{flex-direction:column;padding:8px var(--gutter) 20px}
+  .nav a{font-size:1.15rem;padding:0;min-height:52px;color:var(--on-ink);border-top:1px solid var(--ink-line)}
+}
+@media (min-width:1080px){.nav[hidden]{display:block}}
+
+/* buttons: flat, sign-plate corners */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 22px;border:2px solid transparent;border-radius:var(--r);font:600 1.0625rem/1.1 var(--display);letter-spacing:.005em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .2s var(--ease),color .2s,border-color .2s,transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn-call{background:var(--red);color:#fff}
+.btn-call:hover{background:var(--red-2)}
+.btn-wa{background:var(--ink);color:var(--on-ink)}
+.btn-wa:hover{background:var(--ink-2)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--on-ink)}
+.on-ink .btn-wa{background:var(--on-ink);color:var(--ink)}
+.on-ink .btn-wa:hover{background:#fff}
+.on-ink .btn-ghost{color:var(--on-ink);border-color:var(--muted-on-ink)}
+.on-ink .btn-ghost:hover{background:var(--on-ink);color:var(--ink);border-color:var(--on-ink)}
+.btn-tow{background:var(--ink);color:var(--on-ink)}
+.btn-tow:hover{background:var(--ink-2)}
+.site .btn{min-height:48px;padding:0 18px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* live status: the dot marks a real state (open / closed) */
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0;font:600 1rem/1.3 var(--display)}
+.status .dot{width:12px;height:12px;border-radius:50%;background:var(--band);flex:none}
+.status[data-open="0"] .dot{background:var(--red-on-ink)}
+.status span:last-child{color:var(--muted-on-ink);font-weight:600}
+.light .status span:last-child{color:var(--muted)}
+.light .status .dot{background:var(--ink)}
+.light .status[data-open="0"] .dot{background:var(--red)}
+
+/* hero */
+.hero{background:var(--ink);color:var(--on-ink);padding:0;display:grid;grid-template-columns:[full-start] minmax(var(--gutter),1fr) [content-start] minmax(0,calc(var(--max) * 7 / 12)) [mid] minmax(0,calc(var(--max) * 5 / 12)) [content-end] minmax(var(--gutter),1fr) [full-end]}
+.hero-copy{grid-column:content-start/mid;padding:clamp(40px,5vw,72px) clamp(24px,4vw,64px) clamp(40px,5vw,64px) 0;display:flex;flex-direction:column;gap:26px}
+.hero h1{font-size:var(--fs-h1);text-transform:uppercase;line-height:.94;letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero h1 em{font-style:normal;color:var(--red-on-ink)}
+.lead{font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);color:var(--muted-on-ink);margin:0;max-width:44ch}
+.meta{margin:0;font-size:1rem;color:var(--muted-on-ink)}
+.meta a{color:var(--on-ink);font-weight:600}
+.hero-pic{grid-column:mid/full-end;position:relative;min-height:420px;background:var(--ink-2)}
+.hero-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.band{grid-column:full;background:var(--band);color:var(--ink)}
+.band .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;min-height:88px;padding-block:14px}
+.band h2{font-size:clamp(1.25rem,1rem + .8vw,1.75rem);margin:0;text-transform:uppercase}
+.band p{margin:0;flex:1 1 300px}
+.band .tel{display:inline-flex;align-items:center;min-height:48px;font:800 clamp(1.5rem,1.1rem + 1.3vw,2.25rem)/1 var(--display);text-decoration:none;white-space:nowrap}
+.band .tel:hover{text-decoration:underline;text-decoration-thickness:3px}
+@media (max-width:999px){
+  .hero{grid-template-columns:[full-start] var(--gutter) [content-start mid] 1fr [content-end] var(--gutter) [full-end]}
+  .hero-copy{grid-column:content-start/content-end;padding-right:0}
+  .hero-pic{grid-column:full;min-height:0;aspect-ratio:21/9}
+}
+@media (max-width:719px){.hero-pic{aspect-ratio:16/10}}
+
+/* decoder: the sidewall */
+.dec-top{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,88px);align-items:end}
+.dec-top p{color:var(--muted)}
+.dec-pic{margin:0}
+.dec-pic img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r)}
+.dec-form{display:grid;gap:14px;margin-top:36px}
+.dec-form label{font:600 1rem/1.2 var(--display)}
+.dec-form input{width:100%;min-height:80px;padding:0 20px;border:2px solid var(--ink);border-radius:var(--r);background:#fff;color:var(--ink);font:800 clamp(1.75rem,1.2rem + 2vw,2.75rem)/1 var(--display);letter-spacing:.02em;text-transform:uppercase}
+.dec-form input::placeholder{color:var(--muted)}
+.dec-ex{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.dec-ex span{color:var(--muted);margin-right:4px}
+.dec-ex button{min-height:48px;padding:0 16px;border:0;border-radius:var(--r);background:var(--field);color:var(--ink);font:600 1rem/1 var(--display);cursor:pointer;transition:background-color .2s,transform .2s var(--ease)}
+.dec-ex button:hover{background:#D3D3CD;transform:translateY(-1px)}
+.dec-ex button:active{transform:translateY(1px)}
+.dec-out{margin-top:clamp(40px,5vw,64px);background:var(--ink);color:var(--on-ink);border-radius:var(--r);padding:clamp(24px,4.4vw,64px)}
+.dec-code{font:800 clamp(2.25rem,.8rem + 6vw,7rem)/.95 var(--display);color:var(--rubber);letter-spacing:.02em;text-transform:uppercase;margin:0 0 clamp(28px,4vw,52px);max-width:none;overflow-wrap:anywhere}
+.dec-code span{transition:color .2s}
+.dec-code span.hi{color:var(--red-on-ink)}
+.dec-code.err{font-size:clamp(1.6rem,1rem + 2.4vw,3rem);color:var(--on-ink)}
+.dec-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px clamp(16px,2vw,32px)}
+.dec-list li{border-top:2px solid var(--ink-line);padding-top:16px;transition:border-color .2s}
+.dec-list li:hover{border-color:var(--red-on-ink)}
+.dec-list .seg{display:block;font:800 clamp(1.9rem,1.4rem + 1.2vw,2.6rem)/1 var(--display);color:#fff}
+.dec-list .lab{display:block;font:600 .9375rem/1.3 var(--display);color:var(--muted-on-ink);margin:10px 0 6px}
+.dec-list .val{display:block;font-size:1rem;line-height:1.45}
+.dec-list .err{grid-column:1/-1;border:0;padding:0;font-weight:600;max-width:60ch}
+.dec-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;margin-top:clamp(32px,4vw,52px);padding-top:28px;border-top:1px solid var(--ink-line)}
+.dec-foot p{margin:0;font-size:.9375rem;color:var(--muted-on-ink);max-width:58ch}
+@media (max-width:1099px){.dec-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:899px){.dec-top{grid-template-columns:1fr}.dec-pic{order:-1}}
+@media (max-width:559px){.dec-list{grid-template-columns:repeat(2,minmax(0,1fr))}.dec-foot .btn{width:100%;white-space:normal}}
+
+/* services */
+.svc{background:var(--field)}
+.svc-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,6vw,104px)}
+.svc-side{position:sticky;top:calc(var(--head) + 32px);align-self:start}
+.svc-side img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);margin-top:8px}
+.svc-list{display:grid}
+.svc-item{display:grid;grid-template-columns:1fr auto;gap:8px 32px;align-items:start;padding:28px 0;border-top:1px solid var(--line)}
+.svc-item:first-child{border-top:0;padding-top:0}
+.svc-item h3{grid-column:1}
+.svc-item p{grid-column:1;margin:0;color:var(--muted)}
+.svc-item .ask{grid-column:2;grid-row:1/span 2}
+.svc-item.big h3{font-size:clamp(1.75rem,1.2rem + 1.8vw,2.75rem);letter-spacing:-.015em}
+.svc-item.big p{font-size:clamp(1.0625rem,1rem + .25vw,1.2rem);color:var(--ink)}
+.svc-pair{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,4vw,56px);border-top:1px solid var(--line)}
+.svc-pair .svc-item{grid-template-columns:1fr;border-top:0;border-bottom:1px solid var(--line)}
+.svc-pair .svc-item:nth-last-child(-n+2){border-bottom:0}
+.svc-pair .svc-item:first-child{padding-top:28px}
+.svc-pair .ask{grid-column:1;grid-row:auto;justify-self:start}
+.ask{display:inline-flex;align-items:center;gap:8px;min-height:48px;font:600 1rem/1 var(--display);text-decoration:none;white-space:nowrap;color:var(--ink)}
+.ask svg{width:20px;height:20px}
+.ask:hover{text-decoration:underline;text-decoration-thickness:2px}
+@media (max-width:899px){.svc-grid{grid-template-columns:1fr}.svc-side{position:static}.svc-side img{aspect-ratio:3/2}}
+@media (max-width:599px){
+  .svc-item{grid-template-columns:1fr;padding:22px 0 14px}
+  .svc-item .ask{margin-top:2px}
+  .svc-item .ask{grid-column:1;grid-row:auto;justify-self:start}
+  .svc-pair{grid-template-columns:1fr}
+  .svc-pair .svc-item:nth-last-child(2){border-bottom:1px solid var(--line)}
+  .svc-pair .svc-item:nth-child(2){padding-top:28px}
+}
+
+/* roadside help */
+.tow-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,88px);align-items:center}
+.tow-pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.tow p{color:var(--muted)}
+.tow-plate{background:var(--band);color:var(--ink);border-radius:var(--r);padding:clamp(22px,3vw,36px);margin-top:28px;display:grid;gap:18px}
+.tow-plate .lab{font:600 1rem/1.2 var(--display);margin:0}
+.tow-plate .tel{display:inline-flex;align-items:center;min-height:48px;font:800 clamp(2.4rem,1.6rem + 2.6vw,4rem)/1 var(--display);text-decoration:none;letter-spacing:-.01em;width:max-content;max-width:100%}
+.tow-plate .tel:hover{text-decoration:underline;text-decoration-thickness:3px}
+.tow-plate .btn{justify-self:start}
+@media (max-width:899px){.tow-grid{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--field)}
+.about-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,6vw,104px);align-items:start}
+.since{font:800 clamp(5rem,2rem + 12vw,13rem)/.8 var(--display);letter-spacing:-.04em;margin:0 0 clamp(24px,3vw,40px);font-variant-numeric:lining-nums}
+.since small{display:block;font-size:.22em;letter-spacing:0;line-height:1;margin:0 0 .35em .08em;font-weight:600;color:var(--muted)}
+.about-pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.about-copy{padding-top:clamp(0px,7vw,120px)}
+.about-copy p{font-size:clamp(1.0625rem,1rem + .25vw,1.2rem)}
+@media (max-width:899px){.about-grid{grid-template-columns:1fr}.about-copy{padding-top:0}}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,6vw,104px);align-items:start}
+.score{font:800 clamp(4.5rem,2.4rem + 6vw,8.5rem)/.85 var(--display);letter-spacing:-.03em;margin:0 0 14px}
+.score-sub{font:600 1.125rem/1.3 var(--display);margin:0 0 6px}
+.rev-grid .src-link{display:inline-flex;align-items:center;min-height:48px;font-weight:600}
+.rev blockquote{margin:0}
+.rev .q1 p{font:600 clamp(1.4rem,1rem + 1.4vw,2.2rem)/1.22 var(--display);letter-spacing:-.01em;max-width:30ch;margin:0 0 18px}
+.rev .q2{margin-top:clamp(36px,5vw,64px);padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:24px clamp(24px,4vw,56px);align-items:start}
+.rev .q2 p{font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);margin:0 0 16px}
+.rev cite{font-style:normal;font-weight:600;display:block}
+.rev cite span{display:block;font-weight:400;color:var(--muted);font-size:.9375rem}
+.rev .q2 img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r)}
+@media (max-width:899px){.rev-grid{grid-template-columns:1fr}}
+@media (max-width:599px){.rev .q2{grid-template-columns:1fr}}
+
+/* location and hours */
+.where{background:var(--field)}
+.where-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,80px);align-items:start}
+.map{display:block;width:100%;height:clamp(340px,40vw,540px);border:0;border-radius:var(--r);background:var(--line)}
+.where address{font-style:normal;font-size:clamp(1.125rem,1rem + .4vw,1.35rem);margin:22px 0 26px;line-height:1.4}
+.hours{width:calc(100% + 8px);border-collapse:separate;border-spacing:4px 0;margin:0 -4px 30px;table-layout:fixed}
+.hours th,.hours td{text-align:center;padding:10px 0;background:var(--ground)}
+.hours th{font:600 .9375rem/1 var(--display);border-radius:var(--r) var(--r) 0 0;padding-top:12px}
+.hours abbr{text-decoration:none}
+.hours td{font:800 1rem/1 var(--display);border-radius:0 0 var(--r) var(--r);padding-bottom:14px}
+.hours .today{background:var(--ink);color:var(--on-ink)}
+.where .btns a.plain{display:inline-flex;align-items:center;min-height:54px;font-weight:600;margin-left:8px}
+@media (max-width:719px){.where .btns a.plain{margin-left:0}}
+@media (max-width:899px){.where-grid{grid-template-columns:1fr}.where-grid>div:first-child{order:2}}
+
+/* contact directory */
+.contact{background:var(--ink);color:var(--on-ink)}
+.contact-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,6vw,104px);align-items:start}
+.contact-side p{color:var(--muted-on-ink)}
+.contact-side .status{margin:0 0 20px}
+.dir{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink-line)}
+.dir li{border-bottom:1px solid var(--ink-line)}
+.dir a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 24px;padding:22px 16px;margin:0 -16px;text-decoration:none;border-radius:var(--r);transition:background-color .2s}
+.dir a:hover{background:var(--ink-2)}
+.dir span{font:600 1rem/1.3 var(--display);color:var(--muted-on-ink)}
+.dir b{grid-column:1;font:800 clamp(1.6rem,1.1rem + 1.8vw,2.75rem)/1.05 var(--display);letter-spacing:-.01em;color:#fff}
+.dir b.addr{font-size:clamp(1.25rem,1rem + .9vw,1.75rem);line-height:1.2}
+.dir i{grid-column:2;grid-row:1/span 2;font:600 1rem/1 var(--display);font-style:normal;color:var(--ink);background:var(--on-ink);border-radius:var(--r);padding:12px 16px;transition:background-color .2s}
+.dir a:hover i{background:#fff}
+.dir .call i{background:var(--red);color:#fff}
+.dir .call:hover i{background:var(--red-2)}
+.dir .tow i{background:var(--band);color:var(--ink)}
+.dir .tow:hover i{background:var(--band-2)}
+@media (max-width:899px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:479px){.dir a{grid-template-columns:1fr}.dir i{grid-column:1;grid-row:auto;justify-self:start;margin-top:10px}}
+
+/* footer */
+footer{background:var(--ink);color:var(--muted-on-ink);border-top:1px solid var(--ink-line);padding:clamp(48px,7vw,96px) 0 32px;font-size:1rem}
+.foot-name{font:800 clamp(2.2rem,.6rem + 7vw,7.5rem)/.9 var(--display);text-transform:uppercase;letter-spacing:-.02em;color:var(--on-ink);margin:0 0 36px;max-width:none}
+.foot-meta{display:flex;flex-wrap:wrap;gap:8px 40px}
+.foot-meta p{margin:0}
+.foot-meta a{color:var(--on-ink)}
+.credits{margin:28px 0 0;font-size:.9375rem;max-width:96ch}
+
+/* mobile contact bar */
+.mbar{display:none}
+@media (max-width:719px){
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .mbar{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:6px;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);padding:8px 8px calc(8px + env(safe-area-inset-bottom));border-top:1px solid var(--ink-line)}
+  .mbar .btn{min-height:54px;padding:0 6px;font-size:1rem;gap:7px}
+  .mbar svg.i{width:20px;height:20px}
+  .mbar .btn-tow{background:var(--band);color:var(--ink)}
+  .hero .btns .btn{flex:1 1 calc(50% - 6px)}
+  .hero .btns .btn-call{flex-basis:100%}
+  .tow-plate .btn,.where .btns .btn{width:100%}
+}
+
+/* motion: staggered reveal, class added by JS */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
+.js .rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{transform:none;transition:opacity .2s}
+  .btn,.dec-ex button,.dec-code span{transition:none}
+  .btn:hover,.btn:active,.dec-ex button:hover,.dec-ex button:active{transform:none}
+}
+iframe:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+</svg>
+<a class="skip" href="#tresc">Przejdź do treści</a>
+<div class="demo">Wersja demonstracyjna strony, przygotowana przez Praxis Webs.</div>
+
+<header class="site on-ink">
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="Wulkanizacja 24H, początek strony">Wulkanizacja <span class="plate">24H</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Główna">
+      <ul>
+        <li><a href="#kod-opony">Kod opony</a></li>
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#pomoc-drogowa">Pomoc drogowa</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#dojazd">Dojazd</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-call" href="tel:+48126377781"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>12 637 77 81</a>
+  </div>
+</header>
+
+<main id="tresc">
+<span id="top"></span>
+
+<section class="hero on-ink" aria-labelledby="h-hero">
+  <div class="hero-copy">
+    <p class="status rv" data-status><span class="dot" aria-hidden="true"></span><b>Czynne całą dobę</b><span>7 dni w tygodniu</span></p>
+    <h1 id="h-hero" class="rv" style="--i:1"><span>Wulkanizacja</span><span><em>24H</em> w Krakowie</span></h1>
+    <p class="lead rv" style="--i:2">Wymiana i naprawa opon, felgi, mechanika i pomoc drogowa przy ul. Radzikowskiego 180. Dla kierowców, którzy złapali gumę, i dla tych, którzy po prostu potrzebują nowych opon.</p>
+    <div class="btns rv" style="--i:3">
+      <a class="btn btn-call" href="tel:+48126377781"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: 12 637 77 81</a>
+      <a class="btn btn-wa" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Chciał(a)bym zapytać o usługę." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Walerego%20Eljasza-Radzikowskiego%20180%2C%2031-342%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
+    <p class="meta rv" style="--i:4"><a href="https://maps.google.com/?cid=6558608469062302285" target="_blank" rel="noopener">4,5 · 1219 opinii w Google</a> · Od 1995 r.</p>
+  </div>
+  <div class="hero-pic">
+    <img src="https://images.unsplash.com/photo-1764015805414-df7de89d405b?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1764015805414-df7de89d405b?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1764015805414-df7de89d405b?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1764015805414-df7de89d405b?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:1000px) 50vw, 100vw" width="1600" height="1063" fetchpriority="high" alt="Mechanik odkręca kluczem udarowym śruby koła z felgą aluminiową">
+  </div>
+  <div class="band">
+    <div class="wrap">
+      <h2>Pomoc drogowa 24h/7</h2>
+      <p>Laweta łamana niskopodłogowa, holowanie, transport w kraju i za granicę.</p>
+      <a class="tel num" href="tel:+48501455996" aria-label="Pomoc drogowa: 501 455 996">501 455 996</a>
+      <a class="btn btn-tow" href="tel:+48501455996"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń po lawetę</a>
+    </div>
+  </div>
+</section>
+
+<section class="dec" id="kod-opony" aria-labelledby="h-dec">
+  <div class="wrap">
+    <div class="dec-top">
+      <div>
+        <h2 id="h-dec" class="rv">Odczytaj kod swojej opony</h2>
+        <p class="rv" style="--i:1">Na boku każdej opony jest ciąg w rodzaju 205/55 R16 91V. Wpisz swój, a rozłożymy go na części: szerokość, profil, średnicę felgi, nośność i prędkość. Z gotowym kodem rozmowa o oponach zajmuje minutę.</p>
+        <form class="dec-form rv" id="dec-form" style="--i:2" onsubmit="return false">
+          <label for="kod">Kod z boku opony</label>
+          <input id="kod" name="kod" type="text" value="205/55 R16 91V" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="kod-hint" placeholder="np. 205/55 R16 91V">
+          <div class="dec-ex" role="group" aria-label="Przykładowe kody">
+            <span id="kod-hint">Przykłady:</span>
+            <button type="button" data-k="195/65 R15 91H">195/65 R15 91H</button>
+            <button type="button" data-k="225/45 R17 94W">225/45 R17 94W</button>
+            <button type="button" data-k="215/60 R16 95V">215/60 R16 95V</button>
+          </div>
+        </form>
+      </div>
+      <figure class="dec-pic rv" style="--i:1">
+        <img src="https://images.unsplash.com/photo-1559674697-7ebabb38c369?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1559674697-7ebabb38c369?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1559674697-7ebabb38c369?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1559674697-7ebabb38c369?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:900px) 40vw, 100vw" width="1600" height="1067" loading="lazy" alt="Bok opony z wytłoczonym kodem 205/55 R16 H, zbliżenie">
+      </figure>
+    </div>
+    <div class="dec-out on-ink rv" id="dec-out" aria-live="polite">
+      <p class="dec-code" id="dec-code"><span data-i="0">205</span>/<span data-i="1">55</span> <span data-i="2">R</span><span data-i="3">16</span> <span data-i="4">91</span><span data-i="5">V</span></p>
+      <ul class="dec-list" id="dec-list">
+        <li data-i="0"><span class="seg">205</span><span class="lab">Szerokość opony</span><span class="val">205 mm.</span></li>
+        <li data-i="1"><span class="seg">55</span><span class="lab">Profil (wysokość boku)</span><span class="val">55% szerokości, czyli około 113 mm.</span></li>
+        <li data-i="2"><span class="seg">R</span><span class="lab">Budowa</span><span class="val">Opona radialna.</span></li>
+        <li data-i="3"><span class="seg">16</span><span class="lab">Średnica felgi</span><span class="val">16 cali (około 406 mm).</span></li>
+        <li data-i="4"><span class="seg">91</span><span class="lab">Indeks nośności</span><span class="val">Do 615 kg na jedną oponę.</span></li>
+        <li data-i="5"><span class="seg">V</span><span class="lab">Indeks prędkości</span><span class="val">Do 240 km/h.</span></li>
+      </ul>
+      <div class="dec-foot">
+        <p>To wartości maksymalne dopuszczone dla opony, a nie zachęta do jazdy z taką prędkością. Zalecany rozmiar dla Państwa auta podaje producent pojazdu.</p>
+        <a class="btn btn-wa" id="dec-wa" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o opony 205/55 R16 91V. Czy są dostępne?" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj o te opony na WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="uslugi" aria-labelledby="h-svc">
+  <div class="wrap svc-grid">
+    <div class="svc-side">
+      <h2 id="h-svc" class="rv">Usługi</h2>
+      <img class="rv" style="--i:1" src="https://images.unsplash.com/photo-1599082267768-4815b2ea6bd2?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1599082267768-4815b2ea6bd2?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1599082267768-4815b2ea6bd2?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1599082267768-4815b2ea6bd2?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:900px) 30vw, 100vw" width="1600" height="2400" loading="lazy" alt="Dłonie w rękawicach montujące oponę na felgę maszyną do wymiany opon">
+    </div>
+    <div class="svc-list">
+      <div class="svc-item big rv"><h3>Wymiana i naprawa opon</h3><p>Wymiana opon, montaż i wyważanie kół samochodowych i motocyklowych. Wulkanizacja na gorąco: łatki i kołki. Uszkodzenia boczne: zgrzewki i wkłady.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: wymiana i naprawa opon." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+      <div class="svc-item big rv"><h3>Sprzedaż opon i felg</h3><p>Opony nowe i używane, felgi aluminiowe i stalowe, nowe i używane. Skupujemy też opony używane za gotówkę.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: sprzedaż opon i felg." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+      <div class="svc-pair">
+        <div class="svc-item rv"><h3>Przechowalnia</h3><p>Przechowalnia opon i kół.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: przechowalnia opon i kół." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+        <div class="svc-item rv" style="--i:1"><h3>Prostowanie felg</h3><p>Felgi aluminiowe i stalowe, m.in. ze spawaniem.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: prostowanie felg." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+        <div class="svc-item rv"><h3>Drgania i wibracje</h3><p>Lokalizacja przyczyny drgań i wibracji.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: lokalizacja drgań i wibracji." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+        <div class="svc-item rv" style="--i:1"><h3>Motocykle</h3><p>Wymiana opon w motocyklach.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: wymiana opon w motocyklu." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+      </div>
+      <div class="svc-item rv"><h3>Opony ciężarowe, rolnicze i do maszyn</h3><p>Serwis opon osobowych, ciężarowych, rolniczych i do maszyn budowlanych, razem z wyważaniem.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: opony ciężarowe, rolnicze lub do maszyn." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+      <div class="svc-item rv"><h3>Mechanika i geometria</h3><p>Zawieszenie, układ napędowy, hamulcowy, wydechowy i chłodzenia, oświetlenie, bieżące naprawy, wymiana oleju i filtrów, także w autach dostawczych. Komputerowa regulacja zbieżności kół, kontrola zawieszenia, akumulatora i ogumienia.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: mechanika i geometria kół." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+      <div class="svc-item rv"><h3>Myjnia samochodowa</h3><p>Na miejscu działa myjnia.</p><a class="ask" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Pytam o: myjnia samochodowa." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="tow" id="pomoc-drogowa" aria-labelledby="h-tow">
+  <div class="wrap tow-grid">
+    <div class="tow-pic rv"><img src="https://images.unsplash.com/photo-1738101996177-13110d20a973?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1738101996177-13110d20a973?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1738101996177-13110d20a973?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1738101996177-13110d20a973?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:900px) 56vw, 100vw" width="1600" height="1200" loading="lazy" alt="Żółta laweta z najazdem wciąga samochód, obok kierowca w odblaskowym kombinezonie"></div>
+    <div>
+      <h2 id="h-tow" class="rv">Pomoc drogowa całą dobę</h2>
+      <p class="rv" style="--i:1">Transport aut osobowych i dostawczych po kraju i za granicę, holowanie pojazdów powypadkowych, laweta łamana niskopodłogowa.</p>
+      <div class="tow-plate rv" style="--i:2">
+        <p class="lab">Laweta, 24h/7</p>
+        <a class="tel num" href="tel:+48501455996" aria-label="Zadzwoń po lawetę: 501 455 996">501 455 996</a>
+        <a class="btn btn-tow" href="tel:+48501455996"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń po lawetę</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="o-nas" aria-labelledby="h-about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="since num rv" aria-hidden="true"><small>od roku</small>1995</p>
+      <div class="about-pic rv" style="--i:1"><img src="https://images.unsplash.com/photo-1764699186616-8f707281e4f3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1764699186616-8f707281e4f3?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1764699186616-8f707281e4f3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1764699186616-8f707281e4f3?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:900px) 50vw, 100vw" width="1600" height="1600" loading="lazy" alt="Stos opon samochodowych przed garażem"></div>
+    </div>
+    <div class="about-copy">
+      <h2 id="h-about" class="rv">O nas</h2>
+      <p class="rv" style="--i:1">Firma działa na rynku od 1995 r. (tak podaje na swojej stronie). Pod jednym adresem znajdą Państwo wulkanizację, mechanikę, pomoc drogową i myjnię.</p>
+      <p class="rv" style="--i:2">Wykonujemy też zlecenia nietypowe i naprawy specjalistyczne. Jeśli Państwa sprawa nie mieści się w cenniku, warto zadzwonić i zapytać.</p>
+      <p class="rv" style="--i:3">Klienci najczęściej piszą o szybkim dojeździe lawety i o sprawnej, dokładnej obsłudze.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rev" id="opinie" aria-labelledby="h-rev">
+  <div class="wrap rev-grid">
+    <div>
+      <h2 id="h-rev" class="rv">Opinie</h2>
+      <p class="score num rv" style="--i:1">4,5</p>
+      <p class="score-sub rv" style="--i:2">1219 opinii w Google</p>
+      <a class="src-link rv" style="--i:3" href="https://maps.google.com/?cid=6558608469062302285" target="_blank" rel="noopener">Wszystkie opinie w Google</a>
+    </div>
+    <div>
+      <blockquote class="q1 rv">
+        <p>Laweta przyjechała bardzo szybko po tym, jak złapałem gumę, a na miejscu okazało się jeszcze, że felga jest krzywa. Mam nowe felgi i opony run flat, więc trochę się bałem, żeby przy robocie nic nie zostało porysowane. Na szczęście chłopaki…</p>
+        <cite>Piotrek M.<span>miesiąc temu · Opinia z Google</span></cite>
+      </blockquote>
+      <div class="q2">
+        <blockquote class="rv">
+          <p>Bardzo polecam! Szybka i profesjonalna obsługa, wszystko zrobione sprawnie i dokładnie. Jestem bardzo zadowolony. Na pewno wrócę!</p>
+          <cite>Игорь К.<span>tydzień temu · Opinia z Google</span></cite>
+        </blockquote>
+        <img class="rv" style="--i:1" src="https://images.unsplash.com/photo-1613214036979-1c6a7e0cf677?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1613214036979-1c6a7e0cf677?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1613214036979-1c6a7e0cf677?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1613214036979-1c6a7e0cf677?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(min-width:900px) 30vw, 100vw" width="1600" height="1067" loading="lazy" alt="Bieżniki ułożonych w stos opon w ciemnym świetle">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="where light" id="dojazd" aria-labelledby="h-where">
+  <div class="wrap where-grid">
+    <div class="rv"><iframe class="map" title="Mapa dojazdu: Walerego Eljasza-Radzikowskiego 180, Kraków" loading="lazy" src="https://maps.google.com/maps?q=50.0906296,19.8832037&amp;z=16&amp;output=embed"></iframe></div>
+    <div>
+      <h2 id="h-where" class="rv">Lokalizacja i godziny</h2>
+      <p class="status rv" style="--i:1" data-status><span class="dot" aria-hidden="true"></span><b>Czynne całą dobę</b><span>7 dni w tygodniu</span></p>
+      <address class="rv" style="--i:2">Walerego Eljasza-Radzikowskiego 180<br>31-342 Kraków</address>
+      <table class="hours rv" id="hours" style="--i:3">
+        <caption class="sr">Godziny otwarcia: czynne całą dobę, od poniedziałku do niedzieli</caption>
+        <thead><tr><th scope="col" data-d="1"><abbr title="Poniedziałek">Pn</abbr></th><th scope="col" data-d="2"><abbr title="Wtorek">Wt</abbr></th><th scope="col" data-d="3"><abbr title="Środa">Śr</abbr></th><th scope="col" data-d="4"><abbr title="Czwartek">Cz</abbr></th><th scope="col" data-d="5"><abbr title="Piątek">Pt</abbr></th><th scope="col" data-d="6"><abbr title="Sobota">Sb</abbr></th><th scope="col" data-d="0"><abbr title="Niedziela">Nd</abbr></th></tr></thead>
+        <tbody><tr><td data-d="1">0–24</td><td data-d="2">0–24</td><td data-d="3">0–24</td><td data-d="4">0–24</td><td data-d="5">0–24</td><td data-d="6">0–24</td><td data-d="0">0–24</td></tr></tbody>
+      </table>
+      <div class="btns rv" style="--i:4">
+        <a class="btn btn-wa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Walerego%20Eljasza-Radzikowskiego%20180%2C%2031-342%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+        <a class="plain" href="https://maps.google.com/?cid=6558608469062302285" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact on-ink" id="kontakt" aria-labelledby="h-contact">
+  <div class="wrap contact-grid">
+    <div class="contact-side">
+      <h2 id="h-contact" class="rv">Kontakt</h2>
+      <p class="status rv" style="--i:1" data-status><span class="dot" aria-hidden="true"></span><b>Czynne całą dobę</b><span>7 dni w tygodniu</span></p>
+      <p class="rv" style="--i:2">Na WhatsApp można od razu wysłać zdjęcie opony albo kodu z jej boku.</p>
+    </div>
+    <ul class="dir">
+      <li class="rv"><a class="call" href="tel:+48126377781"><span>Telefon</span><b class="num">12 637 77 81</b><i>Zadzwoń</i></a></li>
+      <li class="rv" style="--i:1"><a href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Chciał(a)bym zapytać o usługę." target="_blank" rel="noopener"><span>WhatsApp</span><b class="num">504 411 410</b><i>Napisz</i></a></li>
+      <li class="rv" style="--i:2"><a class="tow" href="tel:+48501455996"><span>Pomoc drogowa 24h/7</span><b class="num">501 455 996</b><i>Zadzwoń</i></a></li>
+      <li class="rv" style="--i:3"><a href="tel:+48501409655"><span>Telefon komórkowy</span><b class="num">501 409 655</b><i>Zadzwoń</i></a></li>
+      <li class="rv" style="--i:4"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Walerego%20Eljasza-Radzikowskiego%20180%2C%2031-342%20Krak%C3%B3w" target="_blank" rel="noopener"><span>Adres</span><b class="addr">Walerego Eljasza-Radzikowskiego 180, 31-342 Kraków</b><i>Wyznacz trasę</i></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-name">Wulkanizacja <span class="plate">24H</span></p>
+    <div class="foot-meta">
+      <p>Walerego Eljasza-Radzikowskiego 180, 31-342 Kraków</p>
+      <p><a href="tel:+48126377781">12 637 77 81</a> · pomoc drogowa <a href="tel:+48501455996">501 455 996</a></p>
+    </div>
+    <p class="credits">Dane z wizytówki Google i ze strony oponykrakow.eu. Zdjęcia poglądowe (Unsplash): <a href="https://unsplash.com/photos/u49lt6K02e0">Lex</a>, <a href="https://unsplash.com/photos/SrpAK3tw6LU">Frank Albrecht</a>, <a href="https://unsplash.com/photos/CsYaNzll_rA">Enis Yavuz</a>, <a href="https://unsplash.com/photos/p4TboR3s0tQ">Haberdoedas</a>, <a href="https://unsplash.com/photos/pi7Jlnh5nuY">Tuccera LLC</a>, <a href="https://unsplash.com/photos/Ebd514pvJA0">Benjamin Brunner</a>.</p>
+  </div>
+</footer>
+
+<div class="mbar on-ink" role="group" aria-label="Szybki kontakt">
+  <a class="btn btn-call" href="tel:+48126377781" aria-label="Zadzwoń: 12 637 77 81"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+  <a class="btn btn-wa" href="https://wa.me/48504411410" data-wa="Dzień dobry, piszę ze strony internetowej. Chciał(a)bym zapytać o usługę." target="_blank" rel="noopener" aria-label="Napisz na WhatsApp"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn btn-tow" href="tel:+48501455996" aria-label="Pomoc drogowa: 501 455 996">Laweta</a>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;root.classList.add('js');
+  var WA='48504411410';
+  function waLink(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)}
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href=waLink(a.getAttribute('data-wa'))});
+
+  /* mobile menu */
+  var mb=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function setMenu(o){mb.setAttribute('aria-expanded',o);nav.hidden=!o}
+  if(window.matchMedia('(max-width:1079px)').matches)setMenu(false);
+  mb.addEventListener('click',function(){setMenu(mb.getAttribute('aria-expanded')!=='true')});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')&&mb.offsetParent)setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mb.getAttribute('aria-expanded')==='true'){setMenu(false);mb.focus()}});
+
+  /* reveal */
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px',threshold:.06});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('is-in')})}
+
+  /* open now (Europe/Warsaw). HOURS[weekday 0=Sun] = [open, close] in minutes, null = closed */
+  var HOURS=[[0,1440],[0,1440],[0,1440],[0,1440],[0,1440],[0,1440],[0,1440]];
+  var DAY=['w niedzielę','w poniedziałek','we wtorek','w środę','w czwartek','w piątek','w sobotę'];
+  function hm(m){return Math.floor(m/60)+':'+('0'+m%60).slice(-2)}
+  function now(){
+    var p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    return {d:{Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday],m:(+p.hour)*60+(+p.minute)};
+  }
+  function status(){
+    try{
+      var t=now(),h=HOURS[t.d],open=!!h&&t.m>=h[0]&&t.m<h[1],head,tail;
+      if(open){head='Otwarte teraz';tail='godz. '+hm(t.m)+' · '+(h[0]===0&&h[1]===1440?'czynne całą dobę':'do '+hm(h[1]))}
+      else{head='Zamknięte';tail='';for(var i=0;i<8;i++){var d=(t.d+i)%7,x=HOURS[d];if(x&&(i>0||t.m<x[0])){tail='otwieramy '+(i===0?'dziś':i===1?'jutro':DAY[d])+' o '+hm(x[0]);break}}}
+      document.querySelectorAll('[data-status]').forEach(function(s){s.setAttribute('data-open',open?'1':'0');s.children[1].textContent=head;s.children[2].textContent=tail});
+      document.querySelectorAll('#hours [data-d]').forEach(function(c){var on=+c.getAttribute('data-d')===t.d;c.classList.toggle('today',on);if(on&&c.tagName==='TH'&&!c.querySelector('.sr'))c.insertAdjacentHTML('beforeend','<span class="sr"> (dziś)</span>')});
+    }catch(e){}
+  }
+  status();setInterval(status,30000);
+
+  /* tyre code decoder */
+  var LOAD={70:335,71:345,72:355,73:365,74:375,75:387,76:400,77:412,78:425,79:437,80:450,81:462,82:475,83:487,84:500,85:515,86:530,87:545,88:560,89:580,90:600,91:615,92:630,93:650,94:670,95:690,96:710,97:730,98:750,99:775,100:800,101:825,102:850,103:875,104:900,105:925,106:950,107:975,108:1000,109:1030,110:1060,111:1090,112:1120,113:1150,114:1180,115:1215,116:1250,117:1285,118:1320,119:1360,120:1400};
+  var SPEED={J:100,K:110,L:120,M:130,N:140,P:150,Q:160,R:170,S:180,T:190,U:200,H:210,V:240,W:270,Y:300};
+  var input=document.getElementById('kod'),code=document.getElementById('dec-code'),list=document.getElementById('dec-list'),wa=document.getElementById('dec-wa');
+  var RE=/^\s*(\d{3})\s*[\/\-]\s*(\d{2})\s*(ZR|R|-)?\s*(\d{2})\s*(C)?\s*(?:\(?\s*(\d{2,3})(?:\s*\/\s*(\d{2,3}))?\s*([A-Z])?\s*\)?)?\s*$/i;
+  var GENERIC='Dzień dobry, piszę ze strony internetowej. Chciał(a)bym zapytać o opony. Mogę podać rozmiar telefonicznie.';
+  function kg(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+  function s(i,v){return '<span data-i="'+i+'">'+v+'</span>'}
+  function li(i,seg,t,d){return '<li data-i="'+i+'"><span class="seg">'+seg+'</span><span class="lab">'+t+'</span><span class="val">'+d+'</span></li>'}
+  function setWa(m){wa.setAttribute('data-wa',m);wa.href=waLink(m)}
+  function fail(msg){code.textContent='Nie rozpoznaję tego kodu';code.classList.add('err');list.innerHTML='<li class="err">'+msg+'</li>';setWa(GENERIC)}
+  function decode(v){
+    var m=RE.exec(v);
+    if(!m){fail('Wpisz kod w postaci 205/55 R16 91V: szerokość, ukośnik, profil, litera R, średnica felgi, a potem indeksy nośności i prędkości.');return}
+    var w=+m[1],p=+m[2],cons=(m[3]||'R').toUpperCase(),rim=+m[4],c=!!m[5],l1=m[6]?+m[6]:null,l2=m[7]?+m[7]:null,sp=m[8]?m[8].toUpperCase():null;
+    if(w<125||w>405||p<25||p>95||rim<10||rim>24){fail('Te liczby nie pasują do rozmiaru opony osobowej. Sprawdź, czy kod jest przepisany z boku opony.');return}
+    var h=Math.round(w*p/100),rimTxt=rim+(c?'C':''),consTxt=cons==='ZR'?'ZR':'R',load=l1?l1+(l2?'/'+l2:''):'';
+    var disp=w+'/'+p+' '+consTxt+rimTxt+(l1?' '+load+(sp||''):'');
+    code.classList.remove('err');
+    code.innerHTML=s(0,w)+'/'+s(1,p)+' '+s(2,consTxt)+s(3,rimTxt)+(l1?' '+s(4,load)+(sp?s(5,sp):''):'');
+    var out=li(0,w,'Szerokość opony',w+' mm.');
+    out+=li(1,p,'Profil (wysokość boku)',p+'% szerokości, czyli około '+h+' mm.');
+    out+=li(2,consTxt,'Budowa',cons==='ZR'?'Opona radialna, oznaczenie ZR dotyczy opon na prędkości powyżej 240 km/h.':cons==='-'?'Myślnik zamiast litery: zwykle opona diagonalna.':'Opona radialna.');
+    out+=li(3,rimTxt,'Średnica felgi',rim+' cali (około '+Math.round(rim*25.4)+' mm).'+(c?' Litera C oznacza oponę do aut dostawczych.':''));
+    if(l1){
+      var t=LOAD[l1]?('Do '+kg(LOAD[l1])+' kg na jedną oponę.'):'Tego indeksu nie ma w tabeli, którą stosujemy. Zapytaj nas przy wizycie.';
+      if(l2&&LOAD[l2]&&LOAD[l1]){t='Do '+kg(LOAD[l1])+' kg na jedną oponę (koło pojedyncze) i '+kg(LOAD[l2])+' kg (koła bliźniacze).'}
+      out+=li(4,load,'Indeks nośności',t);
+    }else{out+=li(4,'?','Indeks nośności','Nie podano. Znajdą go Państwo zaraz za rozmiarem, to liczba w rodzaju 91.')}
+    if(sp){out+=li(5,sp,'Indeks prędkości',SPEED[sp]?('Do '+SPEED[sp]+' km/h.'):'Tej litery nie ma w tabeli, którą stosujemy.')}
+    else if(cons==='ZR'){out+=li(5,'ZR','Indeks prędkości','Powyżej 240 km/h.')}
+    else{out+=li(5,'?','Indeks prędkości','Nie podano. To litera za indeksem nośności, np. V.')}
+    list.innerHTML=out;
+    setWa('Dzień dobry, piszę ze strony internetowej. Pytam o opony '+disp+'. Czy są dostępne?');
+  }
+  /* pointing at an explanation lights its part of the code */
+  function mark(i){code.querySelectorAll('[data-i]').forEach(function(x){x.classList.toggle('hi',x.getAttribute('data-i')===i)})}
+  list.addEventListener('mouseover',function(e){var l=e.target.closest('li[data-i]');mark(l?l.getAttribute('data-i'):null)});
+  list.addEventListener('mouseleave',function(){mark(null)});
+  input.addEventListener('input',function(){decode(input.value)});
+  document.querySelectorAll('.dec-ex button').forEach(function(b){b.addEventListener('click',function(){input.value=b.getAttribute('data-k');decode(input.value);input.focus()})});
+  decode(input.value);
+})();
+</script>
+<noscript><style>.mbar .btn-wa{display:none}.mbar{grid-template-columns:1fr 1fr}.nav[hidden]{display:block}</style></noscript>
+</body>
+</html>

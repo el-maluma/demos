@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bosman OSK, prawo jazdy w Nowej Hucie, Kraków</title>
+<meta name="description" content="Bosman Ośrodek Szkolenia Kierowców w Nowej Hucie: kurs prawa jazdy kategorii B standardowy i przyspieszony, jazdy dodatkowe i doszkalające. Os. Centrum D 1, Kraków. Tel. 601 171 922.">
+<meta name="theme-color" content="#016DAE">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&amp;subset=latin,latin-ext&amp;display=swap" rel="stylesheet">
+<style>
+/* Tokens: change these to clone the page for another driving school */
+:root{
+  --paper:#F5F7FA;   /* cool white: page */
+  --field:#E1ECF5;   /* pale tint of the L blue: panels, today's row */
+  --ink:#0E2238;     /* navy ink: text, course band. 16:1 with white */
+  --muted:#4E5A6A;   /* secondary text: 6.5:1 on paper, 5.9:1 on field */
+  --on-ink:#B9C6D6;  /* secondary text on ink: 9.3:1 */
+  --blue:#016DAE;    /* blue of their "L" tile: WhatsApp, links, L motif. White on it 5.5:1, as text 5.2:1 */
+  --blue-h:#005A91;
+  --red:#CF0000;     /* red of their "OSK BOSMAN" plate: ONLY the call button and the name plate. White on it 5.8:1 */
+  --red-h:#A80000;
+  --rule:#CBD5E1;
+  --font:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif; /* made for easy reading: a school that teaches theory */
+  --r:6px;
+  --gutter:clamp(16px,3.2vw,40px);
+  --gap:clamp(80px,10vw,150px);
+  --max:1320px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:12px}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--font);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em}
+ul,dl{list-style:none;padding:0}
+dd{margin:0}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.02;text-wrap:balance}
+h2{font-size:clamp(2.1rem,4.4vw,3.8rem)}
+h3{font-size:clamp(1.2rem,1.6vw,1.45rem);line-height:1.2;letter-spacing:-.015em}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.ink :focus-visible,.bar :focus-visible{outline-color:#fff}
+.skip{position:absolute;left:var(--gutter);top:-80px;z-index:60;background:var(--ink);color:#fff;padding:12px 18px;font-weight:600;text-decoration:none}
+.skip:focus{top:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+section{margin-top:var(--gap)}
+.muted{color:var(--muted)}
+.demo{background:var(--ink);color:var(--on-ink);font-size:.875rem;line-height:1.4;padding:8px var(--gutter);text-align:center}
+
+/* the L tile: blue square, white L (the learner plate of their logo and car roof) */
+.L{display:inline-grid;place-items:center;flex:none;width:1em;height:1em;background:var(--blue);color:#fff;border-radius:.1em;font-weight:800;line-height:1;font-size:inherit}
+.L::before{content:"L";font-size:.78em;transform:translateY(.02em)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:var(--r);border:2px solid transparent;font:600 1rem/1.2 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .18s,color .18s,border-color .18s,transform .12s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:22px;height:22px;flex:none;fill:currentColor}
+.b-red{background:var(--red);color:#fff}.b-red:hover{background:var(--red-h)}
+.b-blue{background:var(--blue);color:#fff}.b-blue:hover{background:var(--blue-h)}
+.b-line{border-color:var(--ink);color:var(--ink);background:transparent}.b-line:hover{background:var(--ink);color:#fff}
+.ink .b-line{border-color:#fff;color:#fff}.ink .b-line:hover{background:#fff;color:var(--ink)}
+.b-white{background:#fff;color:var(--ink)}.b-white:hover{background:var(--field)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.logo{display:inline-flex;align-items:center;min-height:48px;text-decoration:none;font-size:2.6rem}
+.logo .plate{display:inline-flex;align-items:center;height:2.083em;margin-left:4px;padding:0 .6em;background:var(--red);color:#fff;font-weight:800;font-size:.48em;letter-spacing:-.01em;border-radius:4px}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a.l{display:inline-flex;align-items:center;min-height:48px;padding:0 12px;font-weight:600;text-decoration:none}
+.nav a.l:hover{text-decoration:underline;text-decoration-thickness:2px}
+.nav .btn{margin-left:10px;min-height:48px}
+@media (max-width:1040px){.nav a.l{display:none}}
+@media (max-width:719px){.nav{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(28px,4.5vw,72px);align-items:center;margin-top:clamp(8px,2vw,24px)}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.7rem)}
+.lead{margin-top:20px;max-width:32em;font-size:clamp(1.0625rem,1.3vw,1.2rem)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;margin-top:10px}
+.rating,.state{display:inline-flex;align-items:center;gap:8px;min-height:48px;font-weight:600}
+.state::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--ink)}
+.state.on::before{background:var(--blue);border-color:var(--blue)}
+.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.cta .btn{padding-inline:16px}
+.start{display:flex;align-items:center;gap:18px;margin-top:28px;padding:18px 20px;background:var(--field);border-radius:var(--r);max-width:560px}
+.start .L{font-size:3.4rem}
+.start p{font-size:.9375rem;color:var(--muted)}
+.start b{display:block;font-size:clamp(1.25rem,1.9vw,1.55rem);line-height:1.2;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+.hero-pic{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--field)}
+.hero-pic img{width:100%;height:100%;object-fit:cover;object-position:55% 50%}
+.hero-pic .L{position:absolute;top:18px;right:18px;font-size:4.5rem;box-shadow:0 0 0 6px #fff}
+@media (max-width:899px){.hero{grid-template-columns:1fr}.hero-pic{aspect-ratio:16/10;order:-1}.hero-pic .L{font-size:3rem}}
+
+/* courses (live chooser) */
+.ink{background:var(--ink);color:#fff}
+.courses{padding-block:clamp(64px,9vw,120px)}
+.c-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:end}
+.c-head p{color:var(--on-ink);max-width:36em}
+.tool{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);margin-top:clamp(36px,5vw,64px);align-items:start}
+.choose{display:grid;gap:8px}
+.choose button{display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:12px 16px;border:2px solid #2B3E55;border-radius:var(--r);background:transparent;color:#fff;font:600 1.0625rem/1.25 var(--font);text-align:left;cursor:pointer;transition:border-color .18s,background-color .18s}
+.choose button:hover{border-color:var(--on-ink)}
+.choose button .L{font-size:1.6rem;opacity:0;transition:opacity .18s}
+.choose button .t{flex:1}
+.choose button .pr{color:var(--on-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.choose button[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.choose button[aria-selected="true"] .L{opacity:1}
+.choose button[aria-selected="true"] .pr{color:var(--muted)}
+.panel{background:#fff;color:var(--ink);border-radius:var(--r);padding:clamp(24px,3.5vw,48px);display:grid;gap:18px}
+.js .panel[hidden]{display:none}
+.panel h3{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+.price{font-size:clamp(3.4rem,7vw,6rem);font-weight:800;letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.price small{font-size:.32em;letter-spacing:0;margin-left:.2em}
+.price.ask{font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.03em}
+.panel ul{display:grid;gap:8px}
+.panel li{padding-left:22px;position:relative}
+.panel li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:3px;background:var(--blue)}
+.panel .note{font-weight:600}
+.panel .btn{justify-self:start}
+.js .panel.anim{animation:swap .3s ease}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fees{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px)}
+.fees h3{font-size:clamp(1.3rem,2vw,1.7rem)}
+.fees dl div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-top:1px solid #2B3E55}
+.fees dl div:last-child{border-bottom:1px solid #2B3E55}
+.fees dd{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fees .extra{margin-top:16px;color:var(--on-ink)}
+@media (max-width:899px){.c-head,.tool,.fees{grid-template-columns:1fr}}
+
+/* o nas */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:start}
+.pics{display:grid;gap:16px}
+.pics .a{border-radius:var(--r);aspect-ratio:4/5;width:100%;object-fit:cover}
+.pics .b{border-radius:var(--r);aspect-ratio:3/2;width:64%;margin-left:auto;object-fit:cover}
+.about .txt{display:grid;gap:22px}
+.big{font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.35;font-weight:600;letter-spacing:-.015em;max-width:30em}
+.facts{display:grid;margin-top:6px}
+.facts div{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:20px;padding:16px 0;border-top:1px solid var(--rule)}
+.facts dt{font-weight:800}
+.promo{background:var(--field);border-radius:var(--r);padding:clamp(20px,3vw,32px);display:grid;gap:14px}
+.promo h3{display:flex;align-items:center;gap:12px}
+.promo h3 .L{font-size:1.5rem}
+.promo ul{display:grid;gap:10px}
+.promo b{font-weight:800}
+@media (max-width:899px){.about{grid-template-columns:1fr}.pics .a{aspect-ratio:3/2}}
+@media (max-width:560px){.facts div{grid-template-columns:1fr;gap:4px}}
+
+/* opinie */
+.op-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-size:clamp(3.4rem,6vw,5rem);font-weight:800;letter-spacing:-.05em;line-height:.9}
+.score span{color:var(--muted);font-size:.9375rem}
+.score a{display:inline-flex;align-items:center;min-height:48px;font-weight:600;color:var(--blue)}
+.quotes{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(36px,4vw,56px) clamp(20px,3vw,40px);margin-top:clamp(36px,5vw,64px)}
+.q blockquote{font-size:1.0625rem}
+.q figcaption{margin-top:12px;font-size:.9375rem;color:var(--muted)}
+.q figcaption b{color:var(--ink);font-weight:600}
+.stars{color:var(--blue);letter-spacing:.08em}
+.q1{grid-column:1/8}.q1 blockquote{font-size:clamp(1.3rem,2.3vw,1.9rem);line-height:1.35;font-weight:600;letter-spacing:-.015em}
+.q2{grid-column:9/13;align-self:end}
+.q3{grid-column:1/5}.q4{grid-column:5/9}.q5{grid-column:9/13}
+@media (max-width:899px){.q1,.q2,.q3,.q4,.q5{grid-column:1/-1}}
+
+/* dojazd */
+.loc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);margin-top:clamp(28px,4vw,48px)}
+.loc address{font-style:normal;font-size:clamp(1.25rem,1.8vw,1.5rem);line-height:1.35;font-weight:600}
+.loc .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hrs{margin-top:28px}
+.hrs caption{text-align:left;font-weight:800;padding-bottom:8px}
+.hrs table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hrs th,.hrs td{padding:11px 12px;text-align:left;font-weight:400;border-top:1px solid var(--rule)}
+.hrs td{text-align:right}
+.hrs tr.now th,.hrs tr.now td{background:var(--field);font-weight:800;border-color:transparent}
+.hrs tr.now th::after{content:" (dziś)";font-weight:400;color:var(--muted)}
+.zap{margin-top:18px;color:var(--muted)}
+.mapcol{display:grid;gap:16px;align-content:start}
+.map{border-radius:var(--r);overflow:hidden;background:var(--field)}
+.map iframe{display:block;width:100%;height:clamp(320px,36vw,480px);border:0}
+.signs{border-radius:var(--r);aspect-ratio:21/9;width:100%;object-fit:cover}
+@media (max-width:899px){.loc{grid-template-columns:1fr}}
+
+/* kontakt */
+.contact{margin-top:var(--gap);background:var(--blue);color:#fff;padding-block:clamp(64px,9vw,120px)}
+.contact h2{display:flex;align-items:center;gap:.3em}
+.contact h2 .L{background:#fff;color:var(--blue);font-size:.9em}
+.contact p{max-width:34em;margin-top:16px;font-size:1.125rem}
+.phone{display:inline-block;margin-top:14px;font-size:clamp(2.6rem,7.2vw,6.2rem);font-weight:800;letter-spacing:-.05em;line-height:1;text-decoration:none;font-variant-numeric:tabular-nums}
+.phone:hover{text-decoration:underline;text-decoration-thickness:4px}
+.contact .cta{margin-top:26px}
+.contact .b-line{border-color:#fff;color:#fff}.contact .b-line:hover{background:#fff;color:var(--blue)}
+.contact :focus-visible{outline-color:#fff}
+.contact .mail{display:inline-flex;align-items:center;min-height:48px;margin-top:10px;font-weight:600;color:#fff}
+
+footer{padding-block:clamp(48px,6vw,80px) clamp(28px,4vw,40px);font-size:.9375rem;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px 36px}
+.foot .logo{font-size:2rem}
+
+.foot a{display:inline-flex;align-items:center;min-height:44px}
+.credits{margin-top:16px;font-size:.875rem;max-width:64em}
+
+/* mobile bar */
+.bar{display:none}
+@media (max-width:719px){
+  .bar{display:grid;grid-template-columns:1.2fr 1.15fr 1fr;gap:6px;position:fixed;inset:auto 0 0 0;z-index:40;background:var(--ink);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+  .bar .btn{min-height:52px;padding:8px 6px;font-size:.9375rem;gap:6px}
+  .bar .btn svg{width:20px;height:20px}
+  .bar .b-line{border-color:#fff;color:#fff}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .hero .cta .btn,.contact .cta .btn{flex:1 1 100%}
+  .panel .btn{justify-self:stretch}
+  .logo{font-size:2.2rem}
+}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*70ms)}
+.js .rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .js .panel.anim{animation:none}
+  .btn,.choose button{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></symbol>
+</svg>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="demo">Wersja demonstracyjna strony, przygotowana przez Praxis Webs.</div>
+
+<header class="top wrap">
+  <a class="logo" href="#main" aria-label="OSK Bosman, początek strony"><span class="L" aria-hidden="true"></span><span class="plate">OSK BOSMAN</span></a>
+  <nav class="nav" aria-label="Nawigacja główna">
+    <a class="l" href="#kursy">Kursy i ceny</a>
+    <a class="l" href="#o-nas">O nas</a>
+    <a class="l" href="#opinie">Opinie</a>
+    <a class="l" href="#dojazd">Dojazd i godziny</a>
+    <a class="btn b-red" href="tel:+48601171922"><svg aria-hidden="true"><use href="#i-tel"/></svg><span class="num">601 171 922</span></a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero wrap" style="margin-top:clamp(8px,2vw,24px)" aria-labelledby="h-hero">
+  <div>
+    <h1 id="h-hero" class="rv">Prawo jazdy w&nbsp;Nowej Hucie</h1>
+    <p class="lead rv" style="--i:1">Bosman Ośrodek Szkolenia Kierowców: kurs na kategorię B, jazdy dodatkowe i jazdy doszkalające dla kierowców, którzy już jeżdżą.</p>
+    <div class="meta rv" style="--i:2">
+      <a class="rating" href="https://maps.google.com/?cid=12114739326177601099" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 4,9 · 77 opinii w Google</a>
+      <p class="state" id="state">Pon.–pt. 9:00–19:00, sob. 9:00–13:00</p>
+    </div>
+    <div class="cta rv" style="--i:3">
+      <a class="btn b-red" href="tel:+48601171922"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: <span class="num">601 171 922</span></a>
+      <a class="btn b-blue" data-wa href="https://wa.me/48601171922" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+      <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20D%201%2C%2031-932%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
+    <div class="start rv" style="--i:4">
+      <span class="L" aria-hidden="true"></span>
+      <p>Kurs rusza w każdy piątek o 17:00<b id="next">Najbliższy start: piątek, 17:00</b></p>
+    </div>
+  </div>
+  <figure class="hero-pic rv" style="--i:1">
+    <img src="https://images.unsplash.com/photo-1630406144797-821be1f35d75?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1630406144797-821be1f35d75?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1630406144797-821be1f35d75?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1630406144797-821be1f35d75?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 45vw" alt="Instruktor wskazuje samochód, w ręku trzyma teczkę z dokumentami egzaminu na prawo jazdy" width="1600" height="1067" fetchpriority="high">
+    <span class="L" aria-hidden="true"></span>
+  </figure>
+</section>
+
+<section class="ink courses" id="kursy" aria-labelledby="h-kursy">
+  <div class="wrap">
+    <div class="c-head">
+      <h2 id="h-kursy" class="rv">Wybierz kurs, zobacz cenę</h2>
+      <p class="rv" style="--i:1">Ceny z oferty ośrodka. Kurs rusza w każdy piątek o 17:00, po wcześniejszym zapisie telefonicznym lub w biurze. Możliwa płatność ratalna i karta podarunkowa.</p>
+    </div>
+    <div class="tool rv" style="--i:2">
+      <ul class="choose" role="tablist" aria-label="Rodzaj kursu" id="choose"></ul>
+      <div id="panels">
+        <article class="panel" id="p-std" data-t="Kat. B standardowy" data-p="4600 zł">
+          <h3>Kategoria B, kurs standardowy</h3>
+          <p class="price">4600<small>zł</small></p>
+          <ul>
+            <li>materiały szkoleniowe: podręcznik i kody do testów</li>
+            <li>30 zajęć teoretycznych</li>
+            <li>30 zajęć praktycznych</li>
+            <li>1 podejście do egzaminu wewnętrznego</li>
+          </ul>
+          <p class="note">Start w każdy piątek o 17:00.</p>
+          <a class="btn b-blue" target="_blank" rel="noopener" href="https://wa.me/48601171922?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20zapisa%C4%87%20si%C4%99%20na%20kurs%20kat.%20B%20standardowy."><svg aria-hidden="true"><use href="#i-wa"/></svg>Zapisz się przez WhatsApp</a>
+        </article>
+        <article class="panel" id="p-fast" data-t="Kat. B przyspieszony" data-p="5200 zł">
+          <h3>Kategoria B, kurs przyspieszony</h3>
+          <p class="price">5200<small>zł</small></p>
+          <ul>
+            <li>kurs trwa 4 tygodnie</li>
+            <li>materiały szkoleniowe: podręcznik i kody do testów</li>
+            <li>30 zajęć teoretycznych i 30 praktycznych</li>
+            <li>1 podejście do egzaminu wewnętrznego</li>
+          </ul>
+          <p class="note">Start w każdy piątek o 17:00.</p>
+          <a class="btn b-blue" target="_blank" rel="noopener" href="https://wa.me/48601171922?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20zapisa%C4%87%20si%C4%99%20na%20kurs%20kat.%20B%20przyspieszony."><svg aria-hidden="true"><use href="#i-wa"/></svg>Zapisz się przez WhatsApp</a>
+        </article>
+        <article class="panel" id="p-extra" data-t="Jazda dodatkowa" data-p="150 zł">
+          <h3>Lekcja jazdy dodatkowej</h3>
+          <p class="price">150<small>zł</small></p>
+          <ul>
+            <li>dla kursantów, którzy chcą więcej godzin za kierownicą</li>
+            <li>przy zakupie 20 godzin jazd dodatkowych i jednorazowej wpłacie: 1 godzina gratis</li>
+          </ul>
+          <a class="btn b-blue" target="_blank" rel="noopener" href="https://wa.me/48601171922?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20lekcj%C4%99%20jazdy%20dodatkowej."><svg aria-hidden="true"><use href="#i-wa"/></svg>Umów przez WhatsApp</a>
+        </article>
+        <article class="panel" id="p-doszk" data-t="Jazdy doszkalające" data-p="zapytaj">
+          <h3>Jazdy doszkalające</h3>
+          <p class="price ask">Cena na zapytanie</p>
+          <ul>
+            <li>dla aktywnych kierowców, którzy chcą poprawić swoje umiejętności</li>
+          </ul>
+          <a class="btn b-blue" target="_blank" rel="noopener" href="https://wa.me/48601171922?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20zapyta%C4%87%20o%20jazdy%20doszkalaj%C4%85ce."><svg aria-hidden="true"><use href="#i-wa"/></svg>Zapytaj przez WhatsApp</a>
+        </article>
+      </div>
+    </div>
+    <div class="fees rv">
+      <h3>Pozostałe opłaty</h3>
+      <div>
+        <dl>
+          <div><dt>Egzamin wewnętrzny teoretyczny</dt><dd>100 zł</dd></div>
+          <div><dt>Egzamin wewnętrzny praktyczny</dt><dd>150 zł</dd></div>
+          <div><dt>Opłata rezygnacyjna</dt><dd>300 zł</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="o-nas" aria-labelledby="h-onas">
+  <div class="about">
+    <div class="pics">
+      <img class="a rv" loading="lazy" src="https://images.unsplash.com/photo-1764588224022-ef99db06bde0?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1764588224022-ef99db06bde0?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1764588224022-ef99db06bde0?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1764588224022-ef99db06bde0?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 42vw" width="1400" height="1750" alt="Dłonie na kierownicy podczas jazdy">
+      <img class="b rv" style="--i:1" loading="lazy" src="https://images.unsplash.com/photo-1578041262130-633307b3bfd6?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1578041262130-633307b3bfd6?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1578041262130-633307b3bfd6?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1578041262130-633307b3bfd6?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 64vw, 27vw" width="1000" height="667" alt="Kobieta za kierownicą samochodu">
+    </div>
+    <div class="txt">
+      <h2 id="h-onas" class="rv">Za kierownicą z Pawłem Moksą</h2>
+      <p class="big rv" style="--i:1">Ośrodkiem kieruje Paweł Moksa, właściciel i instruktor. Według jego słów to ponad 25 lat w szkoleniu i ponad 30 lat za kierownicą.</p>
+      <p class="rv" style="--i:2">Kursanci najczęściej piszą o cierpliwości instruktorów, spokojnej atmosferze na jazdach i dokładnym przygotowaniu do egzaminu.</p>
+      <dl class="facts rv" style="--i:3">
+        <div><dt>Samochody</dt><dd>Nowe pojazdy, identyczne jak na egzaminie państwowym.</dd></div>
+        <div><dt>Zapisy</dt><dd>W biurze w poniedziałki i środy od 16:15 do 17:00. Telefonicznie lub mailowo od poniedziałku do piątku, od 9:00 do 20:00.</dd></div>
+        <div><dt>Płatność</dt><dd>Możliwa w ratach. Dostępna karta podarunkowa.</dd></div>
+      </dl>
+      <div class="promo rv" style="--i:4">
+        <h3><span class="L" aria-hidden="true"></span>Promocje</h3>
+        <ul>
+          <li><b>Razem Raźniej:</b> zapis z drugą osobą i jednorazowa wpłata całej ceny kursu daje każdej z Was 100 zł rabatu.</li>
+          <li>20 godzin jazd dodatkowych wykupionych i opłaconych jednorazowo: 1 godzina gratis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="opinie" aria-labelledby="h-op">
+  <div class="op-head">
+    <h2 id="h-op" class="rv">Co piszą kursanci</h2>
+    <div class="score rv" style="--i:1">
+      <b class="num">4,9</b>
+      <div><span class="stars" aria-hidden="true">★★★★★</span><br><span>77 opinii w Google</span><br><a href="https://maps.google.com/?cid=12114739326177601099" target="_blank" rel="noopener">Wszystkie opinie w Google</a></div>
+    </div>
+  </div>
+  <div class="quotes">
+    <figure class="q q1 rv">
+      <blockquote><p>„Serdecznie polecam pana Pawła. Wróciłam do jazdy samochodem po ponad 13 latach, z wielkimi obawami. Pan Paweł jest wspaniałym instruktorem, bardzo cierpliwym, objaśniającym każde zagadnienie, stwarza bardzo miłą, pozytywną atmosferę i ta dobra energia się udziela, co pozwoliło mi pokonać moje »strachy« i wrócić za kierownicę.”</p></blockquote>
+      <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Olga K.</b>, 3 miesiące temu. Opinia z Google</figcaption>
+    </figure>
+    <figure class="q q2 rv" style="--i:1">
+      <blockquote><p>„Egzaminy zdane za pierwszym razem, a to w dużej mierze zasługa Pana Pawła i pozostałych instruktorów. Super atmosfera, dużo cierpliwości i konkretne przygotowanie do egzaminu.”</p></blockquote>
+      <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Bartek</b>, 5 miesięcy temu. Opinia z Google</figcaption>
+    </figure>
+    <figure class="q q3 rv">
+      <blockquote><p>„Bardzo serdecznie polecam, instruktorzy z cudownym podejściem do ludzi. Cały kurs przebiegał bardzo szybko i bezproblemowo. Egzaminy zdane bezproblemowo. Na jazdach wszystko bardzo dokładnie przerobione.”</p></blockquote>
+      <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Karol K.</b>, tydzień temu. Opinia z Google</figcaption>
+    </figure>
+    <figure class="q q4 rv" style="--i:1">
+      <blockquote><p>„Bardzo polecam tę szkołę jazdy! Pan Paweł niezwykle cierpliwy i uprzejmy, w ciekawy i przystępny sposób przekazuje wiedzę. Czułam się odpowiednio przygotowana do egzaminów…”</p></blockquote>
+      <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Joanna K.</b>, tydzień temu. Opinia z Google</figcaption>
+    </figure>
+    <figure class="q q5 rv" style="--i:2">
+      <blockquote><p>„Po kilku nieudanych podejściach do egzaminu i wcześniejszej nauce w innej szkole jazdy trafiłam tutaj. Wystarczyło zaledwie kilka godzin jazdy, żebym poczuła większą pewność siebie i lepiej przygotowała się do egzaminu. Dzięki…”</p></blockquote>
+      <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Olivia A.</b>, 2 miesiące temu. Opinia z Google</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap" id="dojazd" aria-labelledby="h-loc">
+  <h2 id="h-loc" class="rv">Dojazd i godziny</h2>
+  <div class="loc">
+    <div class="rv" style="--i:1">
+      <address>Osiedle Centrum D 1<br>31-932 Kraków, Nowa Huta</address>
+      <div class="acts">
+        <a class="btn b-blue" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20D%201%2C%2031-932%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+        <a class="btn b-line" href="https://maps.google.com/?cid=12114739326177601099" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+      </div>
+      <div class="hrs">
+        <table id="hours">
+          <caption>Godziny według Map Google</caption>
+          <tbody>
+            <tr data-d="1"><th scope="row">Poniedziałek</th><td>9:00–19:00</td></tr>
+            <tr data-d="2"><th scope="row">Wtorek</th><td>9:00–19:00</td></tr>
+            <tr data-d="3"><th scope="row">Środa</th><td>9:00–19:00</td></tr>
+            <tr data-d="4"><th scope="row">Czwartek</th><td>9:00–19:00</td></tr>
+            <tr data-d="5"><th scope="row">Piątek</th><td>9:00–19:00</td></tr>
+            <tr data-d="6"><th scope="row">Sobota</th><td>9:00–13:00</td></tr>
+            <tr data-d="0"><th scope="row">Niedziela</th><td>Zamknięte</td></tr>
+          </tbody>
+        </table>
+        <p class="zap">Zapisy w biurze: poniedziałek i środa, 16:15–17:00. Telefonicznie lub mailowo: poniedziałek–piątek, 9:00–20:00.</p>
+      </div>
+    </div>
+    <div class="mapcol rv" style="--i:2">
+      <div class="map"><iframe title="Mapa dojazdu do OSK Bosman" loading="lazy" src="https://maps.google.com/maps?q=50.0720527,20.0359897&amp;z=16&amp;output=embed"></iframe></div>
+      <img class="signs" loading="lazy" src="https://images.unsplash.com/photo-1573846764373-39f57aaeda0a?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1573846764373-39f57aaeda0a?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1573846764373-39f57aaeda0a?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1573846764373-39f57aaeda0a?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 56vw" width="1600" height="686" alt="Kolorowe znaki drogowe na słupach">
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="kontakt" aria-labelledby="h-k">
+  <div class="wrap">
+    <h2 id="h-k" class="rv"><span class="L" aria-hidden="true"></span>Zapisy na kurs</h2>
+    <a class="phone rv" style="--i:1" href="tel:+48601171922">601 171 922</a>
+    <p class="rv" style="--i:2">Napisz lub zadzwoń, a Paweł Moksa ustali z Państwem termin.</p>
+    <div class="cta rv" style="--i:3">
+      <a class="btn b-white" href="tel:+48601171922"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+      <a class="btn b-white" data-wa href="https://wa.me/48601171922" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+      <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20D%201%2C%2031-932%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
+    <a class="mail rv" style="--i:3" href="mailto:moksapawel@gmail.com">moksapawel@gmail.com</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="foot">
+    <span class="logo" aria-hidden="true"><span class="L"></span><span class="plate">OSK BOSMAN</span></span>
+    <span>Ośrodek Szkolenia Kierowców, Osiedle Centrum D 1, 31-932 Kraków</span>
+    <a href="tel:+48601171922">601 171 922</a>
+  </div>
+  <p class="credits">Dane z wizytówki Google i strony bosmanosk.pl. Zdjęcia poglądowe: Bas Peperzak, Alicia Christin Gerald, Jan Baborák, Nick Fewings (Unsplash).</p>
+</footer>
+
+<div class="bar" role="group" aria-label="Szybki kontakt">
+  <a class="btn b-red" href="tel:+48601171922" aria-label="Zadzwoń: 601 171 922"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+  <a class="btn b-blue" data-wa href="https://wa.me/48601171922" target="_blank" rel="noopener" aria-label="Napisz na WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Osiedle%20Centrum%20D%201%2C%2031-932%20Krak%C3%B3w" target="_blank" rel="noopener" aria-label="Wyznacz trasę do ośrodka">Trasa</a>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;root.classList.add('js');
+  var wa='https://wa.me/48601171922?text='+encodeURIComponent('Dzień dobry, piszę ze strony internetowej. Chciał(a)bym zapisać się na kurs.');
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href=wa;});
+
+  /* live: course chooser (tabs) */
+  var panels=[].slice.call(document.querySelectorAll('#panels .panel')),list=document.getElementById('choose'),btns=[];
+  panels.forEach(function(p,i){
+    var li=document.createElement('li');li.setAttribute('role','presentation');
+    var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.id='t-'+p.id;b.setAttribute('aria-controls',p.id);
+    b.innerHTML='<span class="L" aria-hidden="true"></span><span class="t"></span><span class="pr"></span>';
+    b.querySelector('.t').textContent=p.dataset.t;b.querySelector('.pr').textContent=p.dataset.p;
+    b.addEventListener('click',function(){sel(i,false);});
+    b.addEventListener('keydown',function(e){var n=null;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(i+1)%btns.length;
+      if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(i+btns.length-1)%btns.length;
+      if(n!==null){e.preventDefault();sel(n,true);}});
+    li.appendChild(b);list.appendChild(li);btns.push(b);
+    p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',b.id);
+  });
+  function sel(i,focus){
+    btns.forEach(function(b,k){b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1;});
+    panels.forEach(function(p,k){p.hidden=k!==i;p.classList.remove('anim');});
+    void panels[i].offsetWidth;panels[i].classList.add('anim');if(focus)btns[i].focus();
+  }
+  sel(0,false);
+
+  /* reveal */
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('is-in');});}
+
+  /* Warsaw wall clock: open now, today's row, next course start (every Friday 17:00) */
+  var f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+  var o={};f.formatToParts(new Date()).forEach(function(p){o[p.type]=p.value;});
+  var base=Date.UTC(+o.year,+o.month-1,+o.day),dow=new Date(base).getUTCDay(),mins=(+o.hour)*60+(+o.minute);
+  var row=document.querySelector('#hours tr[data-d="'+dow+'"]');if(row)row.classList.add('now');
+  var close={1:19,2:19,3:19,4:19,5:19,6:13}[dow],st=document.getElementById('state');
+  if(close&&mins>=540&&mins<close*60){st.textContent='Otwarte teraz, do '+close+':00';st.classList.add('on');}
+  else if(close&&mins<540)st.textContent='Teraz zamknięte, dziś od 9:00';
+  else st.textContent='Teraz zamknięte, '+(dow===6?'w poniedziałek':'jutro')+' od 9:00';
+  var add=(5-dow+7)%7;if(add===0&&mins>=17*60)add=7;
+  var d=new Date(base+add*864e5),M=['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
+  var when=add===0?'dziś, ':(add===1?'jutro, ':'');
+  document.getElementById('next').textContent='Najbliższy start: '+when+'piątek '+d.getUTCDate()+' '+M[d.getUTCMonth()]+', 17:00';
+})();
+</script>
+</body>
+</html>

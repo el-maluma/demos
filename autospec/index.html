@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Auto-Spec Norbert Tarnacki, warsztat samochodowy w Krakowie</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Warsztat samochodowy Auto-Spec przy ul. Centralnej 69 w Krakowie: diagnostyka komputerowa, hamulce, zawieszenie, silniki, klimatyzacja, wymiana opon. Pon.–pt. 7:00–16:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wght@400;600&subset=latin,latin-ext&display=swap" rel="stylesheet">
+<style>
+/* Tokens: change these to re-skin the page for another workshop */
+:root{
+  --ground:#F4F6F7;      /* cool steel white, page background */
+  --steel:#E2E8EB;       /* chrome field for panels */
+  --rule:#CBD3D8;        /* row separators */
+  --ink:#121619;         /* text, call button, dark bands */
+  --ink-2:#2A3136;       /* ink hover */
+  --muted:#46515A;       /* secondary text, 7.5:1 on ground */
+  --muted-on-ink:#B8C4CA;/* secondary text on ink, 10.2:1 */
+  --brand:#00AFE0;       /* Auto-Spec cyan from their site: fills with ink text only (7.1:1) */
+  --brand-hover:#33C1E8;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --text:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --r:3px;
+  --gutter:clamp(16px,3vw,32px);
+  --max:1320px;
+  --gap:clamp(72px,10vw,152px);
+  --bleed:calc(-1 * var(--gutter) - max(0px, (100vw - var(--max) - 2 * var(--gutter)) / 2));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--text);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.005em}
+.wrap{max-width:calc(var(--max) + 2 * var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+.nw{white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--gutter);top:-80px;background:var(--ink);color:#fff;padding:12px 16px;z-index:60;font-weight:600}
+.skip:focus{top:8px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.on-ink :focus-visible{outline-color:var(--brand)}
+[id]{scroll-margin-top:24px}
+svg.i{width:22px;height:22px;flex:none;fill:currentColor}
+
+/* photos: monochrome, like the chrome engine on autospec-krakow.pl */
+.ph{background:var(--steel);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06)}
+
+/* demo strip */
+.strip{background:var(--ink);color:#fff;font-size:14px;line-height:1.35;padding:9px var(--gutter);text-align:center}
+
+/* buttons: flat, one radius */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border:2px solid transparent;border-radius:var(--r);font:600 17px/1 var(--text);text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .18s ease,color .18s ease,transform .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn-brand{background:var(--brand);color:var(--ink)}
+.btn-brand:hover{background:var(--brand-hover)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--ink-2)}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-steel{background:var(--steel);color:var(--ink)}
+.btn-steel:hover{background:var(--rule)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the cyan tag: Auto-Spec's own sign, used only for real labels */
+.logo,.tag{display:inline-flex;align-items:center;background:var(--brand);color:var(--ink);font-family:var(--display);letter-spacing:.01em;text-decoration:none;line-height:1}
+.logo{font-size:27px;min-height:48px;padding:0 14px 2px}
+.tag{font-size:clamp(18px,1.5vw,21px);min-height:44px;padding:0 14px 1px}
+a.tag{transition:background-color .18s ease}
+a.tag:hover{background:var(--brand-hover)}
+.chip{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border-radius:var(--r);background:var(--steel);color:var(--ink);font-weight:600;font-size:15px;line-height:1.2}
+.chip:empty{display:none}
+html[data-open="1"] .chip{background:var(--brand)}
+
+/* header */
+.top{background:var(--ground);padding-block:12px}
+.top-in{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px}
+.top .chip-wrap{margin-left:auto}
+.top nav{display:flex;width:100%;margin-left:-10px;order:3}
+.top nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-weight:600;font-size:16px;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:2px;text-underline-offset:6px;transition:text-decoration-color .18s ease}
+.top nav a:hover{text-decoration-color:var(--brand)}
+.top-call{display:none}
+
+/* hero */
+.hero{padding-top:clamp(20px,4vw,48px);overflow:clip}
+.hero-grid{display:grid;gap:36px}
+.hero h1{font-size:clamp(2.45rem,9.8vw,3.5rem);line-height:.98;text-wrap:balance}
+.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.5;max-width:33em;margin-top:20px}
+.hero .actions{margin-top:28px}
+.meta{margin-top:24px;display:grid;gap:10px;font-size:16px}
+.meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.meta .muted{color:var(--muted)}
+.meta a.rating{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-underline-offset:5px}
+.meta .btn{min-height:44px;padding:0 14px;font-size:15px;gap:8px}
+.meta .btn svg{width:18px;height:18px}
+.hero-pic{position:relative;aspect-ratio:4/3;margin-inline:calc(-1 * var(--gutter))}
+.hero-pic .ph{height:100%}
+.hero-pic img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:none}}
+.hero-pic .tag{position:absolute;left:0;top:20px}
+
+/* services */
+.svc{margin-top:var(--gap)}
+.svc h2,.loc h2{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1}
+.feature{display:grid;background:var(--steel);margin-top:clamp(28px,4vw,56px)}
+.feature-pic{aspect-ratio:3/2}
+.feature-text{padding:clamp(24px,4vw,64px)}
+.feature h3{font-size:clamp(2rem,3.6vw,3.3rem);line-height:1.02;margin-top:20px;text-wrap:balance}
+.feature p{margin-top:12px;font-size:19px}
+.feature .btn{margin-top:28px}
+.rows{list-style:none;margin:clamp(40px,5vw,72px) 0 0;padding:0}
+.rows li{display:grid;gap:6px 40px;padding:26px 0 22px;border-top:2px solid var(--rule)}
+.rows li:last-child{border-bottom:2px solid var(--rule)}
+.rows h3{font-size:clamp(1.55rem,2.2vw,2rem);line-height:1.08}
+.rows p{color:var(--muted);max-width:52ch}
+.row-cta{display:inline-flex;align-items:center;justify-self:start;min-height:48px;font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:var(--brand);transition:text-decoration-color .18s ease}
+.row-cta:hover{text-decoration-color:var(--ink)}
+
+/* order sheet: the live element, on Auto-Spec cyan */
+.order{margin-top:var(--gap)}
+.band{background:var(--brand);color:var(--ink);overflow:clip}
+.order-grid{display:grid}
+.order-form{padding-block:clamp(48px,7vw,104px)}
+.order h2{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1}
+.order .intro{margin-top:16px;max-width:34em;font-size:18px}
+.fields{display:grid;gap:24px;margin-top:36px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label,.field legend{display:block;font-weight:600;font-size:16px;margin-bottom:8px;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.field input,.field select{width:100%;min-height:52px;padding:0 14px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:var(--r);font:400 17px/1.3 var(--text);appearance:none;-webkit-appearance:none}
+.field select{padding-right:44px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23121619' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 16px center/12px 8px}
+::placeholder{color:var(--muted);opacity:1}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.days span{width:100%}
+.days label{position:relative;margin:0}
+.days input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.days span{display:inline-flex;align-items:center;justify-content:center;min-width:58px;min-height:48px;padding:0 14px;background:#fff;border:2px solid var(--ink);border-radius:var(--r);font-weight:600;transition:background-color .15s ease,color .15s ease}
+.days label:hover span{background:var(--steel)}
+.days input:checked+span{background:var(--ink);color:#fff}
+.days input:focus-visible+span{outline:3px solid var(--ink);outline-offset:3px}
+.preview{margin-top:32px;background:#fff;border-radius:var(--r);padding:18px 20px}
+.preview b{display:block;font-weight:600;font-size:14px;color:var(--muted);margin-bottom:6px}
+.order .send{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.order .alt{font-weight:600}
+.order .alt a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:5px;text-decoration-thickness:2px}
+.order-pic{aspect-ratio:16/9;margin-inline:calc(-1 * var(--gutter))}
+
+/* about */
+.about{margin-top:var(--gap)}
+.about-grid{display:grid;gap:40px}
+.about h2{font-size:clamp(2rem,3vw,2.6rem);line-height:1}
+.motto{font:400 clamp(2.3rem,6vw,5rem)/1.02 var(--display);margin-top:24px;text-wrap:balance;max-width:16ch}
+.about .src{margin-top:24px;max-width:36em;font-size:18px;color:var(--muted)}
+.about-side{display:grid;gap:24px;align-content:start}
+.about-pic{aspect-ratio:3/2}
+.about-side p{max-width:34em}
+
+/* reviews */
+.reviews{margin-top:var(--gap);background:var(--ink);color:#fff;padding-block:clamp(64px,9vw,128px)}
+.rev-grid{display:grid;gap:40px}
+.reviews h2{font-size:clamp(2rem,3vw,2.6rem);line-height:1}
+.score{font:400 clamp(6rem,15vw,11rem)/.9 var(--display);color:var(--brand);margin-top:20px;font-variant-numeric:tabular-nums}
+.score small{font-size:.28em;color:var(--muted-on-ink);margin-left:.15em}
+.score-note{margin-top:30px;font-size:18px;color:var(--muted-on-ink)}
+.reviews a{display:inline-flex;align-items:center;min-height:48px;font-weight:600;text-underline-offset:6px;text-decoration-thickness:2px;text-decoration-color:var(--brand)}
+.reviews blockquote p{font-size:clamp(1.2rem,1.9vw,1.6rem);line-height:1.5;max-width:38em}
+.reviews figcaption{margin-top:24px;color:var(--muted-on-ink)}
+
+/* location */
+.loc{margin-top:var(--gap)}
+.loc-grid{display:grid;gap:40px;margin-top:clamp(28px,4vw,56px)}
+.hours{width:100%;border-collapse:collapse;font-size:18px;font-variant-numeric:tabular-nums}
+.hours th,.hours td{padding:13px 14px;text-align:left;font-weight:400;border-top:2px solid var(--rule)}
+.hours td{text-align:right}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:2px solid var(--rule)}
+.hours tr.today th,.hours tr.today td{background:var(--brand);font-weight:600;border-color:var(--brand)}
+.hours .dzis{font-weight:400}
+.status{margin-top:20px;font-weight:600;font-size:19px}
+.status:empty{display:none}
+.addr{margin-top:24px;font-style:normal;font-size:19px;line-height:1.45}
+.loc .actions{margin-top:20px}
+.map{aspect-ratio:4/3;background:var(--steel)}
+.map iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1)}
+
+/* contact */
+.contact{margin-top:var(--gap)}
+.contact-grid{display:grid;gap:40px}
+.contact h2{font-size:clamp(2rem,3vw,2.6rem);line-height:1}
+.phone{display:inline-block;margin-top:16px;font:400 clamp(3.4rem,15vw,9rem)/1 var(--display);letter-spacing:.01em;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:.07em;text-underline-offset:.12em;font-variant-numeric:tabular-nums;transition:text-decoration-color .2s ease}
+.phone:hover{text-decoration-color:var(--brand)}
+.contact .actions{margin-top:24px}
+.links{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0 28px}
+.links a{display:inline-flex;align-items:center;min-height:48px;font-weight:600;font-size:18px;text-underline-offset:5px;text-decoration-thickness:2px}
+.contact-pic{aspect-ratio:3/2}
+
+/* footer */
+.foot{margin-top:var(--gap);background:var(--ink);color:#fff;padding-block:clamp(48px,7vw,88px) clamp(28px,4vw,44px)}
+.foot-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.foot .logo{font-size:clamp(34px,4vw,48px);min-height:auto;padding:6px 16px 8px}
+.foot-name{font:400 clamp(26px,3vw,40px)/1 var(--display)}
+.foot-meta{display:grid;gap:4px 48px;margin-top:36px;color:var(--muted-on-ink)}
+.foot-meta a{color:#fff;display:inline-flex;align-items:flex-start;min-height:44px;text-underline-offset:4px}
+.credits{margin-top:36px;font-size:14px;color:var(--muted-on-ink)}
+.credits a{color:#fff;text-underline-offset:3px}
+
+/* sticky contact bar (phones) */
+.bar{display:none}
+
+/* staggered entrance (class is-in added by JS) */
+.js [data-r]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 80ms)}
+.js [data-r].is-in{opacity:1;transform:none}
+
+@media (max-width:1023px){
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .bar{display:grid;grid-template-columns:1fr 1.15fr .8fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ground);border-top:2px solid var(--rule);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  .bar .btn{min-height:52px;padding:0 6px;font-size:15px;gap:7px}
+  .bar svg.i{width:20px;height:20px}
+}
+@media (max-width:719px){
+  .actions .btn,.order .send .btn{flex:1 1 100%}
+}
+@media (min-width:720px){
+  .top-in{flex-wrap:nowrap}
+  .top nav{width:auto;order:1;margin-left:16px}
+  .top .chip-wrap{order:2}
+  .top-call{order:3}
+  .days{display:flex;flex-wrap:wrap}
+  .days span{width:auto}
+  .rows li{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:baseline}
+  .row-cta{grid-column:2}
+  .foot-meta{grid-template-columns:auto auto auto;justify-content:start}
+}
+@media (min-width:720px) and (max-width:1023px){
+  .about-side{grid-template-columns:1fr 1fr;gap:32px;align-items:end}
+}
+@media (min-width:1024px){
+  .top{position:sticky;top:0;z-index:40;padding-block:14px;border-bottom:2px solid var(--rule)}
+  .top-call{display:inline-flex;min-height:48px;padding:0 18px}
+  .rows li{grid-template-columns:minmax(0,4fr) minmax(0,6fr) auto}
+  .row-cta{grid-column:auto}
+  [id]{scroll-margin-top:112px}
+  .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(40px,5vw,80px);align-items:center}
+  .hero h1{font-size:clamp(4rem,5.4vw,5.6rem);line-height:.95}
+  .hero-pic{aspect-ratio:auto;height:min(76vh,700px);min-height:540px;margin:0 var(--bleed) 0 0}
+  .hero-pic .tag{left:-22px;top:36px}
+  .feature{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .feature-pic{aspect-ratio:auto;min-height:460px}
+  .feature-text{align-self:center}
+  .order-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,5vw,80px)}
+  .order-pic{aspect-ratio:auto;height:100%;margin:0 var(--bleed) 0 0}
+  .about-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(48px,6vw,96px)}
+  .about-side{padding-top:clamp(64px,8vw,120px)}
+  .rev-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(48px,6vw,96px);align-items:start}
+  .reviews blockquote{padding-top:12px}
+  .loc-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,5vw,80px)}
+  .map{aspect-ratio:auto;min-height:560px}
+  .contact-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(48px,5vw,80px);align-items:end}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js [data-r]{opacity:1;transform:none;transition:none}
+  .hero-pic img{animation:none}
+  .btn,.tag,.phone{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.34M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.13.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24"><path d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42ZM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5Z"/></symbol>
+</svg>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="strip">Wersja demonstracyjna strony, przygotowana przez Praxis Webs.</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#top" aria-label="Auto-Spec, początek strony">Auto-Spec</a>
+    <span class="chip-wrap"><span class="chip" data-status-short></span></span>
+    <nav aria-label="Główna nawigacja">
+      <a href="#uslugi">Usługi</a>
+      <a href="#wizyta">Umów wizytę</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#lokalizacja">Dojazd</a>
+    </nav>
+    <a class="btn btn-ink top-call" href="tel:+48600373454"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>600 373 454</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 id="h1" data-r>Warsztat <span class="nw">Auto-Spec</span> w&nbsp;Krakowie</h1>
+        <p class="lead" data-r style="--i:1">Naprawy mechaniczne, diagnostyka komputerowa i wymiana opon dla kierowców z Krakowa. Od uszczelki głowicy po rurę wydechową.</p>
+        <div class="actions" data-r style="--i:2">
+          <a class="btn btn-brand" data-wa href="https://wa.me/48600373454?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+          <a class="btn btn-ink" href="tel:+48600373454"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: 600 373 454</a>
+        </div>
+        <div class="meta" data-r style="--i:3">
+          <p class="meta-row"><span class="chip" data-status></span><span class="muted">Pon.–pt. 7:00–16:00</span></p>
+          <p class="meta-row"><span>Centralna 69, 31-586 Kraków</span><a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Centralna%2069%2C%2031-586%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-dir"/></svg>Wyznacz trasę</a></p>
+          <a class="rating" href="https://maps.google.com/?cid=7511913547776830571" target="_blank" rel="noopener">4,7 / 5 · 189 opinii w Google</a>
+        </div>
+      </div>
+      <figure class="hero-pic" data-r style="--i:1">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&amp;fit=crop&amp;q=70&amp;w=1024" srcset="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&amp;fit=crop&amp;q=70&amp;w=640 640w, https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&amp;fit=crop&amp;q=70&amp;w=1024 1024w, https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&amp;fit=crop&amp;q=70&amp;w=1600 1600w" sizes="(min-width:1024px) 48vw, 100vw" width="1600" height="900" fetchpriority="high" alt="Pasek napędowy i koła pasowe w komorze silnika, zdjęcie czarno-białe" style="object-position:30% 50%"></div>
+        <a class="tag" href="#opony">Już dostępna: wymiana opon</a>
+      </figure>
+    </div>
+  </section>
+
+  <section id="uslugi" class="svc" aria-labelledby="h-uslugi">
+    <div class="wrap">
+      <h2 id="h-uslugi" data-r>Usługi</h2>
+      <article class="feature" id="opony" aria-labelledby="h-opony" data-r style="--i:1">
+        <figure class="feature-pic ph"><img src="https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?auto=format&amp;fit=crop&amp;q=70&amp;w=1024" srcset="https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?auto=format&amp;fit=crop&amp;q=70&amp;w=640 640w, https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?auto=format&amp;fit=crop&amp;q=70&amp;w=1024 1024w, https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?auto=format&amp;fit=crop&amp;q=70&amp;w=1600 1600w" sizes="(min-width:1024px) 55vw, 100vw" width="1600" height="1067" loading="lazy" alt="Dłonie w rękawicach przy oponie i feldze samochodu"></figure>
+        <div class="feature-text">
+          <span class="tag">Nowa usługa</span>
+          <h3 id="h-opony">Wymiana opon i wyważanie kół</h3>
+          <p>Już dostępna w warsztacie.</p>
+          <a class="btn btn-ink" href="#wizyta" data-usluga="Wymiana opon i wyważanie kół">Umów wymianę opon</a>
+        </div>
+      </article>
+      <ul class="rows">
+        <li data-r><h3>Komputerowa diagnostyka</h3><p>Silniki ON i Pb, ABS/ESP/SBC, automatyczne klimatyzacje, automatyczne skrzynie biegów, moduły komfortu.</p><a class="row-cta" href="#wizyta" data-usluga="Komputerowa diagnostyka" aria-label="Umów wizytę: komputerowa diagnostyka">Umów wizytę</a></li>
+        <li data-r><h3>Naprawy układów hamulcowych</h3><p>Tarcze, klocki (także w elektronicznym hamulcu postojowym), bębny, szczęki, płyn hamulcowy, przewody, zaciski.</p><a class="row-cta" href="#wizyta" data-usluga="Naprawy układów hamulcowych" aria-label="Umów wizytę: naprawy układów hamulcowych">Umów wizytę</a></li>
+        <li data-r><h3>Naprawy zawieszenia</h3><p>Wahacze, amortyzatory, sprężyny, tuleje, przeguby, łożyska, sworznie.</p><a class="row-cta" href="#wizyta" data-usluga="Naprawy zawieszenia" aria-label="Umów wizytę: naprawy zawieszenia">Umów wizytę</a></li>
+        <li data-r><h3>Układ kierowniczy</h3><p>Regeneracja przekładni kierowniczych, wymiana końcówek drążków i drążków kierowniczych.</p><a class="row-cta" href="#wizyta" data-usluga="Układ kierowniczy" aria-label="Umów wizytę: układ kierowniczy">Umów wizytę</a></li>
+        <li data-r><h3>Naprawa silników</h3><p>Przeglądy olejowe, rozrząd, sprzęgło, alternator, regeneracja i wymiana turbosprężarek, uszczelka głowicy, świece żarowe i iskrowe, regulacja luzów zaworowych.</p><a class="row-cta" href="#wizyta" data-usluga="Naprawa silników" aria-label="Umów wizytę: naprawa silników">Umów wizytę</a></li>
+        <li data-r><h3>Układ wtryskowy</h3><p>Wtryskiwacze CR, pompowtryskiwacze, pompy wysokiego ciśnienia (CDi, TDCi, TDi, HDi), pompy wtryskowe VP.</p><a class="row-cta" href="#wizyta" data-usluga="Układ wtryskowy" aria-label="Umów wizytę: układ wtryskowy">Umów wizytę</a></li>
+        <li data-r><h3>Klimatyzacja</h3><p>Obsługa klimatyzacji i ozonowanie wnętrza.</p><a class="row-cta" href="#wizyta" data-usluga="Klimatyzacja i ozonowanie wnętrza" aria-label="Umów wizytę: klimatyzacja">Umów wizytę</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="wizyta" class="order" aria-labelledby="h-wizyta">
+    <div class="band">
+      <div class="wrap order-grid">
+        <div class="order-form">
+          <h2 id="h-wizyta" data-r>Umów wizytę</h2>
+          <p class="intro" data-r style="--i:1">Wpiszcie Państwo auto i rodzaj naprawy. Gotową wiadomość wyślemy przez WhatsApp, a warsztat odpowie w godzinach pracy.</p>
+          <div class="fields" data-r style="--i:2">
+            <div class="two">
+              <div class="field"><label for="f-marka">Marka</label><input type="text" id="f-marka" autocomplete="off" placeholder="np. Volvo"></div>
+              <div class="field"><label for="f-model">Model</label><input type="text" id="f-model" autocomplete="off" placeholder="np. V60"></div>
+            </div>
+            <div class="field"><label for="f-usluga">Usługa</label>
+              <select id="f-usluga">
+                <option value="">Jeszcze nie wiem, proszę o poradę</option>
+                <option>Wymiana opon i wyważanie kół</option>
+                <option>Komputerowa diagnostyka</option>
+                <option>Naprawy układów hamulcowych</option>
+                <option>Naprawy zawieszenia</option>
+                <option>Układ kierowniczy</option>
+                <option>Naprawa silników</option>
+                <option>Układ wtryskowy</option>
+                <option>Klimatyzacja i ozonowanie wnętrza</option>
+              </select>
+            </div>
+            <fieldset class="field"><legend>Preferowany dzień</legend>
+              <div class="days">
+                <label><input type="radio" name="dzien" value="" checked><span>Dowolny</span></label>
+                <label><input type="radio" name="dzien" value="w poniedziałek"><span>Pon.</span></label>
+                <label><input type="radio" name="dzien" value="we wtorek"><span>Wt.</span></label>
+                <label><input type="radio" name="dzien" value="w środę"><span>Śr.</span></label>
+                <label><input type="radio" name="dzien" value="w czwartek"><span>Czw.</span></label>
+                <label><input type="radio" name="dzien" value="w piątek"><span>Pt.</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="preview" aria-live="polite" data-r style="--i:3"><b>Wiadomość do warsztatu</b><span id="preview">Dzień dobry, piszę ze strony internetowej. Chciał(a)bym umówić wizytę.</span></div>
+          <div class="send" data-r style="--i:3">
+            <a class="btn btn-ink" id="send" data-wa href="https://wa.me/48600373454?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Wyślij na WhatsApp</a>
+            <p class="alt">albo zadzwoń: <a href="tel:+48600373454">600 373 454</a></p>
+          </div>
+        </div>
+        <figure class="order-pic ph"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&amp;fit=crop&amp;q=70&amp;w=1024" srcset="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&amp;fit=crop&amp;q=70&amp;w=640 640w, https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&amp;fit=crop&amp;q=70&amp;w=1024 1024w, https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&amp;fit=crop&amp;q=70&amp;w=1600 1600w" sizes="(min-width:1024px) 42vw, 100vw" width="1600" height="900" loading="lazy" alt="Mechanik pochylony nad komorą silnika samochodu" style="object-position:22% 50%"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-nas" class="about" aria-labelledby="h-onas">
+    <div class="wrap about-grid">
+      <div>
+        <h2 id="h-onas" data-r>O warsztacie</h2>
+        <p class="motto" data-r style="--i:1">Żadna praca nie jest ani za duża, ani za mała.</p>
+        <p class="src" data-r style="--i:2">Tak warsztat pisze o sobie na swojej stronie. Dodaje też: &bdquo;Tu nie chodzi o nas, chodzi o Ciebie&rdquo;, i obiecuje terminowe naprawy wysokiej jakości po uczciwej cenie.</p>
+      </div>
+      <div class="about-side">
+        <figure class="about-pic ph" data-r style="--i:1"><img src="https://images.unsplash.com/photo-1792792729268-259f15df376d?auto=format&amp;fit=crop&amp;q=70&amp;w=1024" srcset="https://images.unsplash.com/photo-1792792729268-259f15df376d?auto=format&amp;fit=crop&amp;q=70&amp;w=640 640w, https://images.unsplash.com/photo-1792792729268-259f15df376d?auto=format&amp;fit=crop&amp;q=70&amp;w=1024 1024w, https://images.unsplash.com/photo-1792792729268-259f15df376d?auto=format&amp;fit=crop&amp;q=70&amp;w=1600 1600w" sizes="(min-width:1024px) 38vw, 100vw" width="1600" height="1067" loading="lazy" alt="Wnętrze warsztatu z podnośnikami i samochodem z otwartą maską"></figure>
+        <p data-r style="--i:2">Warsztat prowadzi Norbert Tarnacki, od którego pochodzi nazwa firmy. Pod adresem Centralna 69 w Krakowie przyjmuje w dni robocze, od 7:00 do 16:00.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="opinie" class="reviews on-ink" aria-labelledby="h-opinie">
+    <div class="wrap rev-grid">
+      <div data-r>
+        <h2 id="h-opinie">Opinie</h2>
+        <p class="score">4,7<small>/ 5</small></p>
+        <p class="score-note">189 opinii w Google</p>
+        <a href="https://maps.google.com/?cid=7511913547776830571" target="_blank" rel="noopener">Wszystkie opinie w Google</a>
+      </div>
+      <figure data-r style="--i:1">
+        <blockquote><p>&bdquo;Bardzo solidny i kompetentny właściciel warsztatu. Znalazł mi w Volvo wyciek płynu chłodzącego, z którym inni sobie nie poradzili. Inteligentne i profesjonalne podejście do problemów. Ceny bardzo rozsądne. Polecam. Trzeba się tylko nastawić, że miejsce ciasne i zatłoczone, problemy z parkowaniem. Ale i tak warto korzystać.&rdquo;</p></blockquote>
+        <figcaption>Jerzy Z., 5 miesięcy temu · Opinia z Google</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="lokalizacja" class="loc" aria-labelledby="h-lok">
+    <div class="wrap">
+      <h2 id="h-lok" data-r>Lokalizacja i godziny</h2>
+      <div class="loc-grid">
+        <div data-r style="--i:1">
+          <table class="hours">
+            <caption class="sr">Godziny otwarcia</caption>
+            <tbody id="hours">
+              <tr data-d="1"><th scope="row">Poniedziałek</th><td>7:00–16:00</td></tr>
+              <tr data-d="2"><th scope="row">Wtorek</th><td>7:00–16:00</td></tr>
+              <tr data-d="3"><th scope="row">Środa</th><td>7:00–16:00</td></tr>
+              <tr data-d="4"><th scope="row">Czwartek</th><td>7:00–16:00</td></tr>
+              <tr data-d="5"><th scope="row">Piątek</th><td>7:00–16:00</td></tr>
+              <tr data-d="6"><th scope="row">Sobota</th><td>Zamknięte</td></tr>
+              <tr data-d="0"><th scope="row">Niedziela</th><td>Zamknięte</td></tr>
+            </tbody>
+          </table>
+          <p class="status" id="status" aria-live="polite"></p>
+          <address class="addr">Centralna 69<br>31-586 Kraków</address>
+          <div class="actions">
+            <a class="btn btn-ink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Centralna%2069%2C%2031-586%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-dir"/></svg>Wyznacz trasę</a>
+            <a class="btn btn-line" href="https://maps.google.com/?cid=7511913547776830571" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+          </div>
+        </div>
+        <div class="map" data-r style="--i:2"><iframe title="Mapa dojazdu: Centralna 69, Kraków" loading="lazy" src="https://maps.google.com/maps?q=50.0623756,20.0049426&amp;z=16&amp;output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact" aria-labelledby="h-kontakt">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="h-kontakt" data-r>Kontakt</h2>
+        <a class="phone" data-r style="--i:1" href="tel:+48600373454">600 373 454</a>
+        <div class="actions" data-r style="--i:2">
+          <a class="btn btn-brand" data-wa href="https://wa.me/48600373454?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+          <a class="btn btn-ink" href="tel:+48600373454"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: 600 373 454</a>
+        </div>
+        <ul class="links" data-r style="--i:3">
+          <li><a href="mailto:autospec.krakow@gmail.com">autospec.krakow@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/Auto-Spec-Norbert-Tarnacki-844004728950618/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <figure class="contact-pic ph" data-r style="--i:1"><img src="https://images.unsplash.com/photo-1775590766345-c117265f0c1b?auto=format&amp;fit=crop&amp;q=70&amp;w=1024" srcset="https://images.unsplash.com/photo-1775590766345-c117265f0c1b?auto=format&amp;fit=crop&amp;q=70&amp;w=640 640w, https://images.unsplash.com/photo-1775590766345-c117265f0c1b?auto=format&amp;fit=crop&amp;q=70&amp;w=1024 1024w, https://images.unsplash.com/photo-1775590766345-c117265f0c1b?auto=format&amp;fit=crop&amp;q=70&amp;w=1600 1600w" sizes="(min-width:1024px) 40vw, 100vw" width="1600" height="1067" loading="lazy" alt="Dłoń mechanika z kluczem nasadowym nad silnikiem samochodu"></figure>
+    </div>
+  </section>
+</main>
+
+<footer class="foot on-ink">
+  <div class="wrap">
+    <div class="foot-top"><span class="logo">Auto-Spec</span><p class="foot-name">Norbert Tarnacki</p></div>
+    <div class="foot-meta">
+      <p>Centralna 69, 31-586 Kraków<br>Pon.–pt. 7:00–16:00</p>
+      <p><a href="tel:+48600373454">600 373 454</a></p>
+      <p><a href="mailto:autospec.krakow@gmail.com">autospec.krakow@gmail.com</a></p>
+    </div>
+    <p class="credits">Dane z wizytówki Google i ze strony autospec-krakow.pl. Zdjęcia poglądowe: Chad Kirchoff, Jimmy Nilsson Masth, Kate Ibragimova, Mustafa Sheikhmouss, Sasun Bughdaryan (<a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>).</p>
+  </div>
+</footer>
+
+<div class="bar" role="group" aria-label="Szybki kontakt">
+  <a class="btn btn-ink" href="tel:+48600373454"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+  <a class="btn btn-brand" data-wa href="https://wa.me/48600373454?text=Dzie%C5%84%20dobry%2C%20pisz%C4%99%20ze%20strony%20internetowej.%20Chcia%C5%82(a)bym%20um%C3%B3wi%C4%87%20wizyt%C4%99." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn btn-steel" href="https://www.google.com/maps/dir/?api=1&amp;destination=Centralna%2069%2C%2031-586%20Krak%C3%B3w" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-dir"/></svg>Trasa</a>
+</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+
+  /* entrance: adds is-in when an element scrolls into view */
+  var els=[].slice.call(d.querySelectorAll('[data-r]'));
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});}
+  else{
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('is-in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+
+  /* work order: builds the WhatsApp message */
+  var NUM='48600373454';
+  var marka=d.getElementById('f-marka'),model=d.getElementById('f-model'),usl=d.getElementById('f-usluga'),prev=d.getElementById('preview'),send=d.getElementById('send');
+  function build(){
+    var m='Dzień dobry, piszę ze strony internetowej. Chciał(a)bym umówić wizytę.';
+    var auto=(marka.value.trim()+' '+model.value.trim()).trim();
+    if(auto) m+=' Auto: '+auto+'.';
+    if(usl.value) m+=' Usługa: '+usl.value+'.';
+    var r=d.querySelector('input[name=dzien]:checked');
+    if(r&&r.value) m+=' Najchętniej '+r.value+'.';
+    prev.textContent=m;
+    send.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(m);
+  }
+  [marka,model,usl].forEach(function(e){e.addEventListener('input',build);e.addEventListener('change',build);});
+  [].forEach.call(d.querySelectorAll('input[name=dzien]'),function(r){r.addEventListener('change',build);});
+  /* "Umów wizytę" links next to each service preselect it in the form */
+  [].forEach.call(d.querySelectorAll('[data-usluga]'),function(a){a.addEventListener('click',function(){usl.value=a.getAttribute('data-usluga');build();});});
+  build();
+
+  /* opening hours: today and open/closed in Warsaw time */
+  var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  var g=function(t){return parts.filter(function(p){return p.type===t})[0].value};
+  var dow={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[g('weekday')],mins=parseInt(g('hour'),10)%24*60+parseInt(g('minute'),10);
+  var row=d.querySelector('#hours tr[data-d="'+dow+'"]');
+  if(row){row.classList.add('today');row.setAttribute('aria-current','date');row.cells[0].insertAdjacentHTML('beforeend','<span class="dzis">, dziś</span>');}
+  var work=dow>=1&&dow<=5,open=work&&mins>=420&&mins<960,when='dziś';
+  if(!open&&!(work&&mins<420)){
+    var next=dow,add=0;
+    do{next=(next+1)%7;add++;}while(next===0||next===6);
+    when=add===1?'jutro':['w niedzielę','w poniedziałek','we wtorek','w środę','w czwartek','w piątek','w sobotę'][next];
+  }
+  root.setAttribute('data-open',open?'1':'0');
+  var set=function(sel,txt){[].forEach.call(d.querySelectorAll(sel),function(e){e.textContent=txt;});};
+  set('[data-status-short]',open?'Otwarte teraz':'Zamknięte');
+  set('[data-status]',open?'Otwarte teraz, do 16:00':'Teraz zamknięte, otwieramy '+when+' o 7:00');
+  d.getElementById('status').textContent=open?'Teraz otwarte, do 16:00.':'Teraz zamknięte. Zapraszamy '+when+' od 7:00.';
+})();
+</script>
+</body>
+</html>

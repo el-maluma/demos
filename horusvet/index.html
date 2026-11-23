@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>HorusVet, gabinet weterynaryjny na Prądniku Białym w Krakowie</title>
+<meta name="description" content="Gabinet Weterynaryjny HorusVet, Pachońskiego 8 w Krakowie. Psy, koty, zwierzęta futerkowe i egzotyczne. Przyjmujemy po południu, od poniedziałku do piątku 16:00–20:00 i w soboty 10:00–13:00.">
+<meta name="theme-color" content="#2E2A2B">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&amp;family=Nunito:wght@400;700&amp;subset=latin,latin-ext&amp;display=swap" rel="stylesheet">
+<style>
+/* Tokens: change these to clone the page for another clinic */
+:root{
+  --paper:#FAFAF6;     /* white of their site, a touch warmer: page */
+  --field:#E4F0E7;     /* pale tint of the logo green: bands, today's row */
+  --ink:#2E2A2B;       /* warm black of the "Horus" wordmark and cat: text, dark band. 13.5:1 on paper */
+  --muted:#5B5657;     /* secondary text: 6.9:1 on paper, 6.1:1 on field */
+  --green:#00A650;     /* logo green: graphics only (open window, "Vet", dots). 3.05:1 on paper, 4.4:1 on ink */
+  --deep:#00753A;      /* darker logo green for text and the call button: 5.6:1 on paper, white on it 5.8:1 */
+  --deep-h:#005F2F;
+  --on-ink:#C9C4C5;    /* secondary text on ink: 8.2:1 */
+  --rule:#D5D8D0;
+  --head:"Archivo","Arial Black",system-ui,sans-serif; /* heavy grotesque like their wordmark */
+  --text:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif; /* the font of their current site */
+  --r:4px;
+  --gutter:clamp(16px,3.2vw,40px);
+  --gap:clamp(80px,10vw,150px);
+  --max:1320px;
+  /* timeline scale: 6:00 to 22:00 */
+  --t0:6;--t1:22;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:12px}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--text);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em}
+ul,dl{list-style:none;padding:0}
+dd{margin:0}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+h2{font-size:clamp(2.2rem,4.6vw,4rem)}
+h3{font-size:clamp(1.2rem,1.6vw,1.45rem);line-height:1.15;letter-spacing:-.01em}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--green)}
+.skip{position:absolute;left:var(--gutter);top:-80px;z-index:60;background:var(--ink);color:var(--paper);padding:12px 18px;font-weight:700;text-decoration:none}
+.skip:focus{top:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+section{margin-top:var(--gap)}
+.muted{color:var(--muted)}
+
+.demo{background:var(--ink);color:var(--on-ink);font-size:.875rem;line-height:1.4;padding:8px var(--gutter);text-align:center}
+
+/* buttons: flat, small radius */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 22px;border-radius:var(--r);border:2px solid transparent;font:700 1rem/1.2 var(--text);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .18s,color .18s,border-color .18s,transform .12s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:22px;height:22px;flex:none;fill:currentColor}
+.b-call{background:var(--deep);color:#fff}
+.b-call:hover{background:var(--deep-h)}
+.b-ink{background:var(--ink);color:var(--paper)}
+.b-ink:hover{background:#000}
+.b-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.b-line:hover{background:var(--ink);color:var(--paper)}
+.dark .b-line{border-color:var(--paper);color:var(--paper)}
+.dark .b-line:hover{background:var(--paper);color:var(--ink)}
+.dark .b-ink{background:var(--paper);color:var(--ink)}
+.dark .b-ink:hover{background:#fff}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.mark{display:inline-flex;align-items:center;min-height:48px;font:800 1.75rem/1 var(--head);letter-spacing:-.035em;text-decoration:none}
+.mark span{color:var(--green)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a.l{display:inline-flex;align-items:center;min-height:48px;padding:0 12px;font-weight:700;text-decoration:none}
+.nav a.l:hover{text-decoration:underline;text-decoration-thickness:2px}
+.nav .btn{margin-left:10px;min-height:48px;padding:10px 18px}
+@media (max-width:980px){.nav a.l{display:none}}
+@media (max-width:719px){.nav{display:none}}
+
+/* timeline (the motif): one day from 6:00 to 22:00, open window in logo green */
+.tl{position:relative;height:14px;background:var(--rule);border-radius:2px}
+.tl i{position:absolute;top:0;bottom:0;left:calc((var(--a) - var(--t0)) / (var(--t1) - var(--t0)) * 100%);width:calc((var(--b) - var(--a)) / (var(--t1) - var(--t0)) * 100%);background:var(--green);border-radius:2px}
+.tl .now{position:absolute;top:-7px;bottom:-7px;width:3px;margin-left:-1.5px;background:var(--ink);left:var(--now,0);display:none}
+.tl.has-now .now{display:block}
+.ticks{display:flex;justify-content:space-between;margin-top:8px;font-size:.8125rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);gap:clamp(28px,4.5vw,72px);align-items:center;margin-top:clamp(8px,2vw,28px)}
+.hero h1{font-size:clamp(2.5rem,4.6vw,4.25rem)}
+.lead{margin-top:20px;max-width:32em;font-size:clamp(1.0625rem,1.3vw,1.2rem)}
+.rating{display:inline-flex;align-items:center;gap:8px;min-height:48px;margin-top:6px;font-weight:700}
+.rating b{font:800 1.25rem/1 var(--head)}
+.status{margin-top:26px;padding:22px 22px 18px;background:var(--field);border-radius:var(--r)}
+.state{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem}
+.state::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--ink);background:transparent}
+.is-open .state::before{background:var(--deep);border-color:var(--deep)}
+.big{margin-top:6px;font:800 clamp(1.7rem,3vw,2.5rem)/1.05 var(--head);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.status .sub{margin-top:6px;color:var(--muted)}
+.status .tl{margin-top:20px}
+.status .tl i{background:var(--deep)}
+.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cta .btn{padding-inline:18px}
+.hero-pic{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--field)}
+.hero-pic img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.hero-pic figcaption{position:absolute;left:14px;bottom:14px;background:var(--paper);padding:8px 12px;border-radius:var(--r);font-size:.875rem;font-weight:700}
+@media (max-width:899px){
+  .hero{grid-template-columns:1fr}
+  .hero-pic{aspect-ratio:4/3;order:-1}
+}
+
+/* wizyta: the week as seven timelines */
+.visit{background:var(--field);padding-block:clamp(56px,8vw,110px)}
+.visit-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.visit .txt{display:grid;gap:18px;max-width:30em}
+.visit .txt p{font-size:1.125rem}
+.steps{display:flex;flex-wrap:wrap;gap:8px}
+.steps li{background:var(--paper);padding:8px 14px;border-radius:var(--r);font-weight:700}
+.week{display:grid;gap:2px}
+.week .row{display:grid;grid-template-columns:7.5em minmax(0,1fr) 7.5em;gap:16px;align-items:center;padding:12px 12px;border-radius:var(--r)}
+.week dt{font-weight:700}
+.week dd.h{text-align:right;font-variant-numeric:tabular-nums}
+.week .today{background:var(--paper)}
+.week .today dt::after{content:" (dziś)";font-weight:400;color:var(--muted)}
+.week .tl i{background:var(--deep)}
+.week .ticks{margin-left:calc(7.5em + 28px);margin-right:calc(7.5em + 28px)}
+.visit .pic{margin-top:28px;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2}
+.visit .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 78%}
+@media (max-width:899px){.visit-in{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .week .row{grid-template-columns:5.6em minmax(0,1fr);gap:6px 12px}
+  .week .tl{grid-column:1/-1;grid-row:2}
+  .week dd.h{grid-column:2;grid-row:1}
+  .week .ticks{margin-inline:12px}
+}
+
+/* usługi: ruled list, the two main services larger */
+.svc{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.svc-side{position:sticky;top:24px;display:grid;gap:18px}
+.svc-side .pic{border-radius:var(--r);overflow:hidden;aspect-ratio:3/2;margin-top:10px}
+.svc-side .pic img{width:100%;height:100%;object-fit:cover}
+.svc-list li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px 32px;padding:22px 0;border-top:1px solid var(--rule)}
+.svc-list li:last-child{border-bottom:1px solid var(--rule)}
+.svc-list li.main{grid-template-columns:1fr;padding:28px 0}
+.svc-list li.main h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.svc-list li.main p{font-size:1.125rem;max-width:36em}
+.svc-list p{color:var(--muted)}
+@media (max-width:899px){.svc{grid-template-columns:1fr}.svc-side{position:static}}
+@media (max-width:640px){.svc-list li{grid-template-columns:1fr}}
+
+/* o nas */
+.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:center}
+.about .pic{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;max-height:720px}
+.about .pic img{width:100%;height:100%;object-fit:cover}
+.about .txt{display:grid;gap:20px;max-width:32em}
+.year{font:800 clamp(4.5rem,11vw,9rem)/.85 var(--head);letter-spacing:-.05em;color:var(--green)}
+.about .txt a{font-weight:700}
+@media (max-width:899px){.about{grid-template-columns:1fr}.about .pic{aspect-ratio:3/2}}
+
+/* opinie */
+.rev-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,96px);margin-top:clamp(32px,4vw,56px);align-items:start}
+.score b{display:block;font:800 clamp(4.5rem,9vw,7.5rem)/.9 var(--head);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.score p{margin-top:12px;color:var(--muted)}
+.score a{display:inline-flex;align-items:center;min-height:48px;margin-top:8px;font-weight:700}
+.quotes{display:grid;gap:clamp(32px,4vw,48px)}
+.quotes blockquote p{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.4}
+.quotes figure+figure blockquote p{font-size:1.125rem}
+.quotes figcaption{margin-top:14px;font-size:.9375rem;color:var(--muted)}
+.quotes figcaption b{color:var(--ink)}
+.stars{color:var(--deep);letter-spacing:.1em}
+@media (max-width:899px){.rev-in{grid-template-columns:1fr}}
+
+/* dojazd */
+.loc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);margin-top:clamp(28px,4vw,48px);align-items:stretch}
+.loc address{font-style:normal;font-size:clamp(1.25rem,1.8vw,1.5rem);line-height:1.4}
+.loc .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.loc .note{margin-top:20px;color:var(--muted);max-width:28em}
+.map{min-height:360px;border-radius:var(--r);overflow:hidden;background:var(--field)}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0}
+@media (max-width:899px){.loc{grid-template-columns:1fr}}
+
+/* kontakt + footer: one dark block */
+.dark{background:var(--ink);color:var(--paper)}
+.contact{margin-top:var(--gap);padding-block:clamp(64px,9vw,128px) 0}
+.contact h2{color:var(--paper)}
+.phone{display:inline-block;margin-top:18px;font:800 clamp(2.6rem,7.4vw,6.4rem)/1 var(--head);letter-spacing:-.035em;text-decoration:none;font-variant-numeric:tabular-nums}
+.phone:hover{color:var(--green)}
+.contact .cta{margin-top:28px}
+.contact .mail{display:inline-flex;align-items:center;min-height:48px;margin-top:14px;font-weight:700}
+.contact .tlbox{margin-top:clamp(40px,6vw,72px);max-width:640px}
+.contact .tlbox p{color:var(--on-ink);margin-bottom:14px}
+.dark .tl{background:#4A4546}
+.dark .tl .now{background:var(--paper)}
+.dark .ticks{color:var(--on-ink)}
+footer{padding-block:clamp(56px,7vw,96px) clamp(28px,4vw,40px);color:var(--on-ink);font-size:.9375rem}
+.foot{display:flex;flex-wrap:wrap;gap:8px 40px;padding-top:28px;border-top:1px solid #4A4546}
+.foot a{display:inline-flex;align-items:center;min-height:44px}
+.credits{margin-top:16px;font-size:.875rem;max-width:64em}
+
+/* mobile bar */
+.bar{display:none}
+@media (max-width:719px){
+  .bar{display:grid;grid-template-columns:1.25fr 1.15fr 1fr;gap:6px;position:fixed;inset:auto 0 0 0;z-index:40;background:var(--ink);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+  .bar .btn{min-height:52px;padding:8px 6px;font-size:.9375rem;gap:6px}
+  .bar .btn svg{width:20px;height:20px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .hero .cta .btn{flex:1 1 100%}
+  .hero-pic{aspect-ratio:16/10}
+}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*70ms)}
+.js .rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></symbol>
+</svg>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="demo">Wersja demonstracyjna strony, przygotowana przez Praxis Webs.</div>
+
+<header class="top wrap">
+  <a class="mark" href="#main" aria-label="HorusVet, początek strony">Horus<span>Vet</span></a>
+  <nav class="nav" aria-label="Nawigacja główna">
+    <a class="l" href="#wizyta">Wizyta</a>
+    <a class="l" href="#uslugi">Usługi</a>
+    <a class="l" href="#opinie">Opinie</a>
+    <a class="l" href="#dojazd">Dojazd</a>
+    <a class="btn b-call" href="tel:+48503864521"><svg aria-hidden="true"><use href="#i-tel"/></svg><span class="num">503 864 521</span></a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero wrap" style="margin-top:clamp(8px,2vw,28px)" aria-labelledby="h-hero">
+  <div>
+    <h1 id="h-hero" class="rv">Weterynarz na Prądniku Białym</h1>
+    <p class="lead rv" style="--i:1">Gabinet Weterynaryjny HorusVet leczy psy, koty oraz zwierzęta futerkowe i egzotyczne. Przyjmujemy po południu, żeby dało się przyjść po pracy.</p>
+    <a class="rating rv" style="--i:2" href="https://maps.google.com/?cid=6805971964344033278" target="_blank" rel="noopener"><b>4,9</b> <span class="stars" aria-hidden="true">★★★★★</span> 74 opinie w Google</a>
+    <div class="status rv" style="--i:3" id="status" aria-live="polite">
+      <p class="state" id="st-state">Godziny przyjęć</p>
+      <p class="big" id="st-big">Pon.–pt. 16:00–20:00, sob. 10:00–13:00</p>
+      <p class="sub" id="st-sub">W niedzielę gabinet jest nieczynny.</p>
+      <div class="tl" id="tl-hero" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></div>
+      <div class="ticks" aria-hidden="true"><span>6:00</span><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span></div>
+    </div>
+    <div class="cta rv" style="--i:4">
+      <a class="btn b-call" href="tel:+48503864521"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń: <span class="num">503 864 521</span></a>
+      <a class="btn b-ink" data-wa href="https://wa.me/48503864521" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+      <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Henryka%20Pacho%C5%84skiego%208%2C%2031-223%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
+  </div>
+  <figure class="hero-pic rv" style="--i:1">
+    <img src="https://images.unsplash.com/photo-1725409796872-8b41e8eca929?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1725409796872-8b41e8eca929?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1725409796872-8b41e8eca929?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1725409796872-8b41e8eca929?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 50vw" alt="Biały kotek badany przez weterynarza" width="1600" height="1200" fetchpriority="high">
+    <figcaption>Pachońskiego 8, Prądnik Biały</figcaption>
+  </figure>
+</section>
+
+<section id="wizyta" class="visit" aria-labelledby="h-wizyta">
+  <div class="wrap visit-in">
+    <div class="txt">
+      <h2 id="h-wizyta" class="rv">Wizyta po pracy, bez umawiania</h2>
+      <p class="rv" style="--i:1">Wizyty rutynowe nie wymagają rezerwacji godziny. Wystarczy przyjść w czasie, gdy gabinet jest otwarty.</p>
+      <p class="rv" style="--i:2">Wizyta ma trzy części:</p>
+      <ul class="steps rv" style="--i:2"><li>wywiad</li><li>badania</li><li>diagnoza</li></ul>
+      <p class="rv" style="--i:3">Na zabiegi chirurgiczne umawiamy się telefonicznie, parę dni wcześniej.</p>
+    </div>
+    <div class="rv" style="--i:2">
+      <dl class="week" id="week" aria-label="Godziny przyjęć">
+        <div class="row" data-d="1"><dt>Poniedziałek</dt><dd class="tl" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">16:00–20:00</dd></div>
+        <div class="row" data-d="2"><dt>Wtorek</dt><dd class="tl" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">16:00–20:00</dd></div>
+        <div class="row" data-d="3"><dt>Środa</dt><dd class="tl" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">16:00–20:00</dd></div>
+        <div class="row" data-d="4"><dt>Czwartek</dt><dd class="tl" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">16:00–20:00</dd></div>
+        <div class="row" data-d="5"><dt>Piątek</dt><dd class="tl" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">16:00–20:00</dd></div>
+        <div class="row" data-d="6"><dt>Sobota</dt><dd class="tl" style="--a:10;--b:13" aria-hidden="true"><i></i><span class="now"></span></dd><dd class="h">10:00–13:00</dd></div>
+        <div class="row" data-d="0"><dt>Niedziela</dt><dd class="tl" aria-hidden="true"><span class="now"></span></dd><dd class="h">Zamknięte</dd></div>
+      </dl>
+      <div class="ticks" aria-hidden="true"><span>6:00</span><span>14:00</span><span>22:00</span></div>
+      <figure class="pic">
+        <img src="https://images.unsplash.com/photo-1774368230113-7a36d9ca8b21?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1774368230113-7a36d9ca8b21?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1774368230113-7a36d9ca8b21?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1774368230113-7a36d9ca8b21?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 55vw" alt="Mały pies wyglądający przez okno" width="1200" height="1500" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="uslugi" class="wrap" aria-labelledby="h-uslugi">
+  <div class="svc">
+    <div class="svc-side">
+      <h2 id="h-uslugi" class="rv">Czym się zajmujemy</h2>
+      <p class="rv muted" style="--i:1">Od szczepień po badania laboratoryjne i drobne zabiegi.</p>
+      <figure class="pic rv" style="--i:2">
+        <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 34vw" alt="Osoba trzymająca srebrnego kota pręgowanego" width="1200" height="800" loading="lazy">
+      </figure>
+    </div>
+    <ul class="svc-list">
+      <li class="main rv"><h3>Profilaktyka</h3><p>Szczepienia ochronne, odrabaczanie, odpchlanie, antykoncepcja i badania kontrolne.</p></li>
+      <li class="main rv"><h3>Diagnostyka laboratoryjna</h3><p>We współpracy z Laboratorium Weterynaryjnym LAB-WET: badania krwi, moczu i kału, cytologiczne, mikrobiologiczne, patomorfologiczne, genetyczne i mykologiczne, testy chorób zakaźnych oraz zeskrobiny skórne.</p></li>
+      <li class="rv"><h3>Chirurgia miękka</h3><p>Kastracja, sterylizacja, usuwanie przepuklin i guzów oraz drobne zabiegi.</p></li>
+      <li class="rv"><h3>Stomatologia</h3><p>Badanie jamy ustnej, usuwanie zębów, ultradźwiękowe usuwanie kamienia (piezodent) i nauka higieny.</p></li>
+      <li class="rv"><h3>Paszporty i znakowanie</h3><p>Mikroczipy, paszporty i rejestracja w Safe-animal.eu.</p></li>
+      <li class="rv"><h3>Pielęgnacja</h3><p>Obcinanie pazurków, przycinanie zębów gryzoniom, czyszczenie uszu i gruczołów okołoodbytowych.</p></li>
+      <li class="rv"><h3>Doradztwo żywieniowe</h3><p>Diety i karmy Royal Canin, Hill's, Farmina, Arion, Purina i Acana.</p></li>
+      <li class="rv"><h3>Artykuły zoologiczne</h3><p>Smycze, obroże, szelki, miski i przysmaki.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="onas" class="wrap" aria-labelledby="h-onas">
+  <div class="about">
+    <figure class="pic rv">
+      <img src="https://images.unsplash.com/photo-1512483652399-7a1f99aa0dd3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70" srcset="https://images.unsplash.com/photo-1512483652399-7a1f99aa0dd3?auto=format&amp;fit=crop&amp;w=640&amp;q=70 640w, https://images.unsplash.com/photo-1512483652399-7a1f99aa0dd3?auto=format&amp;fit=crop&amp;w=1024&amp;q=70 1024w, https://images.unsplash.com/photo-1512483652399-7a1f99aa0dd3?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w" sizes="(max-width: 899px) 100vw, 52vw" alt="Brązowo-biała świnka morska" width="1200" height="1500" loading="lazy">
+    </figure>
+    <div class="txt">
+      <p class="year rv" aria-hidden="true">2015</p>
+      <h2 id="h-onas" class="rv" style="--i:1">Gabinet na Prądniku Białym od 2015 roku</h2>
+      <p class="rv" style="--i:2">HorusVet działa od stycznia 2015 roku. Zajmujemy się psami i kotami, a także zwierzętami futerkowymi i egzotycznymi.</p>
+      <p class="rv" style="--i:3">Opiekunowie najczęściej piszą w opiniach o profesjonalnym, ciepłym podejściu, o wiedzy i o zaangażowaniu w leczenie. W Google gabinet ma ocenę 4,9, a 72 z 74 ocen to pięć gwiazdek.</p>
+      <p class="rv" style="--i:4">Odpowiedzi na pytania o umawianie, sterylizację i kastrację, przygotowanie do badania krwi oraz pobranie moczu i kału są na <a href="http://www.horusvet.pl/" target="_blank" rel="noopener">stronie horusvet.pl</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="opinie" class="wrap" aria-labelledby="h-opinie">
+  <h2 id="h-opinie" class="rv">Co piszą opiekunowie zwierząt</h2>
+  <div class="rev-in">
+    <div class="score rv" style="--i:1">
+      <b>4,9</b>
+      <p><span class="stars" aria-hidden="true">★★★★★</span><br>74 opinie w Google</p>
+      <a href="https://maps.google.com/?cid=6805971964344033278" target="_blank" rel="noopener">Wszystkie opinie w Google</a>
+    </div>
+    <div class="quotes">
+      <figure class="rv" style="--i:2">
+        <blockquote><p>„Pani Ania dała się nam poznać nie tylko jako weterynarz o dużej wiedzy i doświadczeniu ale przede wszystkim o wielkim sercu dla zwierząt. Bardzo dziękujemy za zaangażowanie w leczeniu naszego ciężko chorego kota Franka. Nie spotkaliśmy…”</p></blockquote>
+        <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Barbara S.</b>, edytowano rok temu. Opinia z Google</figcaption>
+      </figure>
+      <figure class="rv" style="--i:3">
+        <blockquote><p>„Bardzo polecam Panią Weterynarz. Profesjonalne, empatyczne i ciepłe podejście. Jesteśmy pod Pani opieką już kolejny rok :)”</p></blockquote>
+        <figcaption><span class="stars" aria-hidden="true">★★★★★</span><span class="sr">5 na 5 gwiazdek. </span> <b>Dorota D.</b>, 2 miesiące temu. Opinia z Google</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="dojazd" class="wrap" aria-labelledby="h-dojazd">
+  <h2 id="h-dojazd" class="rv">Dojazd</h2>
+  <div class="loc">
+    <div class="rv" style="--i:1">
+      <address>Henryka Pachońskiego 8<br>31-223 Kraków<br>Prądnik Biały</address>
+      <div class="acts">
+        <a class="btn b-call" href="https://www.google.com/maps/dir/?api=1&amp;destination=Henryka%20Pacho%C5%84skiego%208%2C%2031-223%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+        <a class="btn b-line" href="https://maps.google.com/?cid=6805971964344033278" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+      </div>
+      <p class="note">Pon.–pt. 16:00–20:00, sob. 10:00–13:00. W niedzielę gabinet jest nieczynny.</p>
+    </div>
+    <div class="map rv" style="--i:2"><iframe title="Mapa dojazdu do gabinetu HorusVet" loading="lazy" src="https://maps.google.com/maps?q=50.0938085,19.9279506&amp;z=16&amp;output=embed"></iframe></div>
+  </div>
+</section>
+</main>
+
+<div class="dark">
+  <section id="kontakt" class="contact wrap" aria-labelledby="h-kontakt">
+    <h2 id="h-kontakt" class="rv">Zadzwoń lub napisz</h2>
+    <a class="phone rv" style="--i:1" href="tel:+48503864521">503 864 521</a>
+    <div class="cta rv" style="--i:2">
+      <a class="btn b-call" href="tel:+48503864521"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+      <a class="btn b-ink" data-wa href="https://wa.me/48503864521" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
+      <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Henryka%20Pacho%C5%84skiego%208%2C%2031-223%20Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Wyznacz trasę</a>
+    </div>
+    <a class="mail rv" style="--i:3" href="mailto:horusvet@gmail.com">horusvet@gmail.com</a>
+    <div class="tlbox rv" style="--i:3">
+      <p id="st-dark">Pon.–pt. 16:00–20:00, sob. 10:00–13:00.</p>
+      <div class="tl" id="tl-dark" style="--a:16;--b:20" aria-hidden="true"><i></i><span class="now"></span></div>
+      <div class="ticks" aria-hidden="true"><span>6:00</span><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span></div>
+    </div>
+  </section>
+  <footer class="wrap">
+    <div class="foot">
+      <span>Gabinet Weterynaryjny HorusVet</span>
+      <span>Henryka Pachońskiego 8, 31-223 Kraków</span>
+      <a href="tel:+48503864521">503 864 521</a>
+      <a href="mailto:horusvet@gmail.com">horusvet@gmail.com</a>
+    </div>
+    <p class="credits">Dane z wizytówki Google i strony horusvet.pl. Zdjęcia poglądowe z Unsplash: <a href="https://unsplash.com/photos/5Bi6MWlWMbw">Judy Beth Morris</a>, <a href="https://unsplash.com/photos/lk-_TT1qMCI">Cesar Alfonso</a>, <a href="https://unsplash.com/photos/tDlo2ZPlQlU">Werzk Luuuuuuu</a>, <a href="https://unsplash.com/photos/3fjyk4CLfvA">Karlijn Prot</a>.</p>
+  </footer>
+</div>
+
+<div class="bar dark" role="group" aria-label="Szybki kontakt">
+  <a class="btn b-call" href="tel:+48503864521" aria-label="Zadzwoń: 503 864 521"><svg aria-hidden="true"><use href="#i-tel"/></svg>Zadzwoń</a>
+  <a class="btn b-ink" data-wa href="https://wa.me/48503864521" target="_blank" rel="noopener" aria-label="Napisz na WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn b-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Henryka%20Pacho%C5%84skiego%208%2C%2031-223%20Krak%C3%B3w" target="_blank" rel="noopener" aria-label="Wyznacz trasę do gabinetu">Trasa</a>
+</div>
+
+<script>
+(function(){
+  var d=document.documentElement;d.classList.add('js');
+  var wa='https://wa.me/48503864521?text='+encodeURIComponent('Dzień dobry, piszę ze strony internetowej. Chciał(a)bym umówić wizytę.');
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href=wa;});
+
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('is-in');});}
+
+  /* opening hours, Europe/Warsaw wall clock */
+  var H={1:[16,20],2:[16,20],3:[16,20],4:[16,20],5:[16,20],6:[10,13]};
+  var names=['w niedzielę','w poniedziałek','we wtorek','w środę','w czwartek','w piątek','w sobotę'];
+  var fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+  function wall(){
+    var o={};fmt.formatToParts(new Date()).forEach(function(p){o[p.type]=p.value;});
+    var dow=new Date(Date.UTC(+o.year,+o.month-1,+o.day)).getUTCDay();
+    return {dow:dow,h:+o.hour,m:+o.minute,min:(+o.hour)*60+(+o.minute)};
+  }
+  var N=' ';
+  function dur(m){var h=Math.floor(m/60),mm=m%60;return h>0?(h+N+'h'+N+(mm<10?'0':'')+mm+N+'min'):(mm+N+'min');}
+  function p2(n){return (n<10?'0':'')+n;}
+  var status=document.getElementById('status'),sState=document.getElementById('st-state'),sBig=document.getElementById('st-big'),sSub=document.getElementById('st-sub'),sDark=document.getElementById('st-dark');
+  var tls=[document.getElementById('tl-hero'),document.getElementById('tl-dark')];
+  function tick(){
+    var w=wall(),h=H[w.dow];
+    /* today's row and "now" markers */
+    var pos=(w.min/60-6)/16*100;
+    document.querySelectorAll('#week .row').forEach(function(r){
+      var t=+r.getAttribute('data-d')===w.dow;r.classList.toggle('today',t);
+      var tl=r.querySelector('.tl');tl.classList.toggle('has-now',t&&pos>=0&&pos<=100);tl.style.setProperty('--now',pos+'%');
+    });
+    /* hero and dark timelines: today's window, or the next opening day's once today is over */
+    var sd=w.dow,sh=h,today=true;
+    if(!h||w.min>=h[1]*60){for(var j=1;j<8;j++){var x=(w.dow+j)%7;if(H[x]){sd=x;sh=H[x];today=false;break;}}}
+    tls.forEach(function(tl){
+      tl.style.setProperty('--a',sh[0]);tl.style.setProperty('--b',sh[1]);
+      tl.classList.toggle('has-now',today&&pos>=0&&pos<=100);tl.style.setProperty('--now',pos+'%');
+    });
+    /* status text */
+    var open=h&&w.min>=h[0]*60&&w.min<h[1]*60;
+    status.classList.toggle('is-open',!!open);
+    if(open){
+      sState.textContent='Otwarte teraz';
+      sBig.textContent='Zamykamy za '+dur(h[1]*60-w.min);
+      sSub.textContent='Dziś do '+p2(h[1])+':00. Wizyt rutynowych nie trzeba umawiać.';
+      sDark.textContent='Otwarte teraz, dziś do '+p2(h[1])+':00.';
+      return;
+    }
+    sState.textContent='Teraz zamknięte';
+    for(var i=0;i<8;i++){
+      var dw=(w.dow+i)%7,hh=H[dw];if(!hh)continue;
+      var left=i*1440+hh[0]*60-w.min;if(left<=0)continue;
+      var when=i===0?'Dziś':(i===1?'Jutro':names[dw].charAt(0).toUpperCase()+names[dw].slice(1));
+      sBig.textContent=left<=1440?('Otwieramy za '+dur(left)):('Otwieramy '+(i===1?'jutro':names[dw])+' o'+N+p2(hh[0])+':00');
+      sSub.textContent=when+' od '+p2(hh[0])+':00 do '+p2(hh[1])+':00. Wizyty rutynowe bez umawiania.';
+      sDark.textContent='Teraz zamknięte. '+when+' od '+p2(hh[0])+':00.';
+      break;
+    }
+  }
+  tick();setInterval(tick,20000);
+})();
+</script>
+</body>
+</html>
