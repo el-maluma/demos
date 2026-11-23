@@ -99,12 +99,19 @@ section{margin-top:var(--gap)}
 .sign .cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .sign .cta .btn{padding-inline:16px}
 
-/* Muybridge stage (the live element) */
+/* Gait stage (the live element): a walking figure with motion-capture markers, drawn by the script */
 .lab{background:var(--field);border-radius:var(--r);padding:clamp(14px,2vw,24px);display:grid;gap:16px}
-.stage{position:relative;overflow:hidden;width:100%;aspect-ratio:1.595;background:#222;border-radius:2px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;display:none}
+.stage{display:none;width:100%;height:auto;aspect-ratio:1.6;background:var(--paper);border-radius:2px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .js .stage{display:block}
 .stage.drag{cursor:grabbing}
-.stage img{position:absolute;max-width:none;height:auto;pointer-events:none}
+.g-grid{stroke:var(--rule);stroke-width:.6}
+.g-floor{stroke:var(--ink);stroke-width:1.4}
+.g-far{stroke:var(--cyan);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.g-near{stroke:var(--sign);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.g-torso{stroke:var(--sign);stroke-width:15;stroke-linecap:round}
+.g-arm{stroke-width:6}
+.g-head{fill:var(--sign)}
+.g-mk{fill:var(--paper);stroke:var(--tcyan);stroke-width:2}
 .ctrl{display:none;align-items:center;gap:clamp(14px,2vw,24px)}
 .js .ctrl{display:flex}
 .readout{font-size:clamp(2.6rem,4vw,3.6rem);font-weight:700;letter-spacing:-.04em;line-height:.9;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -116,12 +123,10 @@ section{margin-top:var(--gap)}
 .js .thumbs{display:flex}
 .tw{flex:1;min-width:0;cursor:pointer;padding-bottom:6px;border-bottom:3px solid transparent}
 .tw.on{border-color:var(--sign)}
-.th{position:relative;overflow:hidden;aspect-ratio:1.595;background:#222}
-.th img{position:absolute;max-width:none;height:auto;pointer-events:none}
+.th{display:block;width:100%;height:auto;aspect-ratio:1.6;background:var(--paper)}
 .cap{font-size:.875rem;color:var(--muted)}
 html:not(.js) .ctrl,html:not(.js) .thumbs{display:none}
-.plate-static{display:none}
-html:not(.js) .plate-static{display:block}
+html:not(.js) .lab{display:none}
 @media (max-width:899px){.hero{grid-template-columns:1fr}}
 @media (max-width:560px){.ctrl{flex-wrap:wrap}.ctrl-mid{flex:1 1 100%;order:3}.thumbs{flex-wrap:wrap}.tw{flex:0 0 calc((100% - 30px)/6)}}
 
@@ -258,20 +263,17 @@ footer{padding-block:clamp(48px,6vw,80px) clamp(28px,4vw,40px);font-size:.9375re
   </div>
 
   <div class="lab rv" style="--i:2">
-    <div class="stage" id="stage" role="img" aria-label="Klatka z sekwencji galopu konia z jeźdźcem, fotografia Eadwearda Muybridge'a z 1878 roku">
-      <img id="stageImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Horse_in_Motion_high_res.jpg/1920px-The_Horse_in_Motion_high_res.jpg" alt="" width="1920" height="1183" fetchpriority="high">
-    </div>
+    <svg class="stage" id="stage" viewBox="0 0 320 200" role="img" aria-label="Sylwetka idącego człowieka z markerami na stawach: jeden krok rozłożony na 12 klatek"></svg>
     <div class="ctrl">
-      <div class="readout" aria-hidden="true"><span id="num">1</span><small>z 11</small></div>
+      <div class="readout" aria-hidden="true"><span id="num">1</span><small>z 12</small></div>
       <div class="ctrl-mid">
-        <p class="hint">Przeciągnij zdjęcie w bok, aby ruszyć galop klatka po klatce. Albo użyj suwaka.</p>
-        <input class="range" id="range" type="range" min="1" max="11" step="1" value="1" aria-label="Klatka sekwencji galopu" aria-valuetext="Klatka 1 z 11">
+        <p class="hint">Przeciągnij sylwetkę w bok, aby zobaczyć krok klatka po klatce. Albo użyj suwaka.</p>
+        <input class="range" id="range" type="range" min="1" max="12" step="1" value="1" aria-label="Klatka cyklu chodu" aria-valuetext="Klatka 1 z 12">
       </div>
       <button class="btn b-line" id="play" type="button" aria-pressed="false">Zatrzymaj</button>
     </div>
     <div class="thumbs" id="thumbs" aria-hidden="true"></div>
-    <figure class="plate-static"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Horse_in_Motion_high_res.jpg/1920px-The_Horse_in_Motion_high_res.jpg" alt="Chronofotografia Eadwearda Muybridge'a z 1878 roku: dwanaście klatek galopującego konia z jeźdźcem" width="1920" height="1183"></figure>
-    <p class="cap">Eadweard Muybridge, „The Horse in Motion” (Sallie Gardner), 1878. Domena publiczna.</p>
+    <p class="cap">Jeden krok w 12 klatkach: biodro, kolano i kostka pracują razem. Tak wygląda ruch, który przywracamy.</p>
   </div>
 </section>
 
@@ -392,7 +394,7 @@ footer{padding-block:clamp(48px,6vw,80px) clamp(28px,4vw,40px);font-size:.9375re
     <span>Seweryna Goszczyńskiego 1, 30-724 Kraków</span>
     <a href="tel:+48698428350">698 428 350</a>
   </div>
-  <p class="credits">Dane z wizytówki Google i strony laboratoriumruchu.com. Zdjęcia poglądowe: Eadweard Muybridge, „The Horse in Motion”, 1878 (domena publiczna, Wikimedia Commons); Towfiqu barbhuiya, Ortopediatri Çocuk Ortopedi Akademisi, Performance Medicine i yury kirillov (Unsplash).</p>
+  <p class="credits">Dane z wizytówki Google i strony laboratoriumruchu.com. Zdjęcia poglądowe: Towfiqu barbhuiya, Ortopediatri Çocuk Ortopedi Akademisi, Performance Medicine i yury kirillov (Unsplash).</p>
 </footer>
 
 <div class="bar" role="group" aria-label="Szybki kontakt">
@@ -412,25 +414,52 @@ footer{padding-block:clamp(48px,6vw,80px) clamp(28px,4vw,40px);font-size:.9375re
     els.forEach(function(el){io.observe(el);});
   }else{els.forEach(function(el){el.classList.add('is-in');});}
 
-  /* Galop: frame geometry on the plate (fractions of the 5694x3510 image), 4 columns x 3 rows, 11 frames */
-  var FXS=[.027,.269,.512,.757],FYS=[.048,.305,.563],FW=.221,FH=.232,N=11;
-  var stage=document.getElementById('stage'),img=document.getElementById('stageImg');
-  var num=document.getElementById('num'),range=document.getElementById('range'),play=document.getElementById('play'),thumbs=document.getElementById('thumbs');
+  /* Gait: one walking step in N frames, joint angles from a simple gait model (degrees, + = forward) */
+  var N=12,SVG='http://www.w3.org/2000/svg',R=Math.PI/180;
+  var stage=document.getElementById('stage'),num=document.getElementById('num'),range=document.getElementById('range'),play=document.getElementById('play'),thumbs=document.getElementById('thumbs');
   var cur=0,timer=null,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,tws=[];
-  function place(im,i){im.style.width=(100/FW)+'%';im.style.left=(-FXS[i%4]/FW*100)+'%';im.style.top=(-FYS[Math.floor(i/4)]/FH*100)+'%';}
+  function bump(t,c,w){var d=Math.abs(t-c);d=Math.min(d,1-d);return Math.exp(-d*d/(2*w*w));}
+  function leg(t,hip){
+    var h=(8+19*Math.cos(2*Math.PI*t))*R, k=(4+14*bump(t,.13,.06)+58*bump(t,.72,.1))*R, s=h-k, f=s-22*bump(t,.6,.06)*R;
+    var knee=[hip[0]+42*Math.sin(h),hip[1]+42*Math.cos(h)], ank=[knee[0]+42*Math.sin(s),knee[1]+42*Math.cos(s)];
+    return [hip,knee,ank,[ank[0]+15*Math.cos(f)-4*Math.sin(f),ank[1]-15*Math.sin(f)-4*Math.cos(f)],[ank[0]-4*Math.cos(f),ank[1]+4*Math.sin(f)]];
+  }
+  function arm(t,sh){
+    var a=(-4-16*Math.cos(2*Math.PI*t))*R, e=a+(22+10*bump(t,.5,.2))*R;
+    var el=[sh[0]+28*Math.sin(a),sh[1]+28*Math.cos(a)];
+    return [sh,el,[el[0]+26*Math.sin(e),el[1]+26*Math.cos(e)]];
+  }
+  function pose(i){
+    var t=i/N,hip=[160,0],near=leg(t,hip),far=leg((t+.5)%1,hip);
+    var low=Math.max.apply(null,near.concat(far).map(function(p){return p[1];})),dy=184-low;
+    function mv(ps){return ps.map(function(p){return [p[0],p[1]+dy];});}
+    near=mv(near);far=mv(far);var H=[160,dy],sh=[164,dy-54];
+    return {near:near,far:far,hip:H,sh:sh,armN:arm((t+.5)%1,sh),armF:arm(t,sh),head:[167,dy-70]};
+  }
+  function pl(ps){return ps.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' ');}
+  function draw(i,mk){
+    var P=pose(i),g='';
+    if(mk){for(var x=20;x<320;x+=20)g+='<line class="g-grid" x1="'+x+'" y1="0" x2="'+x+'" y2="184"/>';for(var y=24;y<184;y+=20)g+='<line class="g-grid" x1="0" y1="'+y+'" x2="320" y2="'+y+'"/>';}
+    g+='<line class="g-floor" x1="0" y1="185" x2="320" y2="185"/>';
+    g+='<polyline class="g-far" points="'+pl(P.far.slice(0,4))+' '+pl([P.far[4],P.far[2]])+'"/><polyline class="g-far g-arm" points="'+pl(P.armF)+'"/>';
+    g+='<line class="g-torso" x1="'+P.sh[0]+'" y1="'+(P.sh[1]+4).toFixed(1)+'" x2="'+P.hip[0]+'" y2="'+(P.hip[1]-2).toFixed(1)+'"/><circle class="g-head" cx="'+P.head[0]+'" cy="'+P.head[1].toFixed(1)+'" r="11"/>';
+    g+='<polyline class="g-near" points="'+pl(P.near.slice(0,4))+' '+pl([P.near[4],P.near[2]])+'"/><polyline class="g-near g-arm" points="'+pl(P.armN)+'"/>';
+    if(mk)[P.sh,P.armN[1],P.armN[2],P.hip,P.near[1],P.near[2],P.near[3]].forEach(function(p){g+='<circle class="g-mk" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3.6"/>';});
+    return g;
+  }
   for(var k=0;k<N;k++){(function(k){
-    var tw=document.createElement('div'),th=document.createElement('div'),im=document.createElement('img');
-    tw.className='tw';th.className='th';im.src=img.src;im.alt='';im.width=1920;im.height=1183;
-    place(im,k);th.appendChild(im);tw.appendChild(th);thumbs.appendChild(tw);tws.push(tw);
+    var tw=document.createElement('div'),th=document.createElementNS(SVG,'svg');
+    tw.className='tw';th.setAttribute('class','th');th.setAttribute('viewBox','0 0 320 200');th.innerHTML=draw(k,false);
+    tw.appendChild(th);thumbs.appendChild(tw);tws.push(tw);
     tw.addEventListener('click',function(){stop();show(k);});
   })(k);}
-  function show(i){cur=((i%N)+N)%N;place(img,cur);num.textContent=cur+1;range.value=cur+1;range.setAttribute('aria-valuetext','Klatka '+(cur+1)+' z '+N);tws.forEach(function(t,j){t.classList.toggle('on',j===cur);});}
-  function stop(){if(timer){clearInterval(timer);timer=null;}play.textContent='Odtwórz galop';play.setAttribute('aria-pressed','false');}
-  function start(){if(timer)return;timer=setInterval(function(){show(cur+1);},110);play.textContent='Zatrzymaj';play.setAttribute('aria-pressed','true');}
+  function show(i){cur=((i%N)+N)%N;stage.innerHTML=draw(cur,true);num.textContent=cur+1;range.value=cur+1;range.setAttribute('aria-valuetext','Klatka '+(cur+1)+' z '+N);tws.forEach(function(t,j){t.classList.toggle('on',j===cur);});}
+  function stop(){if(timer){clearInterval(timer);timer=null;}play.textContent='Odtwórz krok';play.setAttribute('aria-pressed','false');}
+  function start(){if(timer)return;timer=setInterval(function(){show(cur+1);},95);play.textContent='Zatrzymaj';play.setAttribute('aria-pressed','true');}
   show(0);if(reduce)stop();else start();
   play.addEventListener('click',function(){timer?stop():start();});
   range.addEventListener('input',function(){stop();show(parseInt(range.value,10)-1);});
-  var sx=0,s0=0,down=false,STEP=30;
+  var sx=0,s0=0,down=false,STEP=24;
   stage.addEventListener('pointerdown',function(e){down=true;sx=e.clientX;s0=cur;stop();stage.classList.add('drag');stage.setPointerCapture(e.pointerId);});
   stage.addEventListener('pointermove',function(e){if(down)show(s0+Math.round((e.clientX-sx)/STEP));});
   function up(){down=false;stage.classList.remove('drag');}
