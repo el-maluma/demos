@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tu Servicio Técnico 24h · Reparación de electrodomésticos en Mallorca</title>
+<meta name="description" content="Reparamos lavadoras, secadoras, lavavajillas, frigoríficos, hornos, microondas y campanas en tu casa, en Mallorca. Visita y diagnóstico: 60 €.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4ef; --paper:#fffdf8; --ink:#0e1a28; --mute:#4f5b69; --line:#dcd7cc;
+  --blue:#1f66ad; --blue-d:#164c82; --amber:#ffbf00; --wa:#1fa855; --wa-d:#178a45;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:Archivo,Inter,sans-serif;font-stretch:80%;line-height:1.02;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:.55em;font:600 16px/1 Inter,sans-serif;padding:16px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:background .15s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.wa{background:var(--wa);color:#fff}.wa:hover{background:var(--wa-d)}
+.call{background:var(--ink);color:#fff}.call:hover{background:#22324a}
+.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+/* top */
+.top{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Archivo,sans-serif;font-weight:800;font-stretch:80%;font-size:21px}
+.brand i{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--blue);color:var(--amber);font-style:normal;font-size:15px;letter-spacing:-.04em}
+.top .tel{font-weight:600;text-decoration:none;white-space:nowrap}
+.top .tel span{color:var(--mute);font-weight:500}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .95fr;gap:48px;align-items:center}
+.kick{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--blue-d);background:#e3edf7;padding:7px 12px;border-radius:999px}
+.kick b{width:8px;height:8px;border-radius:50%;background:var(--wa)}
+h1{font-size:clamp(44px,7.4vw,88px);font-weight:800;margin:18px 0 18px}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{font-size:19px;color:var(--mute);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15px;color:var(--mute);list-style:none;padding:0}
+.facts li::before{content:"✓ ";color:var(--wa);font-weight:700}
+
+/* price ticket */
+.ticket{background:var(--paper);border:1.5px solid var(--ink);border-radius:var(--r);padding:28px;position:relative;box-shadow:8px 8px 0 var(--amber)}
+.ticket small{font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--mute)}
+.ticket .price{font-family:Archivo,sans-serif;font-stretch:75%;font-weight:800;font-size:112px;line-height:.9;margin:6px 0 4px}
+.ticket .price sup{font-size:.42em;vertical-align:.95em;margin-left:4px}
+.ticket p{color:var(--mute);font-size:15px}
+.ticket hr{border:0;border-top:1.5px dashed var(--line);margin:20px 0}
+.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:15px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:600;font-size:13px}
+
+/* picker */
+.sec{padding:64px 0}
+.sec h2{font-size:clamp(34px,4.6vw,54px);font-weight:800;margin-bottom:10px}
+.sec .sub{color:var(--mute);max-width:36em;margin-bottom:28px}
+.pick{background:var(--ink);color:#fff;border-radius:22px;padding:36px}
+.pick h2{color:#fff}.pick .sub{color:#b8c2cf}
+.lbl{font-weight:600;font-size:14px;color:#b8c2cf;margin:22px 0 10px;text-transform:uppercase;letter-spacing:.07em}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:500 16px/1 Inter,sans-serif;background:#1c2a3c;color:#fff;border:1.5px solid #2f4057;padding:12px 16px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.chip svg{width:22px;height:22px}
+.chip[aria-pressed=true]{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.msg{margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end}
+.bubble{background:#dcf8c6;color:#14202c;border-radius:16px 16px 16px 4px;padding:16px 18px;font-size:16px;min-height:58px}
+.bubble span{color:#5b6b5b}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.card svg{width:44px;height:44px;color:var(--blue)}
+.card h3{font-size:26px;font-weight:700}
+.card p{color:var(--mute);font-size:15px;flex:1}
+.card a{font-weight:600;color:var(--wa-d);text-decoration:none;font-size:15px}
+.card a:hover{text-decoration:underline}
+.card.alt{background:var(--blue);color:#fff;border-color:var(--blue)}
+.card.alt p{color:#d6e4f3}.card.alt svg{color:var(--amber)}.card.alt a{color:var(--amber)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
+details{border-top:1.5px solid var(--ink);padding:18px 0}
+details:last-child{border-bottom:1.5px solid var(--ink)}
+summary{font-family:Archivo,sans-serif;font-stretch:85%;font-weight:700;font-size:22px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-weight:500}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);margin-top:10px;max-width:36em}
+.todo{display:inline-block;font-size:12px;font-weight:600;background:#fff1c2;color:#7a5a00;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+
+/* final */
+.final{background:var(--amber);border-radius:22px;padding:44px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.final h2{font-size:clamp(32px,4.4vw,52px);font-weight:800;max-width:12em}
+.final .btn.call{background:var(--ink)}
+footer{padding:40px 0 110px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+
+/* mobile bar */
+.bar{display:none}
+@media (max-width:860px){
+  .hero .wrap,.faq{grid-template-columns:1fr;gap:32px}
+  .grid{grid-template-columns:1fr 1fr}
+  .top .tel span{display:none}
+  .msg{grid-template-columns:1fr}
+  .bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+  .bar .btn{justify-content:center;padding:15px 10px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hero{padding:32px 0 24px}
+  .grid{grid-template-columns:1fr}
+  .pick,.final{padding:26px 20px;border-radius:18px}
+  .ticket .price{font-size:92px}
+  .top .tel{display:none}
+  .cta .btn{flex:1 1 100%;justify-content:center}
+  .sec{padding:48px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="a-lav" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="8" y="5" width="32" height="38" rx="4"/><path d="M8 13h32"/><circle cx="24" cy="28" r="9"/><path d="M18 29c3-2 6 2 12-1"/><circle cx="14" cy="9" r="1" fill="currentColor"/></g></symbol>
+  <symbol id="a-sec" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="8" y="5" width="32" height="38" rx="4"/><path d="M8 13h32"/><circle cx="24" cy="28" r="9"/><path d="M20 24v8M24 23v10M28 24v8"/></g></symbol>
+  <symbol id="a-lvj" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="8" y="5" width="32" height="38" rx="4"/><path d="M8 12h32M14 22h20M14 30h20M17 22v8M24 22v8M31 22v8"/></g></symbol>
+  <symbol id="a-fri" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="11" y="3" width="26" height="42" rx="4"/><path d="M11 18h26M16 9v5M16 23v8"/></g></symbol>
+  <symbol id="a-hor" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="6" y="7" width="36" height="34" rx="4"/><path d="M6 15h36"/><rect x="12" y="21" width="24" height="14" rx="2"/><circle cx="13" cy="11" r="1" fill="currentColor"/><circle cx="19" cy="11" r="1" fill="currentColor"/></g></symbol>
+  <symbol id="a-mic" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="10" width="40" height="28" rx="4"/><rect x="9" y="15" width="24" height="18" rx="2"/><path d="M38 16v4M38 26h0"/></g></symbol>
+  <symbol id="a-cam" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 4h10v14H19zM8 32l11-14h10l11 14z"/><path d="M8 32h32v6H8z"/></g></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><i>24h</i>Tu Servicio Técnico</a>
+    <a class="tel" href="tel:+34617406387"><span>Llámanos · </span>617 406 387</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kick"><b></b>Reparación a domicilio en Mallorca</span>
+      <h1>¿Se ha roto la lavadora? <em>Vamos a tu casa.</em></h1>
+      <p class="lead">Reparamos lavadoras, secadoras, lavavajillas, frigoríficos, hornos, microondas y campanas de las principales marcas. Escríbenos qué le pasa y te decimos cuándo podemos ir.</p>
+      <div class="cta">
+        <a class="btn wa" href="https://wa.me/34617406387?text=Hola%2C%20necesito%20un%20t%C3%A9cnico%20para%20un%20electrodom%C3%A9stico." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+        <a class="btn call" href="tel:+34617406387"><svg><use href="#i-tel"/></svg>Llamar al 617 406 387</a>
+      </div>
+      <ul class="facts">
+        <li>Vamos a domicilio</li>
+        <li>Presupuesto sin compromiso</li>
+        <li>Todas las marcas principales</li>
+      </ul>
+    </div>
+
+    <aside class="ticket" aria-label="Precio de la visita">
+      <small>Visita y diagnóstico en tu casa</small>
+      <div class="price">60<sup>€</sup></div>
+      <p>Precio cerrado. Sabes lo que pagas antes de abrir la puerta.</p>
+      <hr>
+      <ol class="steps">
+        <li>Nos escribes o nos llamas y nos cuentas la avería.</li>
+        <li>Vamos a tu casa y revisamos el aparato.</li>
+        <li>Te damos el presupuesto de la reparación. Tú decides.</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="averia">
+  <div class="wrap">
+    <div class="pick">
+      <h2>Cuéntanos la avería en dos toques</h2>
+      <p class="sub">Elige el aparato y lo que le pasa. El mensaje de WhatsApp se escribe solo.</p>
+
+      <p class="lbl" id="l1">1 · ¿Qué aparato?</p>
+      <div class="chips" role="group" aria-labelledby="l1" id="apps"></div>
+
+      <p class="lbl" id="l2">2 · ¿Qué le pasa?</p>
+      <div class="chips" role="group" aria-labelledby="l2" id="syms"></div>
+
+      <div class="msg">
+        <p class="bubble" id="bubble" aria-live="polite"><span>Elige un aparato…</span></p>
+        <a class="btn wa" id="send" href="https://wa.me/34617406387" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Enviar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <h2>Lo que reparamos</h2>
+    <p class="sub">Toca el aparato y nos escribes directamente sobre él.</p>
+    <div class="grid" id="cards"></div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div>
+      <h2>Preguntas frecuentes</h2>
+      <p class="sub">Si tu duda no está aquí, pregúntanos por WhatsApp.</p>
+    </div>
+    <div>
+      <details open>
+        <summary>¿Cuánto cuesta la visita?</summary>
+        <p>La visita a domicilio para revisar el electrodoméstico y hacer el diagnóstico cuesta 60 €. Después te damos el presupuesto de la reparación.</p>
+      </details>
+      <details>
+        <summary>¿Cobráis el desplazamiento?</summary>
+        <p>Respuesta del dueño <span class="todo">pendiente</span></p>
+      </details>
+      <details>
+        <summary>¿Qué garantía tiene la reparación?</summary>
+        <p>Respuesta del dueño <span class="todo">pendiente</span></p>
+      </details>
+      <details>
+        <summary>¿A qué zonas de Mallorca vais?</summary>
+        <p>Respuesta del dueño <span class="todo">pendiente</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="final">
+      <h2>¿Tienes un aparato parado? Escríbenos ahora.</h2>
+      <div class="cta" style="margin:0">
+        <a class="btn wa" href="https://wa.me/34617406387" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn call" href="tel:+34617406387"><svg><use href="#i-tel"/></svg>617 406 387</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Tu Servicio Técnico 24h</strong> · Reparación de electrodomésticos a domicilio en Mallorca · <a href="tel:+34617406387">617 406 387</a></p>
+    <p>Propuesta de diseño de Praxis Webs</p>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Contacto rápido">
+  <a class="btn wa" href="https://wa.me/34617406387" target="_blank" rel="noopener" aria-label="WhatsApp 617 406 387"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn call" href="tel:+34617406387" aria-label="Llamar al 617 406 387"><svg><use href="#i-tel"/></svg>Llamar</a>
+</nav>
+
+<script>
+const WA='https://wa.me/34617406387?text=';
+const A=[
+ {id:'lav',n:'Lavadora',d:'No centrifuga, no desagua, hace ruido o pierde agua.',s:['no centrifuga','no desagua','pierde agua','hace mucho ruido','no enciende']},
+ {id:'sec',n:'Secadora',d:'No calienta, no gira o tarda demasiado en secar.',s:['no calienta','no gira','tarda mucho en secar','no enciende']},
+ {id:'lvj',n:'Lavavajillas',d:'No lava bien, no desagua o se para a mitad del programa.',s:['no lava bien','no desagua','pierde agua','se para a mitad','no enciende']},
+ {id:'fri',n:'Frigorífico',d:'No enfría, hace hielo de más o tiene fugas de agua.',s:['no enfría','hace mucho hielo','pierde agua','hace ruido','no enciende']},
+ {id:'hor',n:'Horno',d:'No calienta, calienta de forma desigual o no se apaga.',s:['no calienta','calienta poco o desigual','no funciona el ventilador','no enciende']},
+ {id:'mic',n:'Microondas',d:'No calienta, no gira el plato o salta la luz.',s:['no calienta','no gira el plato','hace chispas','no enciende']},
+ {id:'cam',n:'Campana',d:'No aspira, hace ruido o no funcionan las luces.',s:['no aspira','hace mucho ruido','no van las luces','no enciende']}
+];
+let app=null,sym=null;
+const $=s=>document.querySelector(s);
+const icon=id=>`<svg aria-hidden="true"><use href="#a-${id}"/></svg>`;
+function chip(label,pressed,on,ic=''){const b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('aria-pressed',pressed);b.innerHTML=ic+label;b.onclick=on;return b}
+function render(){
+  const ap=$('#apps');ap.innerHTML='';
+  A.forEach(a=>ap.append(chip(a.n,app===a,()=>{app=a;sym=null;render()},icon(a.id))));
+  const sy=$('#syms');sy.innerHTML='';
+  (app?app.s:['primero elige el aparato']).forEach(s=>{const c=chip(s,sym===s,()=>{if(app){sym=s;render()}});if(!app)c.disabled=true,c.style.opacity=.5;sy.append(c)});
+  const t=app?`Hola, tengo ${app.n==='Campana'?'una campana':(/a$/.test(app.n)?'una ':'un ')+app.n.toLowerCase()} que ${sym||'…'}. ¿Cuándo podríais venir? Estoy en (zona):`:'';
+  $('#bubble').innerHTML=app?t.replace('…','<span>…</span>'):'<span>Elige un aparato…</span>';
+  $('#send').href=app?WA+encodeURIComponent(t.replace('…','tiene una avería')):'https://wa.me/34617406387';
+}
+render();
+$('#cards').innerHTML=A.map((a,i)=>`<article class="card${i===3?' alt':''}">${icon(a.id)}<h3>${a.n}</h3><p>${a.d}</p><a href="${WA+encodeURIComponent('Hola, necesito reparar '+(/a$/.test(a.n)?'una ':'un ')+a.n.toLowerCase()+'.')}" target="_blank" rel="noopener">Preguntar por WhatsApp →</a></article>`).join('')+
+`<article class="card"><svg aria-hidden="true" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 5"/></g></svg><h3>Mantenimiento</h3><p>Revisiones preventivas para que tus aparatos duren más y no te dejen tirado.</p><a href="${WA+encodeURIComponent('Hola, me interesa una revisión de mantenimiento.')}" target="_blank" rel="noopener">Preguntar por WhatsApp →</a></article>`;
+</script>
+</body>
+</html>
