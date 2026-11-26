@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="pl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#16110d" id="tc">
+<title>Taqueria Don Luis · Tacos al pastor w Hali Targowej, Kraków</title>
+<meta name="description" content="Tacos al pastor, burrito i quesadille w Hali Targowej, Grzegórzecka 3/14, Kraków. 5,0 w Google z 563 opinii. Zamów na odbiór przez WhatsApp.">
+<script>
+/* Theme: ?tema=claro|oscuro in the link wins; otherwise this visitor's last choice; otherwise dark.
+   Language: ?lang=pl|es|en wins; otherwise last choice; otherwise Polish. Both are set before paint. */
+(function(){var p=new URLSearchParams(location.search),t=null,l=null;try{t=localStorage.getItem('dl-tema');l=localStorage.getItem('dl-lang')}catch(e){}
+var q=p.get('tema');if(q==='claro'||q==='oscuro')t=q;var light=t==='claro',r=document.documentElement;r.dataset.theme=light?'light':'dark';
+document.getElementById('tc').content=light?'#f3e8d5':'#16110d';
+var g=p.get('lang');if(g==='pl'||g==='es'||g==='en')l=g;r.lang=l||'pl'})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap" rel="stylesheet">
+<style>
+/* Direction: a market-stall taquería at night. Palette from the owner's Pinterest board
+   (noir earth, walnut, amber) turned into the food itself: carbón (comal), masa (corn tortilla)
+   and achiote red (al pastor marinade) as the only accent. Type: one family, Archivo, used like
+   a hand-painted Mexican "rótulo": condensed black capitals with an offset shadow in achiote. */
+:root{
+  --bg:#16110d; --bg2:#1f1813; --bg3:#2a211a; --fg:#f3e8d5; --text:#e4d6bf; --mute:#b3a38b;
+  --line:rgba(243,232,213,.14); --line2:rgba(243,232,213,.38);
+  --chile:#e2552c; --chile2:#ff7a4d; --on-chile:#1a0f0a; --cilantro:#a8b65a;
+  --wa:#1f8f4e; --wa-d:#18743f;
+  --hdr:rgba(22,17,13,.84); --card:#1f1813; --grain:.07; --mapf:invert(.92) hue-rotate(180deg) saturate(.55) brightness(.92);
+  --sans:Archivo,system-ui,sans-serif; --ease:cubic-bezier(.2,.8,.15,1);
+}
+[data-theme=light]{
+  --bg:#f3e8d5; --bg2:#ebddc4; --bg3:#e2d1b4; --fg:#1b140f; --text:#2f241b; --mute:#65553f;
+  --line:rgba(27,20,15,.14); --line2:rgba(27,20,15,.4);
+  --chile:#b83a17; --chile2:#c9461f; --on-chile:#fff6ea; --cilantro:#55611d;
+  --hdr:rgba(243,232,213,.9); --card:#f9f1e3; --grain:.05; --mapf:sepia(.25) saturate(.8);
+}
+/* the closing neon block stays dark in both themes */
+.night{--bg:#100c09;--bg2:#1a1410;--fg:#f3e8d5;--text:#e4d6bf;--mute:#b3a38b;--line:rgba(243,232,213,.14);--line2:rgba(243,232,213,.38);--chile:#e2552c;--chile2:#ff7a4d;--on-chile:#1a0f0a}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--sans);font-stretch:100%;overflow-x:clip;transition:background-color .4s,color .4s}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:var(--grain);mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--chile2);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* rótulo type */
+.rot{font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.86;letter-spacing:-.005em;color:var(--fg);
+  text-shadow:.055em .055em 0 var(--chile);margin:0}
+.rot em{font-style:italic;font-stretch:118%;font-weight:800;text-transform:none;color:var(--chile);text-shadow:none;letter-spacing:-.03em}
+h2.rot{font-size:clamp(46px,7.4vw,104px)}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--mute);max-width:56ch;margin:22px 0 0}
+.lbl{font-weight:700;font-stretch:112%;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1.5px solid var(--line2);
+  background:none;font-weight:700;font-stretch:108%;font-size:16px;text-decoration:none;transition:transform .25s var(--ease),background-color .25s,border-color .25s,color .25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--fg)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.hot{background:var(--chile);border-color:var(--chile);color:var(--on-chile)}
+.btn.hot:hover{background:var(--chile2);border-color:var(--chile2)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.wa:hover{background:var(--wa-d)}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .35s,border-color .35s,transform .4s var(--ease);border-bottom:1px solid transparent}
+header.solid{background:var(--hdr);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
+.hd{display:flex;align-items:center;gap:22px;height:74px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.logo b{font-weight:900;font-stretch:62%;font-size:31px;text-transform:uppercase;color:var(--fg);text-shadow:2px 2px 0 var(--chile);letter-spacing:.01em}
+.logo small{font-weight:700;font-stretch:125%;font-size:9.5px;letter-spacing:.22em;color:var(--mute);margin-top:3px}
+nav.main{display:flex;gap:26px;margin-left:auto}
+nav.main a{text-decoration:none;font-weight:600;font-size:15px;color:var(--text);position:relative;padding:6px 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--chile);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav.main a:hover::after{transform:scaleX(1)}
+.tools{display:flex;align-items:center;gap:10px}
+.langs{display:flex;border:1.5px solid var(--line2);border-radius:999px;padding:3px}
+.langs button{border:0;background:none;min-width:38px;height:34px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.05em;color:var(--mute)}
+.langs button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.tog{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line2);background:none;display:grid;place-items:center}
+.tog svg{width:20px;height:20px}
+.hd .btn{min-height:44px;padding:0 18px;font-size:15px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-txt{padding:150px 0 70px max(20px,(100vw - 1240px)/2);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(64px,9.6vw,152px);margin:0 -40px 0 0}
+.hero h1 .ln{display:block;overflow:hidden;padding:0 .12em .1em 0;margin-bottom:-.1em}
+.hero h1 .ln>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.12s}
+.hero h1 .ln:nth-child(3)>span{transition-delay:.24s}
+.go .hero h1 .ln>span{transform:none}
+.hero h1{text-shadow:0 0 0 var(--chile);transition:text-shadow .7s .9s var(--ease)}
+.go .hero h1{text-shadow:.055em .055em 0 var(--chile)}
+.hero .lead{color:var(--text)}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;margin-top:28px;color:var(--text)}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--mute);flex:none}
+.status.open i{background:var(--cilantro);box-shadow:0 0 0 4px color-mix(in srgb,var(--cilantro) 25%,transparent)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.rating{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line);font-size:15px;color:var(--mute);max-width:520px}
+.rating b{font-weight:900;font-stretch:62%;font-size:44px;line-height:1;color:var(--fg)}
+.stars{color:var(--chile2);letter-spacing:2px;font-size:15px}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.go .fade{opacity:1;transform:none}
+.go .f1{transition-delay:.55s}.go .f2{transition-delay:.7s}.go .f3{transition-delay:.85s}.go .f4{transition-delay:1s}
+.hero-img{position:relative;overflow:hidden;background:#0c0907}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.12);transition:transform 2.4s var(--ease)}
+.go .hero-img img{transform:scale(1.02)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,transparent 26%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 40%)}
+/* light theme: the black-background photo sits in a frame instead of bleeding into cream, and the header stays solid */
+[data-theme=light] .hero-img{margin:98px max(20px,(100vw - 1240px)/2) 28px 0;border-radius:10px}
+[data-theme=light] .hero-img::after{display:none}
+[data-theme=light] header{background:var(--hdr);border-color:var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.stamp{position:absolute;right:max(36px,(100vw - 1240px)/2 + 16px);top:124px;z-index:3;width:150px;height:150px;border-radius:50%;background:var(--chile);color:var(--on-chile);
+  display:grid;place-items:center;text-align:center;transform:rotate(-12deg) scale(0);transition:transform .9s 1.2s cubic-bezier(.3,1.6,.5,1)}
+.go .stamp{transform:rotate(-12deg) scale(1)}
+.stamp b{display:block;font-weight:900;font-stretch:62%;font-size:54px;line-height:.8}
+.stamp span{display:block;font-weight:800;font-stretch:112%;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;line-height:1.25}
+.stamp svg{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+
+/* scroll band: moves only while you scroll */
+.band{padding:34px 0;border-block:1px solid var(--line);overflow:hidden;background:var(--bg)}
+.band p{margin:0;white-space:nowrap;font-weight:900;font-stretch:62%;font-size:clamp(54px,8vw,116px);line-height:1;text-transform:uppercase;will-change:transform}
+.band p+p{margin-top:6px}
+.band .o{color:transparent;-webkit-text-stroke:1.5px var(--line2)}
+.band .s{color:var(--chile);font-style:italic;font-stretch:118%;text-transform:none}
+.band .f{color:var(--fg)}
+
+section{position:relative}
+.sec{padding:clamp(90px,11vw,150px) 0}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* menu matrix */
+.mhead{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:56px}
+.mhead .lead{margin:0;max-width:38ch}
+.matrix{display:grid;grid-template-columns:minmax(220px,1.1fr) repeat(3,1fr);border-top:1.5px solid var(--fg)}
+.mx-h{padding:20px 18px 18px;border-bottom:1px solid var(--line);transition:background-color .3s}
+.mx-h b{display:block;font-weight:900;font-stretch:62%;font-size:34px;text-transform:uppercase;line-height:1;color:var(--fg)}
+.mx-h span{font-size:14px;color:var(--mute)}
+.mx-h.hl{background:var(--bg2)}
+.mx-row{display:contents}
+.mx-f{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;padding:18px 18px 18px 0;border-bottom:1px solid var(--line)}
+.mx-f .ph{width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--bg3)}
+.mx-f .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mx-row:hover .mx-f .ph img{transform:scale(1.1) rotate(-4deg)}
+.mx-f b{display:block;font-weight:900;font-stretch:62%;font-size:44px;line-height:.9;text-transform:uppercase;color:var(--fg)}
+.mx-f span{display:block;font-size:14px;color:var(--mute);margin-top:6px;line-height:1.4}
+.cell{position:relative;padding:20px 18px;border-bottom:1px solid var(--line);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:12px;transition:background-color .3s}
+.cell:hover,.cell.hl{background:var(--bg2)}
+.cell p{margin:0;font-size:15px;line-height:1.45;color:var(--text)}
+.cell .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.cell .pr strong{font-weight:900;font-stretch:75%;font-size:26px;color:var(--fg);line-height:1}
+.cell .pr strong small{font-weight:600;font-stretch:100%;font-size:13px;color:var(--mute);margin-left:4px}
+.add{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line2);background:none;display:grid;place-items:center;transition:background-color .2s,border-color .2s,transform .2s,color .2s;flex:none}
+.add svg{width:18px;height:18px}
+.add:hover{background:var(--chile);border-color:var(--chile);color:var(--on-chile);transform:rotate(90deg)}
+.add.pop{animation:pop .45s var(--ease)}
+@keyframes pop{40%{transform:scale(1.25);background:var(--chile);border-color:var(--chile);color:var(--on-chile)}}
+.tc{display:flex;gap:8px;flex-wrap:wrap}
+.tc .add{width:auto;border-radius:999px;padding:0 14px;height:40px;font-weight:700;font-size:13.5px;gap:6px;display:inline-flex;align-items:center}
+.tc .add:hover{transform:translateY(-2px)}
+.extras{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,60px);margin-top:70px;align-items:stretch}
+.drinks h3,.tort h3{font-weight:900;font-stretch:62%;font-size:40px;text-transform:uppercase;color:var(--fg);margin:0 0 14px;line-height:1}
+.drinks ul{list-style:none;margin:0;padding:0}
+.drinks li{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.drinks li .n{flex:1}
+.drinks li .n small{display:block;color:var(--mute);font-size:14px}
+.drinks li strong{font-weight:800;font-stretch:80%;font-size:20px;color:var(--fg)}
+.tort{position:relative;border-radius:6px;overflow:hidden;min-height:320px;display:flex;align-items:flex-end;color:#f3e8d5}
+.tort img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tort:hover img{transform:scale(1.05)}
+.tort::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(14,10,7,.92) 10%,rgba(14,10,7,.2) 70%)}
+.tort .in{position:relative;z-index:2;padding:28px}
+.tort h3{color:#f3e8d5}
+.tort p{margin:0 0 18px;max-width:34ch;color:#e4d6bf}
+.tort .row{display:flex;align-items:center;gap:16px}
+.tort strong{font-weight:900;font-stretch:62%;font-size:44px;line-height:1}
+.tort .add{border-color:rgba(243,232,213,.5);color:#f3e8d5}
+
+/* al pastor */
+.pastor{background:var(--bg2)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.pimg{position:sticky;top:100px;border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:#0c0907}
+.pimg img{width:100%;height:120%;object-fit:cover;will-change:transform}
+.pimg figcaption{position:absolute;left:16px;bottom:14px;font-size:12px;color:rgba(243,232,213,.75)}
+.steps{list-style:none;margin:60px 0 0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:34px 0 34px 92px;border-top:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:"0" counter(s);position:absolute;left:0;top:26px;font-weight:900;font-stretch:62%;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--line2);transition:color .6s,-webkit-text-stroke-color .6s}
+.steps li.in::before{color:var(--chile);-webkit-text-stroke-color:var(--chile)}
+.steps h3{margin:0 0 6px;font-weight:800;font-stretch:112%;font-size:22px;color:var(--fg)}
+.steps p{margin:0;color:var(--mute);max-width:44ch}
+.pull{margin:46px 0 0;padding:28px 30px;border-left:4px solid var(--chile);background:var(--bg)}
+.pull q{display:block;font-weight:800;font-style:italic;font-stretch:112%;font-size:clamp(22px,2.4vw,30px);line-height:1.2;color:var(--fg);quotes:"„" "”"}
+.pull cite{display:block;margin-top:10px;font-style:normal;font-size:14px;color:var(--mute)}
+
+/* order builder */
+.ogrid{display:grid;grid-template-columns:1.3fr .9fr;gap:clamp(30px,5vw,70px);align-items:start;margin-top:56px}
+.og{margin-bottom:36px}
+.og h3{margin:0 0 6px;font-weight:900;font-stretch:62%;font-size:32px;text-transform:uppercase;color:var(--fg)}
+.og h3 small{font-weight:600;font-stretch:100%;font-size:14px;text-transform:none;color:var(--mute);margin-left:10px}
+.it{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.it .n b{font-weight:700;color:var(--fg)}
+.it .n small{display:block;font-size:13.5px;color:var(--mute)}
+.it .p{font-weight:800;font-stretch:80%;font-size:18px;color:var(--fg);min-width:62px;text-align:right}
+.step{display:flex;align-items:center;border:1.5px solid var(--line2);border-radius:999px}
+.step button{width:42px;height:42px;border:0;background:none;border-radius:50%;font-size:22px;line-height:1;display:grid;place-items:center}
+.step button:hover{color:var(--chile2)}
+.step button:disabled{opacity:.3;cursor:default}
+.step output{min-width:26px;text-align:center;font-weight:800;font-size:17px;color:var(--fg)}
+.it.has .step{border-color:var(--chile)}
+.ticket{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.ticket .th{background:var(--chile);color:var(--on-chile);padding:16px 22px;display:flex;justify-content:space-between;align-items:baseline}
+.ticket .th b{font-weight:900;font-stretch:62%;font-size:30px;text-transform:uppercase;line-height:1}
+.ticket .th span{font-weight:700;font-size:13px}
+.ticket .tb{padding:20px 22px 22px}
+.tlist{list-style:none;margin:0;padding:0;min-height:60px}
+.tlist li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:15.5px;border-bottom:1px dashed var(--line);animation:slide .35s var(--ease)}
+@keyframes slide{from{opacity:0;transform:translateX(-10px)}}
+.tlist li.save{color:var(--cilantro);font-weight:600}
+.tempty{color:var(--mute);font-size:15px;padding:8px 0}
+.ttot{display:flex;justify-content:space-between;align-items:baseline;margin:16px 0 18px;padding-top:12px;border-top:1.5px solid var(--fg)}
+.ttot span{font-weight:700;color:var(--fg)}
+.ttot strong{font-weight:900;font-stretch:62%;font-size:52px;line-height:1;color:var(--fg)}
+.ttot strong small{font-size:22px;margin-left:4px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-weight:700;font-size:14px;color:var(--fg)}
+.field select{appearance:none;height:48px;border-radius:8px;border:1.5px solid var(--line2);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23b3a38b' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;color:var(--fg);font:600 16px var(--sans);padding:0 40px 0 14px}
+.ticket .btn{width:100%}
+.ticket .alt{display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--mute)}
+.ticket .alt a{color:var(--fg);font-weight:700}
+.ticket .btn[aria-disabled=true]{opacity:.45;pointer-events:none}
+
+/* floating mini cart */
+.cart{position:fixed;right:20px;bottom:24px;z-index:60;display:flex;align-items:center;gap:12px;padding:0 10px 0 20px;height:58px;border-radius:999px;background:var(--fg);color:var(--bg);
+  text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(40px);opacity:0;visibility:hidden;transition:transform .5s var(--ease),opacity .4s,visibility 0s .5s}
+.cart.on{transform:none;opacity:1;visibility:visible;transition:transform .5s var(--ease),opacity .4s,visibility 0s}
+.cart .c{display:grid;place-items:center;min-width:38px;height:38px;border-radius:999px;background:var(--chile);color:var(--on-chile);font-weight:900;padding:0 10px}
+.cart.bump .c{animation:pop .45s var(--ease)}
+.fly{position:fixed;z-index:80;width:16px;height:16px;border-radius:50%;background:var(--chile);pointer-events:none}
+
+/* reviews */
+.rgrid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.score{text-align:right}
+.score b{display:block;font-weight:900;font-stretch:62%;font-size:clamp(90px,12vw,170px);line-height:.8;color:var(--fg);text-shadow:.05em .05em 0 var(--chile)}
+.score span{display:block;margin-top:14px;color:var(--mute);font-size:15px}
+.rq{font-size:clamp(46px,7vw,100px)}
+.rscroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(400px,82vw);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 26px max(20px,(100vw - 1240px)/2);margin-top:56px;scrollbar-width:thin;scrollbar-color:var(--line2) transparent;cursor:grab}
+.rscroll.drag{cursor:grabbing;scroll-snap-type:none}
+.rev{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease),border-color .3s}
+.rev:hover{transform:translateY(-4px);border-color:var(--line2)}
+.rev .top{display:flex;align-items:center;gap:12px}
+.rev .av{width:44px;height:44px;border-radius:50%;background:var(--chile);color:var(--on-chile);display:grid;place-items:center;font-weight:900;font-stretch:75%;font-size:20px}
+.rev .top b{display:block;color:var(--fg);font-weight:700}
+.rev .top small{font-size:13px;color:var(--mute)}
+.rev blockquote{margin:0;font-size:17px;line-height:1.5;color:var(--text)}
+.rev .tr{font-size:14.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:12px;margin:0}
+.rev .tr i{font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.rnote{margin-top:6px;font-size:14px;color:var(--mute)}
+.rnote a{color:var(--fg)}
+
+/* visit */
+.vgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,70px);margin-top:56px;align-items:stretch}
+.hours{list-style:none;margin:0 0 28px;padding:0}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:16.5px}
+.hours li.today{color:var(--fg);font-weight:700}
+.hours li.today span:first-child::after{content:attr(data-today);margin-left:10px;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--chile);color:var(--on-chile);padding:3px 8px;border-radius:999px;vertical-align:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}
+.chips li{border:1.5px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.chips svg{width:16px;height:16px;color:var(--chile2)}
+.addr{font-weight:800;font-stretch:112%;font-size:clamp(22px,2.2vw,28px);color:var(--fg);line-height:1.25;margin:0 0 6px}
+.map{position:relative;border-radius:8px;overflow:hidden;min-height:420px;background:var(--bg2);border:1px solid var(--line)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:var(--mapf)}
+.pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);z-index:2;pointer-events:none;background:var(--chile);color:var(--on-chile);font-weight:900;font-stretch:62%;font-size:20px;text-transform:uppercase;
+  padding:8px 14px;border-radius:6px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.pin::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border:8px solid transparent;border-bottom:0;border-top-color:var(--chile)}
+
+/* closing neon */
+.final{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;overflow:hidden;background:var(--bg);color:var(--text)}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.12) saturate(.4)}
+.final.lit img{animation:neon 1.6s steps(1) forwards}
+@keyframes neon{0%{filter:brightness(.12) saturate(.4)}12%{filter:brightness(.8) saturate(1)}16%{filter:brightness(.15) saturate(.4)}30%{filter:brightness(.75) saturate(1)}34%{filter:brightness(.2) saturate(.5)}52%,100%{filter:brightness(.62) saturate(1)}}
+.final::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(16,12,9,.35),rgba(16,12,9,.85) 75%)}
+.final .in{position:relative;z-index:2;padding:120px 20px}
+.final h2{font-size:clamp(80px,14vw,210px)}
+.final .status{justify-content:center;font-size:17px;margin-top:22px}
+.final .ctas{justify-content:center}
+.final .cred{position:absolute;right:16px;bottom:12px;z-index:2;font-size:11.5px;color:rgba(243,232,213,.6)}
+
+footer{padding:60px 0 120px;border-top:1px solid var(--line);font-size:14.5px;color:var(--mute)}
+.fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+footer .logo b{font-size:40px}
+footer h4{margin:0 0 10px;font-weight:800;font-stretch:112%;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+footer p{margin:0 0 6px}
+footer a{color:var(--text)}
+.demo{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;line-height:1.55}
+
+/* mobile action bar */
+.mbar{display:none}
+
+@media (max-width:1020px){
+  nav.main{display:none}
+  .tools{margin-left:auto}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-img{order:-1;height:58svh;min-height:340px}
+  .hero-img::after{background:linear-gradient(0deg,var(--bg) 0,transparent 45%)}
+  [data-theme=light] .hero-img{margin:84px 20px 0;height:50svh}
+  [data-theme=light] .hero-txt{margin-top:0;padding-top:34px}
+  .hero-txt{padding:0 20px 60px;margin-top:-90px}
+  .hero h1{margin:0}
+  .stamp{top:96px;bottom:auto;right:20px;width:116px;height:116px}
+  [data-theme=light] .stamp{top:104px;right:32px}
+  .stamp b{font-size:42px}
+  .stamp span{font-size:9.5px}
+  .mhead,.rgrid{grid-template-columns:1fr}
+  .score{text-align:left}
+  .matrix{grid-template-columns:1fr;border-top:0}
+  .mx-h{display:none}
+  .mx-row{display:block;border-top:1.5px solid var(--fg);margin-bottom:34px}
+  .mx-f{padding:18px 0}
+  .cell{border-left:0;display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:16px 0}
+  .cell::before{content:attr(data-col);font-weight:800;font-stretch:112%;font-size:15px;color:var(--fg)}
+  .cell p{grid-column:1}
+  .cell .pr{grid-column:2;grid-row:1/3;margin:0;flex-direction:column;align-items:flex-end}
+  .cell:hover,.cell.hl{background:none}
+  .extras,.pgrid,.ogrid,.vgrid,.fgrid{grid-template-columns:1fr}
+  .pimg{position:relative;top:0;aspect-ratio:16/11}
+  .steps{margin-top:30px}
+  .ticket{position:relative;top:0}
+  .map{min-height:340px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .hd{height:64px;gap:10px}
+  .logo b{font-size:26px}
+  .logo small{font-size:8.5px}
+  .hd .btn{display:none}
+  .langs button{min-width:32px;height:32px;font-size:11.5px}
+  .tog{width:40px;height:40px}
+  .hero h1{font-size:clamp(58px,17vw,84px)}
+  .ctas .btn{flex:1 1 100%}
+  .rating b{font-size:38px}
+  .steps li{padding-left:70px}
+  .steps li::before{font-size:50px}
+  .tc .add{height:44px}
+  .mbar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;inset:auto 0 0;z-index:55;background:var(--hdr);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px}
+  .mbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:10px;text-decoration:none;font-weight:700;font-size:13px;color:var(--fg)}
+  .mbar a svg{width:21px;height:21px}
+  .mbar a.call{background:var(--chile);color:var(--on-chile)}
+  .mbar a.wa{background:var(--wa);color:#fff}
+  .cart{bottom:calc(86px + env(safe-area-inset-bottom));right:12px;height:52px}
+  .final .cred{position:static;display:block;margin-top:30px}
+  footer{padding-bottom:110px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 .ln>span,.fade,.reveal{transform:none!important;opacity:1!important}
+  .stamp{transform:rotate(-12deg) scale(1)!important}
+  .final img{filter:brightness(.62) saturate(1)!important}
+}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 0 1 2.2 12C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8zM20.4 3.6A11.8 11.8 0 0 0 12 .1C5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 8h14l-1 13H6L5 8z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M15 6h2l3 11M5.5 17 9 9h7l-4.5 8H5.5"/></g></symbol>
+  <symbol id="i-wheel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="4" r="1.6"/><path d="M11 7v6h5l2 5M11 10h5"/><path d="M8 11.5a5.5 5.5 0 1 0 7.6 6.8"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></g></symbol>
+</svg>
+
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="logo" href="#top" aria-label="Taqueria Don Luis"><b>Don Luis</b><small>TAQUERÍA · KRAKÓW</small></a>
+    <nav class="main" aria-label="Menu">
+      <a href="#karta" data-t="nav.menu">Karta</a>
+      <a href="#pastor">Al pastor</a>
+      <a href="#zamow" data-t="nav.order">Zamów</a>
+      <a href="#opinie" data-t="nav.reviews">Opinie</a>
+      <a href="#dojazd" data-t="nav.visit">Dojazd</a>
+    </nav>
+    <div class="tools">
+      <div class="langs" role="group" aria-label="Język / Idioma / Language">
+        <button type="button" data-lang="pl" aria-pressed="true">PL</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="tog" id="tog" type="button" data-ta="theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+      <a class="btn hot" href="tel:+48575236241"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-t="call">Zadzwoń</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-txt">
+    <h1 class="rot" id="h1" data-t="hero.h1"><span class="ln"><span>Prawdziwe</span></span><span class="ln"><span>tacos</span></span><span class="ln"><span><em>al pastor</em></span></span></h1>
+    <p class="lead fade f1" data-t="hero.sub">Mała taqueria w Hali Targowej. Tacos na kukurydzianej tortilli, burrito i quesadille. Na wynos albo z dostawą.</p>
+    <p class="status fade f2" id="st1" aria-live="polite"><i></i><span></span></p>
+    <div class="ctas fade f3">
+      <a class="btn hot" href="#zamow"><svg aria-hidden="true"><use href="#i-bag"/></svg><span data-t="hero.cta">Zamów na odbiór</span></a>
+      <a class="btn" href="tel:+48575236241"><svg aria-hidden="true"><use href="#i-phone"/></svg>575 236 241</a>
+      <a class="btn" href="https://glovoapp.com/pl/pl/krakow/stores/taqueria-don-luis-kra" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bike"/></svg><span data-t="hero.glovo">Dostawa przez Glovo</span></a>
+    </div>
+    <div class="rating fade f4"><b>5,0</b><div><span class="stars" aria-hidden="true">★★★★★</span><br><span data-t="hero.rating">z <span class="cnt" data-to="563">563</span> opinii w Google</span></div></div>
+  </div>
+  <figure class="hero-img" style="margin:0">
+    <img src="https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=1400&q=72"
+      srcset="https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=2000&q=72 2000w"
+      sizes="(max-width:1020px) 100vw, 48vw" alt="" fetchpriority="high">
+  </figure>
+  <div class="stamp" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 3"/></svg>
+    <div><b>5,0</b><span>Google<br>563 <span data-t="stamp">opinie</span></span></div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <p data-dir="-1"><span class="f">Tacos al pastor</span> <span class="o">·</span> <span class="s">quesadillas</span> <span class="o">· Burritos ·</span> <span class="f">Tortilla de maíz</span> <span class="o">·</span> <span class="s">salsa</span> <span class="o">· Hala Targowa ·</span> <span class="f">Tacos al pastor</span></p>
+  <p data-dir="1"><span class="o">Kraków · Grzegórzecka 3 ·</span> <span class="s">¡hablamos español!</span> <span class="o">·</span> <span class="f">5,0 Google</span> <span class="o">· Pollo · Vegetariano ·</span> <span class="s">al pastor</span> <span class="o">· Kraków ·</span></p>
+</div>
+
+<section class="sec" id="karta" aria-labelledby="h-karta">
+  <div class="wrap">
+    <div class="mhead reveal">
+      <h2 class="rot" id="h-karta" data-t="menu.h">Trzy nadzienia.<br><em>Trzy formy.</em></h2>
+      <p class="lead" data-t="menu.p">Wybierz nadzienie i formę. Plus dodaje danie do zamówienia na odbiór.</p>
+    </div>
+    <div class="matrix reveal" id="matrix">
+      <div class="mx-h" aria-hidden="true"></div>
+      <div class="mx-h" data-c="0"><b>Al pastor</b><span data-t="col.0">wieprzowina</span></div>
+      <div class="mx-h" data-c="1"><b data-t="col.1n">Kurczak</b><span data-t="col.1">grillowany</span></div>
+      <div class="mx-h" data-c="2"><b data-t="col.2n">Wege</b><span data-t="col.2">warzywa i fasola</span></div>
+      <!-- rows are built by script from MENU so every language stays in one place -->
+    </div>
+
+    <div class="extras">
+      <div class="drinks reveal">
+        <h3 data-t="drinks.h">Do picia</h3>
+        <ul id="drinks"></ul>
+      </div>
+      <div class="tort reveal">
+        <img src="https://images.unsplash.com/photo-1591266123515-46149ea0b0a9?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy">
+        <div class="in">
+          <h3 data-t="tort.h">Tortille do domu</h3>
+          <p data-t="tort.p">Kilogram kukurydzianych tortilli, 15 cm. Na tacos u siebie.</p>
+          <div class="row"><strong>28 zł</strong><button class="add" type="button" data-add="tortilla" data-ta="add.tortilla"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pastor" id="pastor" aria-labelledby="h-pastor">
+  <div class="wrap pgrid">
+    <figure class="pimg reveal" style="margin:0">
+      <img id="pimg" src="https://images.unsplash.com/photo-1596995804697-27d11d43652e?auto=format&fit=crop&w=1100&q=70" alt="" loading="lazy">
+      <figcaption data-t="photo">Zdjęcie poglądowe</figcaption>
+    </figure>
+    <div>
+      <h2 class="rot reveal" id="h-pastor" data-t="pastor.h">Co to jest<br><em>al pastor?</em></h2>
+      <p class="lead reveal" data-t="pastor.p">Klasyk meksykańskiej ulicy. Trzy rzeczy robią różnicę:</p>
+      <ol class="steps">
+        <li class="reveal"><h3 data-t="s1.h">Marynata</h3><p data-t="s1.p">Wieprzowina marynowana w przyprawach, aż nabierze koloru i smaku.</p></li>
+        <li class="reveal"><h3 data-t="s2.h">Cienko krojone</h3><p data-t="s2.p">Mięso kroi się w cienkie plastry, z chrupiącymi brzegami.</p></li>
+        <li class="reveal"><h3 data-t="s3.h">Na kukurydzianej tortilli</h3><p data-t="s3.p">Tortilla 15 cm, cebula i kolendra. I salsa.</p></li>
+      </ol>
+      <blockquote class="pull reveal"><q>Me comí 6 tacos de pastor muy ricos</q><cite data-t="pull.c">Raulito, opinia w Google · „Zjadłem 6 tacos al pastor, bardzo dobre”</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="zamow" aria-labelledby="h-zamow">
+  <div class="wrap">
+    <h2 class="rot reveal" id="h-zamow" data-t="order.h">Zamów<br><em>na odbiór</em></h2>
+    <p class="lead reveal" data-t="order.p">Wybierz, co chcesz, a wiadomość do Don Luisa napisze się sama. Wysyłasz ją przez WhatsApp i odbierasz o wybranej godzinie.</p>
+    <div class="ogrid">
+      <div id="olist"></div>
+      <aside class="ticket reveal" aria-labelledby="t-h">
+        <div class="th"><b id="t-h" data-t="t.h">Twoje zamówienie</b><span data-t="t.sub">na odbiór</span></div>
+        <div class="tb">
+          <ul class="tlist" id="tlist" aria-live="polite"></ul>
+          <div class="ttot"><span data-t="t.total">Razem</span><strong><span id="ttot">0</span><small>zł</small></strong></div>
+          <div class="field"><label for="when" data-t="t.when">Odbiór</label><select id="when"></select></div>
+          <a class="btn wa" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-t="t.send">Wyślij przez WhatsApp</span></a>
+          <span class="alt"><span data-t="t.alt">Wolisz zadzwonić?</span> <a href="tel:+48575236241">575 236 241</a></span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="opinie" aria-labelledby="h-op" style="padding-bottom:60px;background:var(--bg2)">
+  <div class="wrap rgrid">
+    <div class="reveal">
+      <p class="lbl" data-t="rev.lbl">Opinie gości</p>
+      <h2 class="rot rq" id="h-op">„100% <em>sabor mexicano</em>”</h2>
+      <p class="lead" data-t="rev.p">Tak napisał Raulito. Goście z Meksyku, Hiszpanii, Norwegii i Polski piszą podobnie.</p>
+    </div>
+    <div class="score reveal"><b>5,0</b><span data-t="rev.n">średnia z <span class="cnt" data-to="563">563</span> opinii w Google</span></div>
+  </div>
+  <div class="rscroll" id="revs" tabindex="0" role="region" data-ta="rev.region"></div>
+  <div class="wrap"><p class="rnote" data-t="rev.note">Opinie skopiowane z Google bez zmian, z imieniem i inicjałem. <a href="https://www.google.com/maps/place/Taqueria+Don+Luis/@50.0578167,19.9485864,17z/data=!4m8!3m7!1s0x47165b454e93931f:0x69dda10cf17edd8c!8m2!3d50.0578167!4d19.9485864!9m1!1b1" target="_blank" rel="noopener">Wszystkie opinie</a></p></div>
+</section>
+
+<section class="sec" id="dojazd" aria-labelledby="h-doj">
+  <div class="wrap">
+    <h2 class="rot reveal" id="h-doj" data-t="visit.h">Hala Targowa,<br><em>lokal 14</em></h2>
+    <div class="vgrid">
+      <div class="reveal">
+        <p class="addr">Grzegórzecka 3/14<br>31-534 Kraków</p>
+        <p class="status" id="st2"><i></i><span></span></p>
+        <ul class="hours" id="hours" style="margin-top:24px"></ul>
+        <ul class="chips">
+          <li><svg aria-hidden="true"><use href="#i-chat"/></svg>¡Hablamos español!</li>
+          <li><svg aria-hidden="true"><use href="#i-wheel"/></svg><span data-t="chip.acc">Wejście dla wózków</span></li>
+          <li><svg aria-hidden="true"><use href="#i-bike"/></svg><span data-t="chip.glovo">Dostawa: Glovo</span></li>
+        </ul>
+        <p data-t="visit.sun" style="margin:0 0 26px;color:var(--mute)">W niedzielę, w dzień targu staroci, otwieramy już o 9:00.</p>
+        <div class="ctas" style="margin-top:0">
+          <a class="btn hot" href="https://www.google.com/maps/dir/?api=1&amp;destination=Taqueria+Don+Luis,+Grzeg%C3%B3rzecka+3%2F14,+Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-t="route">Wyznacz trasę</span></a>
+          <a class="btn" href="tel:+48575236241"><svg aria-hidden="true"><use href="#i-phone"/></svg>575 236 241</a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Mapa: Taqueria Don Luis, Grzegórzecka 3/14, Kraków" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Taqueria%20Don%20Luis%2C%20Grzeg%C3%B3rzecka%203%2F14%2C%20Krak%C3%B3w&amp;z=16&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final night" id="fin" aria-labelledby="h-fin">
+  <img src="https://images.unsplash.com/photo-1768826117191-851013f62103?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy">
+  <div class="in">
+    <h2 class="rot" id="h-fin" data-t="fin.h"><em>¿Hambre?</em></h2>
+    <p class="status" id="st3"><i></i><span></span></p>
+    <div class="ctas">
+      <a class="btn hot" href="#zamow"><svg aria-hidden="true"><use href="#i-bag"/></svg><span data-t="hero.cta">Zamów na odbiór</span></a>
+      <a class="btn" href="tel:+48575236241" style="color:#f3e8d5;border-color:rgba(243,232,213,.4)"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-t="call">Zadzwoń</span></a>
+    </div>
+  </div>
+  <span class="cred" data-t="photo">Zdjęcie poglądowe</span>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="#top"><b>Don Luis</b><small>TAQUERÍA · KRAKÓW</small></a></div>
+      <div><h4 data-t="f.where">Gdzie</h4><p>Hala Targowa<br>Grzegórzecka 3/14, 31-534 Kraków</p><p><a href="tel:+48575236241">575 236 241</a></p></div>
+      <div><h4 data-t="f.when">Godziny</h4><p data-t="f.hours">Pon.–sob. 12:00–19:00<br>Niedziela 9:00–17:00</p></div>
+    </div>
+    <p class="demo" data-t="f.demo">Projekt demonstracyjny przygotowany przez Praxis Webs. Zdjęcia poglądowe z Unsplash (Fernando Andrade, Francis Ledger, Federico Ramirez, Benjamin Guardia, Kashish Lamba, micheile henderson, Tobias Arweiler). Karta i ceny z Glovo, opinie i godziny z Google.</p>
+  </div>
+</footer>
+
+<a class="cart" id="cart" href="#zamow" aria-label="Zamówienie"><svg width="20" height="20" aria-hidden="true"><use href="#i-bag"/></svg><span id="cartt">0 zł</span><span class="c" id="cartn">0</span></a>
+
+<nav class="mbar" aria-label="Kontakt">
+  <a class="call" href="tel:+48575236241"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-t="call">Zadzwoń</span></a>
+  <a class="wa" href="https://wa.me/48575236241" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Taqueria+Don+Luis,+Grzeg%C3%B3rzecka+3%2F14,+Krak%C3%B3w" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-t="route.s">Trasa</span></a>
+</nav>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const root=document.documentElement;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let L=root.lang||'pl';
+
+/* ---------- content in three languages ---------- */
+const T={
+pl:{'nav.menu':'Karta','nav.order':'Zamów','nav.reviews':'Opinie','nav.visit':'Dojazd',call:'Zadzwoń',theme:['Przełącz na jasny','Przełącz na ciemny'],
+'hero.h1':'<span class="ln"><span>Prawdziwe</span></span><span class="ln"><span>tacos</span></span><span class="ln"><span><em>al pastor</em></span></span>',
+'hero.sub':'Mała taqueria w Hali Targowej. Tacos na kukurydzianej tortilli, burrito i quesadille. Na wynos albo z dostawą.',
+'hero.cta':'Zamów na odbiór','hero.glovo':'Dostawa przez Glovo','hero.rating':'z <span class="cnt" data-to="563">563</span> opinii w Google',stamp:'opinie',
+'menu.h':'Trzy nadzienia.<br><em>Trzy formy.</em>','menu.p':'Wybierz nadzienie i formę. Plus dodaje danie do zamówienia na odbiór.',
+'col.0':'wieprzowina','col.1n':'Kurczak','col.1':'grillowany','col.2n':'Wege','col.2':'warzywa i fasola',
+'drinks.h':'Do picia','tort.h':'Tortille do domu','tort.p':'Kilogram kukurydzianych tortilli, 15 cm. Na tacos u siebie.',
+photo:'Zdjęcie poglądowe','pastor.h':'Co to jest<br><em>al pastor?</em>','pastor.p':'Klasyk meksykańskiej ulicy. Trzy rzeczy robią różnicę:',
+'s1.h':'Marynata','s1.p':'Wieprzowina marynowana w przyprawach, aż nabierze koloru i smaku.',
+'s2.h':'Cienko krojone','s2.p':'Mięso kroi się w cienkie plastry, z chrupiącymi brzegami.',
+'s3.h':'Na kukurydzianej tortilli','s3.p':'Tortilla 15 cm, cebula i kolendra. I salsa.',
+'pull.c':'Raulito, opinia w Google · „Zjadłem 6 tacos al pastor, bardzo dobre”',
+'order.h':'Zamów<br><em>na odbiór</em>','order.p':'Wybierz, co chcesz, a wiadomość do Don Luisa napisze się sama. Wysyłasz ją przez WhatsApp i odbierasz o wybranej godzinie.',
+'t.h':'Twoje zamówienie','t.sub':'na odbiór','t.total':'Razem','t.when':'Odbiór','t.send':'Wyślij przez WhatsApp','t.alt':'Wolisz zadzwonić?',
+'t.empty':'Jeszcze nic nie wybrano. Kliknij plus przy daniu.','t.pack':'Zestaw 3 tacos','t.asap':'Jak najszybciej','t.today':'Dziś','t.closed':'Dziś już zamknięte: zamów na jutro',
+'g.tacos':'Tacos','g.tacos.s':'1 szt. 16 zł · każde 3 tacos razem 42 zł','g.burrito':'Burrito','g.quesa':'Quesadilla','g.drinks':'Do picia','g.tort':'Tortille',
+'rev.lbl':'Opinie gości','rev.p':'Tak napisał Raulito. Goście z Meksyku, Hiszpanii, Norwegii i Polski piszą podobnie.','rev.n':'średnia z <span class="cnt" data-to="563">563</span> opinii w Google',
+'rev.note':'Opinie skopiowane z Google bez zmian, z imieniem i inicjałem. <a href="'+'https://www.google.com/maps/place/Taqueria+Don+Luis/@50.0578167,19.9485864,17z/data=!4m8!3m7!1s0x47165b454e93931f:0x69dda10cf17edd8c!8m2!3d50.0578167!4d19.9485864!9m1!1b1'+'" target="_blank" rel="noopener">Wszystkie opinie</a>',
+'rev.region':'Opinie z Google','rev.tr':'Tłumaczenie',
+'visit.h':'Hala Targowa,<br><em>lokal 14</em>','visit.sun':'W niedzielę, w dzień targu staroci, otwieramy już o 9:00.',
+'chip.acc':'Wejście dla wózków','chip.glovo':'Dostawa: Glovo',route:'Wyznacz trasę','route.s':'Trasa',
+'fin.h':'<em>Głodny?</em>','f.where':'Gdzie','f.when':'Godziny','f.hours':'Pon.–sob. 12:00–19:00<br>Niedziela 9:00–17:00',
+'f.demo':'Projekt demonstracyjny przygotowany przez Praxis Webs. Zdjęcia poglądowe z Unsplash (Fernando Andrade, Francis Ledger, Federico Ramirez, Benjamin Guardia, Kashish Lamba, micheile henderson, Tobias Arweiler). Karta i ceny z Glovo, opinie i godziny z Google.',
+'add':'Dodaj','add.tortilla':'Dodaj tortille 1 kg','cart':'Zamówienie',
+open:'Otwarte teraz · do {t}',closed:'Zamknięte · otwieramy {d} o {t}',today:'dziś',tomorrow:'jutro',todayTag:'dziś',
+days:['niedziela','poniedziałek','wtorek','środa','czwartek','piątek','sobota'],daysIn:['w niedzielę','w poniedziałek','we wtorek','w środę','w czwartek','w piątek','w sobotę'],
+msg:'Dzień dobry! Chcę zamówić na odbiór:',msgTot:'Razem',msgWhen:'Odbiór',title:'Taqueria Don Luis · Tacos al pastor w Hali Targowej, Kraków'},
+
+es:{'nav.menu':'Carta','nav.order':'Pedir','nav.reviews':'Opiniones','nav.visit':'Cómo llegar',call:'Llamar',theme:['Cambiar a claro','Cambiar a oscuro'],
+'hero.h1':'<span class="ln"><span>Tacos</span></span><span class="ln"><span><em>al pastor</em></span></span><span class="ln"><span>de verdad</span></span>',
+'hero.sub':'Una taquería pequeña en la Hala Targowa. Tacos en tortilla de maíz, burritos y quesadillas. Para llevar o a domicilio.',
+'hero.cta':'Pide para recoger','hero.glovo':'A domicilio con Glovo','hero.rating':'en <span class="cnt" data-to="563">563</span> opiniones de Google',stamp:'opiniones',
+'menu.h':'Tres rellenos.<br><em>Tres formas.</em>','menu.p':'Elige relleno y forma. El botón + lo añade a tu pedido para recoger.',
+'col.0':'cerdo','col.1n':'Pollo','col.1':'a la plancha','col.2n':'Vegetariano','col.2':'verduras y frijoles',
+'drinks.h':'Para tomar','tort.h':'Tortillas para casa','tort.p':'Un kilo de tortillas de maíz de 15 cm. Para tus tacos en casa.',
+photo:'Foto ilustrativa','pastor.h':'¿Qué es el<br><em>al pastor?</em>','pastor.p':'Un clásico de la calle mexicana. Tres cosas marcan la diferencia:',
+'s1.h':'El adobo','s1.p':'Cerdo marinado en especias hasta que toma color y sabor.',
+'s2.h':'En láminas finas','s2.p':'La carne se corta en láminas finas, con las orillas doraditas.',
+'s3.h':'En tortilla de maíz','s3.p':'Tortilla de 15 cm, cebolla y cilantro. Y salsa.',
+'pull.c':'Raulito, opinión en Google',
+'order.h':'Pide<br><em>para recoger</em>','order.p':'Elige lo que quieras y el mensaje para Don Luis se escribe solo. Lo mandas por WhatsApp y recoges a la hora que elijas.',
+'t.h':'Tu pedido','t.sub':'para recoger','t.total':'Total','t.when':'Recoger','t.send':'Enviar por WhatsApp','t.alt':'¿Prefieres llamar?',
+'t.empty':'Todavía no has elegido nada. Pulsa + en un plato.','t.pack':'Pack de 3 tacos','t.asap':'Lo antes posible','t.today':'Hoy','t.closed':'Hoy ya está cerrado: pide para mañana',
+'g.tacos':'Tacos','g.tacos.s':'1 ud. 16 zł · cada 3 tacos juntos 42 zł','g.burrito':'Burrito','g.quesa':'Quesadilla','g.drinks':'Para tomar','g.tort':'Tortillas',
+'rev.lbl':'Lo que dicen','rev.p':'Lo escribió Raulito. Gente de México, España, Noruega y Polonia dice lo mismo.','rev.n':'media de <span class="cnt" data-to="563">563</span> opiniones en Google',
+'rev.note':'Opiniones copiadas de Google tal cual, con nombre e inicial. <a href="https://www.google.com/maps/place/Taqueria+Don+Luis/@50.0578167,19.9485864,17z/data=!4m8!3m7!1s0x47165b454e93931f:0x69dda10cf17edd8c!8m2!3d50.0578167!4d19.9485864!9m1!1b1" target="_blank" rel="noopener">Ver todas</a>',
+'rev.region':'Opiniones de Google','rev.tr':'Traducción',
+'visit.h':'Hala Targowa,<br><em>local 14</em>','visit.sun':'Los domingos, día del mercadillo, abrimos ya a las 9:00.',
+'chip.acc':'Entrada accesible en silla de ruedas','chip.glovo':'A domicilio: Glovo',route:'Cómo llegar','route.s':'Ruta',
+'fin.h':'<em>¿Hambre?</em>','f.where':'Dónde','f.when':'Horario','f.hours':'Lun.–sáb. 12:00–19:00<br>Domingo 9:00–17:00',
+'f.demo':'Diseño de muestra preparado por Praxis Webs. Fotos ilustrativas de Unsplash (Fernando Andrade, Francis Ledger, Federico Ramirez, Benjamin Guardia, Kashish Lamba, micheile henderson, Tobias Arweiler). Carta y precios de Glovo; opiniones y horario de Google.',
+'add':'Añadir','add.tortilla':'Añadir tortillas 1 kg','cart':'Pedido',
+open:'Abierto ahora · hasta las {t}',closed:'Cerrado · abrimos {d} a las {t}',today:'hoy',tomorrow:'mañana',todayTag:'hoy',
+days:['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],daysIn:['el domingo','el lunes','el martes','el miércoles','el jueves','el viernes','el sábado'],
+msg:'¡Hola, Don Luis! Quiero pedir para recoger:',msgTot:'Total',msgWhen:'Recojo',title:'Taqueria Don Luis · Tacos al pastor en la Hala Targowa, Cracovia'},
+
+en:{'nav.menu':'Menu','nav.order':'Order','nav.reviews':'Reviews','nav.visit':'Find us',call:'Call',theme:['Switch to light','Switch to dark'],
+'hero.h1':'<span class="ln"><span>Real</span></span><span class="ln"><span>tacos</span></span><span class="ln"><span><em>al pastor</em></span></span>',
+'hero.sub':'A small taquería at Hala Targowa market. Tacos on corn tortillas, burritos and quesadillas. Take away or delivered.',
+'hero.cta':'Order for pickup','hero.glovo':'Delivery on Glovo','hero.rating':'from <span class="cnt" data-to="563">563</span> Google reviews',stamp:'reviews',
+'menu.h':'Three fillings.<br><em>Three ways.</em>','menu.p':'Pick a filling and a format. The + button adds it to your pickup order.',
+'col.0':'pork','col.1n':'Chicken','col.1':'grilled','col.2n':'Veggie','col.2':'vegetables & beans',
+'drinks.h':'Drinks','tort.h':'Tortillas to take home','tort.p':'A kilo of 15 cm corn tortillas. For tacos at home.',
+photo:'Illustrative photo','pastor.h':'What is<br><em>al pastor?</em>','pastor.p':'A Mexican street classic. Three things make it:',
+'s1.h':'The marinade','s1.p':'Pork marinated in spices until it takes on colour and flavour.',
+'s2.h':'Sliced thin','s2.p':'The meat is cut into thin slices with crisp edges.',
+'s3.h':'On a corn tortilla','s3.p':'A 15 cm tortilla, onion and coriander. And salsa.',
+'pull.c':'Raulito, Google review · “I had 6 al pastor tacos, really good”',
+'order.h':'Order<br><em>for pickup</em>','order.p':'Pick what you want and the message to Don Luis writes itself. Send it on WhatsApp and pick up at the time you choose.',
+'t.h':'Your order','t.sub':'for pickup','t.total':'Total','t.when':'Pickup','t.send':'Send on WhatsApp','t.alt':'Rather call?',
+'t.empty':'Nothing picked yet. Tap + next to a dish.','t.pack':'3-taco deal','t.asap':'As soon as possible','t.today':'Today','t.closed':'Closed for today: order for tomorrow',
+'g.tacos':'Tacos','g.tacos.s':'1 for 16 zł · every 3 tacos together 42 zł','g.burrito':'Burrito','g.quesa':'Quesadilla','g.drinks':'Drinks','g.tort':'Tortillas',
+'rev.lbl':'Guest reviews','rev.p':'That was Raulito. Guests from Mexico, Spain, Norway and Poland say the same.','rev.n':'average of <span class="cnt" data-to="563">563</span> Google reviews',
+'rev.note':'Reviews copied from Google word for word, with first name and initial. <a href="https://www.google.com/maps/place/Taqueria+Don+Luis/@50.0578167,19.9485864,17z/data=!4m8!3m7!1s0x47165b454e93931f:0x69dda10cf17edd8c!8m2!3d50.0578167!4d19.9485864!9m1!1b1" target="_blank" rel="noopener">All reviews</a>',
+'rev.region':'Google reviews','rev.tr':'Translation',
+'visit.h':'Hala Targowa,<br><em>unit 14</em>','visit.sun':'On Sundays, flea-market day, we open at 9:00.',
+'chip.acc':'Wheelchair-accessible entrance','chip.glovo':'Delivery: Glovo',route:'Directions','route.s':'Directions',
+'fin.h':'<em>Hungry?</em>','f.where':'Where','f.when':'Hours','f.hours':'Mon–Sat 12:00–19:00<br>Sunday 9:00–17:00',
+'f.demo':'Demo design prepared by Praxis Webs. Illustrative photos from Unsplash (Fernando Andrade, Francis Ledger, Federico Ramirez, Benjamin Guardia, Kashish Lamba, micheile henderson, Tobias Arweiler). Menu and prices from Glovo; reviews and hours from Google.',
+'add':'Add','add.tortilla':'Add tortillas 1 kg','cart':'Order',
+open:'Open now · until {t}',closed:'Closed · opens {d} at {t}',today:'today',tomorrow:'tomorrow',todayTag:'today',
+days:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],daysIn:['on Sunday','on Monday','on Tuesday','on Wednesday','on Thursday','on Friday','on Saturday'],
+msg:'Hi Don Luis! I would like to order for pickup:',msgTot:'Total',msgWhen:'Pickup',title:'Taqueria Don Luis · Tacos al pastor at Hala Targowa, Kraków'}
+};
+
+/* Menu and prices as published on Glovo (to confirm in-store prices with the owner). */
+const COLS=['pastor','pollo','veg'];
+const COLN={pl:['Al pastor','Kurczak','Wege'],es:['Al pastor','Pollo','Vegetariano'],en:['Al pastor','Chicken','Veggie']};
+const FORMS=[
+ {k:'tacos',img:'photo-1660180750968-4fbc84789a96',price:16,
+  sub:{pl:'tortilla kukurydziana<br>1 szt. 16 zł · 3 szt. 42 zł',es:'tortilla de maíz<br>1 ud. 16 zł · 3 uds. 42 zł',en:'corn tortilla<br>1 for 16 zł · 3 for 42 zł'},
+  d:{pl:['Marynowana wieprzowina z przyprawami, cebulą i kolendrą.','Soczysty grillowany kurczak ze świeżymi warzywami.','Grillowane warzywa, fasola i kukurydza.'],
+     es:['Cerdo marinado con especias, cebolla y cilantro.','Pollo jugoso a la plancha con verduras frescas.','Verduras a la plancha, frijoles y elote.'],
+     en:['Spice-marinated pork with onion and coriander.','Juicy grilled chicken with fresh vegetables.','Grilled vegetables, beans and corn.']}},
+ {k:'burrito',img:'photo-1574343635105-4cf2ea136b8b',price:50,
+  sub:{pl:'duża tortilla pszenna',es:'tortilla de trigo grande',en:'large wheat tortilla'},
+  d:{pl:['Wieprzowina al pastor, ryż, fasola i salsa.','Grillowany kurczak, ryż, warzywa i sos.','Warzywa, ryż, czarna fasola i ser.'],
+     es:['Cerdo al pastor, arroz, frijoles y salsa.','Pollo a la plancha, arroz, verduras y salsa.','Verduras, arroz, frijoles negros y queso.'],
+     en:['Al pastor pork, rice, beans and salsa.','Grilled chicken, rice, vegetables and sauce.','Vegetables, rice, black beans and cheese.']}},
+ {k:'quesa',img:'photo-1673990349292-ed2dfa7988c9',price:50,
+  sub:{pl:'grillowana, z roztopionym serem',es:'a la plancha, con queso fundido',en:'grilled, with melted cheese'},
+  d:{pl:['Roztopiony ser i wieprzowina al pastor.','Dużo sera i grillowany kurczak.','Ser, kukurydza, papryka i cebula.'],
+     es:['Queso fundido y cerdo al pastor.','Mucho queso y pollo a la plancha.','Queso, elote, pimiento y cebolla.'],
+     en:['Melted cheese and al pastor pork.','Plenty of cheese and grilled chicken.','Cheese, corn, peppers and onion.']}}
+];
+const DRINKS=[{k:'jarritos',p:18,n:{pl:'Jarritos 370 ml',es:'Jarritos 370 ml',en:'Jarritos 370 ml'},s:{pl:'meksykańska soda, smak niespodzianka',es:'refresco mexicano, sabor sorpresa',en:'Mexican soda, surprise flavour'}},
+ {k:'cola',p:12,n:{pl:'Coca-Cola 330 ml',es:'Coca-Cola 330 ml',en:'Coca-Cola 330 ml'},s:{pl:'',es:'',en:''}},
+ {k:'woda',p:7,n:{pl:'Woda mineralna',es:'Agua mineral',en:'Mineral water'},s:{pl:'',es:'',en:''}}];
+const REVS=[
+ {n:'Raulito',m:{pl:'Local Guide · 4 miesiące temu',es:'Local Guide · hace 4 meses',en:'Local Guide · 4 months ago'},o:'es',
+  t:'Los mejores tacos de la cuidad! 100% sabor mexicano, si quieres algo real de mexico Don Luis es la única opción. Me comí 6 tacos de pastor muy ricos. Un saludo a Don Luis desde San Juan De Los Lagos',
+  tr:{pl:'Najlepsze tacos w mieście! 100% meksykańskiego smaku. Jeśli chcesz czegoś prawdziwie meksykańskiego, Don Luis to jedyna opcja. Zjadłem 6 tacos al pastor, bardzo dobre. Pozdrowienia dla Don Luisa z San Juan de los Lagos.',en:'Best tacos in the city! 100% Mexican flavour. If you want something truly Mexican, Don Luis is the only option. I had 6 al pastor tacos, really good. Greetings to Don Luis from San Juan de los Lagos.'}},
+ {n:'Mathias H.',m:{pl:'Local Guide · 2 tygodnie temu',es:'Local Guide · hace 2 semanas',en:'Local Guide · 2 weeks ago'},o:'en',
+  t:'Fantastic tacos, great prices, cute location. ¡Y ademas, hablan español! ¡Muchas gracias por la comida excepcional!',
+  tr:{pl:'Fantastyczne tacos, dobre ceny, urocze miejsce. I mówią po hiszpańsku! Dziękuję za wyjątkowe jedzenie!',es:'Tacos fantásticos, buenos precios, un sitio bonito. ¡Y además, hablan español! ¡Muchas gracias por la comida excepcional!'}},
+ {n:'Claudia M.',m:{pl:'4 miesiące temu',es:'hace 4 meses',en:'4 months ago'},o:'es',
+  t:'La comida estaba buenísima, y la atención de Luis fue excelente. Sitio súper recomendable!!',
+  tr:{pl:'Jedzenie było przepyszne, a obsługa Luisa świetna. Bardzo polecam!',en:'The food was delicious and Luis looked after us really well. Highly recommended!'}},
+ {n:'Erick R.',m:{pl:'3 tygodnie temu',es:'hace 3 semanas',en:'3 weeks ago'},o:'en',
+  t:'Im Mexican, and love food here restaurant, becasuse the food is real Mexican, very very delicius',
+  tr:{pl:'Jestem Meksykaninem i uwielbiam tu jeść, bo jedzenie jest naprawdę meksykańskie. Bardzo, bardzo pyszne.',es:'Soy mexicano y me encanta comer aquí, porque la comida es mexicana de verdad. Muy, muy rica.'}},
+ {n:'Luis F.',m:{pl:'Local Guide · miesiąc temu',es:'Local Guide · hace un mes',en:'Local Guide · a month ago'},o:'es',
+  t:'Comimos el pack de 3 tacos 1 de cada sabor, quesadilla y burrito y estába todo muy bueno',
+  tr:{pl:'Wzięliśmy zestaw 3 tacos, każde w innym smaku, quesadillę i burrito. Wszystko było bardzo dobre.',en:'We had the 3-taco pack, one of each flavour, a quesadilla and a burrito. Everything was very good.'}}
+];
+/* opening hours, Europe/Warsaw: 0=Sunday */
+const HOURS={0:[9,17],1:[12,19],2:[12,19],3:[12,19],4:[12,19],5:[12,19],6:[12,19]};
+
+/* ---------- order state ---------- */
+const ITEMS={};
+FORMS.forEach(f=>COLS.forEach((c,i)=>ITEMS[f.k+'-'+c]={price:f.price,form:f.k,col:i}));
+DRINKS.forEach(d=>ITEMS[d.k]={price:d.p,drink:d});
+ITEMS.tortilla={price:28};
+const Q={};Object.keys(ITEMS).forEach(k=>Q[k]=0);
+const NAMES={
+ pl:{tacos:['Tacos al pastor','Tacos z kurczakiem','Tacos wege'],burrito:['Burrito al pastor','Burrito z kurczakiem','Burrito wege'],quesa:['Quesadilla al pastor','Quesadilla z kurczakiem','Quesadilla wege']},
+ es:{tacos:['Tacos al pastor','Tacos de pollo','Tacos vegetarianos'],burrito:['Burrito al pastor','Burrito de pollo','Burrito vegetariano'],quesa:['Quesadilla al pastor','Quesadilla de pollo','Quesadilla vegetariana']},
+ en:{tacos:['Tacos al pastor','Chicken tacos','Veggie tacos'],burrito:['Al pastor burrito','Chicken burrito','Veggie burrito'],quesa:['Al pastor quesadilla','Chicken quesadilla','Veggie quesadilla']}};
+function itemName(k,l){const it=ITEMS[k];
+  if(it.form)return NAMES[l][it.form][it.col];
+  if(it.drink)return it.drink.n[l];return {pl:'Tortille kukurydziane 1 kg',es:'Tortillas de maíz 1 kg',en:'Corn tortillas 1 kg'}[l]}
+function calc(){let lines=[],sum=0;const tacos=COLS.reduce((a,c)=>a+Q['tacos-'+c],0);
+  Object.keys(Q).forEach(k=>{if(Q[k]>0){const v=Q[k]*ITEMS[k].price;sum+=v;lines.push([k,Q[k],v])}});
+  const packs=Math.floor(tacos/3),save=packs*(3*16-42);return {lines,sum:sum-save,save,packs,count:Object.values(Q).reduce((a,b)=>a+b,0)}}
+const zl=n=>n.toLocaleString(L==='en'?'en-GB':L)+' zł';
+
+/* ---------- build the menu matrix, drinks and order lists ---------- */
+function buildMenu(){
+  const m=$('#matrix');m.querySelectorAll('.mx-row').forEach(e=>e.remove());
+  FORMS.forEach(f=>{const r=document.createElement('div');r.className='mx-row';
+    r.innerHTML=`<div class="mx-f"><div class="ph"><img src="https://images.unsplash.com/${f.img}?auto=format&fit=crop&w=220&h=220&q=70" alt="" loading="lazy" width="96" height="96"></div><div><b>${{tacos:'Tacos',burrito:'Burrito',quesa:'Quesadilla'}[f.k]}</b><span>${f.sub[L]}</span></div></div>`+
+    COLS.map((c,i)=>{const k=f.k+'-'+c,nm=itemName(k,L);return `<div class="cell" data-c="${i}" data-col="${COLN[L][i]}"><p>${f.d[L][i]}</p><div class="pr"><strong>${f.price} zł${f.k==='tacos'?'<small>/ 1</small>':''}</strong><button class="add" type="button" data-add="${k}" aria-label="${T[L].add}: ${nm}"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div></div>`}).join('');
+    m.appendChild(r)});
+  $('#drinks').innerHTML=DRINKS.map(d=>`<li><span class="n">${d.n[L]}${d.s[L]?`<small>${d.s[L]}</small>`:''}</span><strong>${d.p} zł</strong><button class="add" type="button" data-add="${d.k}" aria-label="${T[L].add}: ${d.n[L]}"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></li>`).join('');
+  const grp=(h,s,keys)=>`<div class="og reveal in"><h3>${h}${s?`<small>${s}</small>`:''}</h3>`+keys.map(k=>`<div class="it${Q[k]?' has':''}" data-k="${k}"><span class="n"><b>${itemName(k,L)}</b>${ITEMS[k].form&&ITEMS[k].form!=='tacos'?`<small>${FORMS.find(f=>f.k===ITEMS[k].form).d[L][ITEMS[k].col]}</small>`:''}</span><span class="p">${ITEMS[k].price} zł</span><span class="step"><button type="button" data-dec="${k}" aria-label="−1 ${itemName(k,L)}" ${Q[k]?'':'disabled'}>−</button><output aria-live="polite">${Q[k]}</output><button type="button" data-inc="${k}" aria-label="+1 ${itemName(k,L)}">+</button></span></div>`).join('')+'</div>';
+  $('#olist').innerHTML=grp(T[L]['g.tacos'],T[L]['g.tacos.s'],COLS.map(c=>'tacos-'+c))+grp(T[L]['g.burrito'],'',COLS.map(c=>'burrito-'+c))+grp(T[L]['g.quesa'],'',COLS.map(c=>'quesa-'+c))+grp(T[L]['g.drinks'],'',DRINKS.map(d=>d.k))+grp(T[L]['g.tort'],'',['tortilla']);
+}
+function buildReviews(){
+  $('#revs').innerHTML=REVS.map(r=>`<article class="rev"><div class="top"><span class="av" aria-hidden="true">${r.n[0]}</span><div><b>${r.n}</b><small><span class="stars" aria-label="5/5">★★★★★</span> ${r.m[L]}</small></div></div><blockquote lang="${r.o}">${r.t}</blockquote>${r.o!==L&&r.tr[L]?`<p class="tr"><i>${T[L]['rev.tr']}</i>${r.tr[L]}</p>`:''}</article>`).join('');
+}
+function buildHours(){
+  const now=warsaw(),order=[1,2,3,4,5,6,0];
+  $('#hours').innerHTML=order.map(d=>`<li class="${d===now.d?'today':''}"><span data-today="${T[L].todayTag}">${cap(T[L].days[d])}</span><span>${HOURS[d][0]}:00–${HOURS[d][1]}:00</span></li>`).join('');
+}
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+
+/* ---------- time in Kraków ---------- */
+function warsaw(){const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Warsaw',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+  const g=t=>p.find(x=>x.type===t).value;return {d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),h:+g('hour'),m:+g('minute')}}
+function status(){const n=warsaw(),t=n.h+n.m/60,[o,c]=HOURS[n.d];
+  if(t>=o&&t<c)return {open:true,txt:T[L].open.replace('{t}',c+':00')};
+  let d=n.d,label;if(t<o){label=T[L].today}else{d=(n.d+1)%7;label=T[L].tomorrow}
+  return {open:false,txt:T[L].closed.replace('{d}',label).replace('{t}',HOURS[d][0]+':00'),next:d}}
+function paintStatus(){const s=status();['#st1','#st2','#st3'].forEach(id=>{const e=$(id);e.classList.toggle('open',s.open);e.querySelector('span').textContent=s.txt})}
+function buildWhen(){const sel=$('#when'),n=warsaw(),[o,c]=HOURS[n.d],t=n.h+n.m/60,opts=[];
+  if(t<c){opts.push([T[L]['t.asap'],T[L]['t.asap']]);let start=Math.max(o,Math.ceil((t+0.5)*2)/2);for(let x=start;x<=c-0.5;x+=0.5){const hh=Math.floor(x)+':'+(x%1?'30':'00');opts.push([T[L]['t.today']+' '+hh,T[L]['t.today']+' '+hh])}}
+  else{const d=(n.d+1)%7,[o2,c2]=HOURS[d];opts.push(['',T[L]['t.closed'],true]);for(let x=o2;x<=c2-0.5;x+=0.5){const hh=Math.floor(x)+':'+(x%1?'30':'00'),lab=cap(T[L].tomorrow)+' '+hh;opts.push([lab,lab])}}
+  const prev=sel.selectedIndex;sel.innerHTML=opts.map(([v,l,dis])=>`<option value="${v}"${dis?' disabled':''}>${l}</option>`).join('');
+  sel.selectedIndex=opts[0][2]?1:Math.min(Math.max(prev,0),opts.length-1)}
+
+/* ---------- render order ---------- */
+function renderOrder(bump){const c=calc(),ul=$('#tlist');
+  ul.innerHTML=c.lines.length?c.lines.map(([k,q,v])=>`<li><span>${q}× ${itemName(k,L)}</span><span>${zl(v)}</span></li>`).join('')+(c.save?`<li class="save"><span>${T[L]['t.pack']} ×${c.packs}</span><span>−${zl(c.save)}</span></li>`:''):`<li class="tempty" style="border:0">${T[L]['t.empty']}</li>`;
+  $('#ttot').textContent=c.sum.toLocaleString(L==='en'?'en-GB':L);
+  $$('#olist .it').forEach(r=>{const k=r.dataset.k;r.classList.toggle('has',Q[k]>0);r.querySelector('output').textContent=Q[k];r.querySelector('[data-dec]').disabled=!Q[k]});
+  const send=$('#send');send.setAttribute('aria-disabled',c.count?'false':'true');
+  const msg=[T[L].msg,...c.lines.map(([k,q])=>`• ${q}× ${itemName(k,L)}`),...(c.save?[`(${T[L]['t.pack']} ×${c.packs}: −${c.save} zł)`]:[]),'',`${T[L].msgTot}: ${c.sum} zł`,`${T[L].msgWhen}: ${$('#when').value||''}`].join('\n');
+  send.href='https://wa.me/48575236241?text='+encodeURIComponent(msg);
+  const cart=$('#cart');cart.classList.toggle('on',c.count>0&&!inOrderView);$('#cartn').textContent=c.count;$('#cartt').textContent=zl(c.sum);cart.setAttribute('aria-label',T[L].cart+': '+c.count+', '+zl(c.sum));
+  if(bump){cart.classList.remove('bump');void cart.offsetWidth;cart.classList.add('bump')}
+}
+let inOrderView=false;
+new IntersectionObserver(es=>es.forEach(e=>{inOrderView=e.isIntersecting;renderOrder()}),{threshold:.15}).observe($('#zamow'));
+
+function fly(from){if(reduce)return;const a=from.getBoundingClientRect(),cart=$('#cart');const b=cart.classList.contains('on')?cart.getBoundingClientRect():{left:innerWidth-60,top:innerHeight-60,width:40,height:40};
+  const d=document.createElement('i');d.className='fly';d.style.left=a.left+a.width/2-8+'px';d.style.top=a.top+a.height/2-8+'px';document.body.appendChild(d);
+  const dx=b.left+b.width-40-(a.left+a.width/2),dy=b.top+b.height/2-(a.top+a.height/2);
+  d.animate([{transform:'translate(0,0) scale(1)'},{transform:`translate(${dx*.5}px,${dy*.5-120}px) scale(1.3)`,offset:.45},{transform:`translate(${dx}px,${dy}px) scale(.5)`,opacity:.6}],{duration:700,easing:'cubic-bezier(.5,0,.3,1)'}).onfinish=()=>d.remove()}
+
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-add]');if(a){Q[a.dataset.add]++;a.classList.remove('pop');void a.offsetWidth;a.classList.add('pop');fly(a);setTimeout(()=>renderOrder(true),reduce?0:620);return}
+  const i=e.target.closest('[data-inc]');if(i){Q[i.dataset.inc]++;renderOrder();return}
+  const d=e.target.closest('[data-dec]');if(d){Q[d.dataset.dec]=Math.max(0,Q[d.dataset.dec]-1);renderOrder();return}
+  const lb=e.target.closest('[data-lang]');if(lb){setLang(lb.dataset.lang,true)}
+});
+$('#when').addEventListener('change',()=>renderOrder());
+$('#send').addEventListener('click',e=>{if($('#send').getAttribute('aria-disabled')==='true')e.preventDefault()});
+
+/* matrix column highlight on hover */
+$('#matrix').addEventListener('pointerover',e=>{const c=e.target.closest('.cell');$$('#matrix .hl').forEach(x=>x.classList.remove('hl'));if(c)$$(`#matrix [data-c="${c.dataset.c}"]`).forEach(x=>x.classList.add('hl'))});
+$('#matrix').addEventListener('pointerleave',()=>$$('#matrix .hl').forEach(x=>x.classList.remove('hl')));
+
+/* ---------- language ---------- */
+function setLang(l,user){L=l;root.lang=l;document.title=T[l].title;
+  $$('[data-t]').forEach(e=>{const v=T[l][e.dataset.t];if(v!=null)e.innerHTML=v});
+  $$('[data-ta]').forEach(e=>{const k=e.dataset.ta;if(k==='theme')return;const v=T[l][k];if(v)e.setAttribute('aria-label',v)});
+  $$('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  themeLabel();buildMenu();buildReviews();buildHours();buildWhen();paintStatus();renderOrder();
+  if(user){try{localStorage.setItem('dl-lang',l)}catch(e){}const u=new URL(location.href);u.searchParams.set('lang',l);history.replaceState(null,'',u)}
+  if(document.body.classList.contains('go'))$$('.cnt').forEach(c=>c.textContent=c.dataset.to);
+}
+
+/* ---------- theme ---------- */
+function themeLabel(){$('#tog').setAttribute('aria-label',T[L].theme[root.dataset.theme==='light'?1:0])}
+function setTheme(light){root.dataset.theme=light?'light':'dark';$('#tc').content=light?'#f3e8d5':'#16110d';themeLabel();
+  try{localStorage.setItem('dl-tema',light?'claro':'oscuro')}catch(e){}const u=new URL(location.href);u.searchParams.set('tema',light?'claro':'oscuro');history.replaceState(null,'',u)}
+$('#tog').addEventListener('click',()=>{const l=root.dataset.theme!=='light';if(document.startViewTransition&&!reduce)document.startViewTransition(()=>setTheme(l));else setTheme(l)});
+
+/* ---------- motion ---------- */
+function countUp(){$$('.cnt').forEach(c=>{if(reduce){c.textContent=c.dataset.to;return}const to=+c.dataset.to,t0=performance.now(),dur=1600;
+  (function f(t){const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);c.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(f)})(t0)})}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+$$('.reveal,.steps li').forEach(el=>io.observe(el));
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('lit');o.disconnect()}}),{threshold:.35}).observe($('#fin'));
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.cnt').forEach(c=>{const to=+c.dataset.to,t0=performance.now();if(reduce){c.textContent=to;return}(function f(t){const p=Math.min(1,(t-t0)/1400);c.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)});o.unobserve(e.target)}}),{threshold:.5}).observe($('#opinie .score'));
+
+const hdr=$('#hdr'),bands=$$('.band p'),pimg=$('#pimg');let ticking=false;
+function onScroll(){const y=scrollY;hdr.classList.toggle('solid',y>30);
+  if(!reduce){const band=$('.band').getBoundingClientRect();const k=(innerHeight-band.top)*.35;bands.forEach(p=>p.style.transform=`translateX(${p.dataset.dir*k - (p.dataset.dir>0?600:0)}px)`);
+    const r=pimg.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){pimg.style.transform=`translateY(${-(r.top/innerHeight)*8-8}%)`}}
+  ticking=false}
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+
+/* drag to scroll the reviews on desktop */
+const rs=$('#revs');let dx=null,sl=0;
+rs.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dx=e.clientX;sl=rs.scrollLeft;rs.classList.add('drag')});
+addEventListener('pointermove',e=>{if(dx!==null)rs.scrollLeft=sl-(e.clientX-dx)});
+addEventListener('pointerup',()=>{dx=null;rs.classList.remove('drag')});
+
+/* ---------- start ---------- */
+setLang(L,false);onScroll();
+setInterval(()=>{paintStatus();buildHours()},60000);
+requestAnimationFrame(()=>requestAnimationFrame(()=>{document.body.classList.add('go');countUp()}));
+})();
+</script>
+</body>
+</html>
